@@ -30,9 +30,9 @@ fi
 time=$(date +'%Y-%m-%d-%H-%M')
 textname="$time_massdns"
 
-if [[ $type == "S"]]; then
+if [[ $type = "S"]]; then
     textname="$textname_simple.txt"
-elif [[ $type == "F"  ]]; then
+elif [[ $type = "F"  ]]; then
     textname="$textname_full.txt"
 else
     textname="$textname_json.txt"
