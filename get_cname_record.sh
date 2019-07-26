@@ -7,7 +7,8 @@ usage(){
     -w specify list of domain to grep  '
 }
 
-while getopts "wd:" o; do
+while getopts "wd:" o;
+do
     case "${o}" in
         w)
             domainlist=${OPTARG}
@@ -23,7 +24,7 @@ done
 shift $((OPTIND-1))
 
 
-if [ $default -eq 1 ];
+if [[ $default == 1 ]];
 then
      for dir in  "$basepath/massdns/*" ; do
          if [-d "$dir"];then

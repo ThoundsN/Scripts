@@ -7,7 +7,7 @@ usage(){
 
 type=S
 
-while getopts  "w:m:d:" option
+while getopts  "w:m:d:" option ;
 do
     case $option in
         w)  wordlist=$OPTARG
