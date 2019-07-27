@@ -27,7 +27,7 @@ shift $((OPTIND-1))
 
 if [[ $default == 1 ]];
 then
-     for dir in  "$basepath/massdns/*" ; do
+     for dir in  $basepath/massdns/* ; do
          if [ -d "$dir" ];then
             echo "debug: $dir"
              grepcname "$dir"
