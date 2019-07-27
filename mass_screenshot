@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rootpath="~/OneDrive/output"
+rootpath="/root/OneDrive/output"
 
 usage(){
     echo " usage: -d    path of domainlist
