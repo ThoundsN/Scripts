@@ -1,5 +1,5 @@
 #!/bin/bash
-basepath="~/OneDrive/output"
+basepath="/root/OneDrive/output"
 
 
 usage(){
@@ -18,6 +18,7 @@ do
             ;;
         *)
             usage
+            exit 1
             ;;
     esac
 done
