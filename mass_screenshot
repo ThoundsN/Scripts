@@ -28,7 +28,7 @@ screenshot(){
   jpgfile=$2
   echo "debug:   domain_name    $domainname"
   echo "debug: jpg_file   $jpgfile"
-  curl $(screenshotcloud "url=$domainname&bro wser=fatest&format=jpg") > $jpgfile
+  curl $(screenshotcloud "url=$domainname&browser=fatest&format=jpg") > $jpgfile
 
 }
 
@@ -40,9 +40,13 @@ screenshotdir(){
    mkdir -p "$rootpath/screenshot/$(basename $dir)"
    parsedfile=$(ls -t $1/parsed* | head -1 )
    echo "debug:  parsed_file    $parsedfile"
-   while read p ; do
-       screenshot   $p  "$rootpath/screenshot/$(basename $dir)/$p.jpg"
-   done < "$parsedfile"
+   $linecount=&(wc -l $parsedfile)
+   if [[ $linecount <= 500 ]]; then
+     while read p ; do
+         screenshot   $p  "$rootpath/screenshot/$(basename $dir)/$p.jpg"
+     done < "$parsedfile"
+   fi
+
     echo
 }
 
