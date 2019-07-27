@@ -47,7 +47,7 @@ screenshotdir(){
 
 default(){
   for dir in $rootpath/cname/* ; do
-  if [ -d "$dir" ];then
+  if [[ -d "$dir" && !$dir =~ ^algolia  ]];then
      echo "debug: dir  $dir"
      screenshotdir $dir
   fi
