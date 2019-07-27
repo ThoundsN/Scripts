@@ -1,6 +1,9 @@
 #!/bin/bash
 
 rootpath="/root/OneDrive/output"
+query="&format=jpg&timeout=10000"
+
+
 
 usage(){
     echo " usage: -d    path of domainlist
@@ -21,6 +24,7 @@ do
 done
 shift $((OPTIND-1))
 
+
 screenshot(){
   echo
 
@@ -28,7 +32,10 @@ screenshot(){
   jpgfile=$2
   echo "debug:   domain_name    $domainname"
   echo "debug: jpg_file   $jpgfile"
-  curl $(screenshotcloud "url=$domainname&browser=fatest&format=jpg") > $jpgfile
+
+  requestedurl=$(screenshotcloud "url=$domainname$query")
+  echo "debug:  Requested url   $requestedurl"
+  curl $requestedurl > $jpgfile
 
 }
 

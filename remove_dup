@@ -1,0 +1,5 @@
+#!/bin/bash
+
+remove_dup(){
+  awk '!seen[$0]++' $1
+}
