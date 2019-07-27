@@ -40,7 +40,7 @@ screenshotdir(){
    mkdir -p "$rootpath/screenshot/$(basename $dir)"
    parsedfile=$(ls -t $1/parsed* | head -1 )
    echo "debug:  parsed_file    $parsedfile"
-   $linecount=&(wc -l $parsedfile)
+   linecount=&(wc -l $parsedfile)
    if [[ $linecount < 500 ]]; then
      while read p ; do
          screenshot   $p  "$rootpath/screenshot/$(basename $dir)/$p.jpg"
