@@ -1,6 +1,23 @@
 #!/bin/bash
 basepath="/root/OneDrive/output"
 
+grepcname(){
+      dir=$1
+      echo "debug: dir      $1"
+      mkdir -p "$basepath/cname/$(basename $dir)"
+      latestname=$(ls -t $1/*simple* | head -1 )
+      latestfile="$1/$latestname"
+      echo "debug:   $latestname "
+      echo "debug:    $latestfile"
+      newfile="$basepath/cname/cname_$(basename $dir)/"
+      newfileparsed="""$basepath/cname/parsed_cname_$(basename $dir)/"
+      echo "debug: $newfile"
+      echo "debug: $newfileparsed"
+      touch "$newfile"
+      touch "$newfileparsed"
+      grep -i cname $latestfile > $newfile
+      awk 'BEGIN {OFS='\n'} {print $1,$3}' $newfile  > $newfileparsed
+}
 
 usage(){
     echo 'usage: -d default mode - grep all cname records in the latest simple text file of all subdirecotrys in output,
@@ -39,24 +56,3 @@ then
         grepcname "$basepath/massdns/$p"
     done < "$domainlist"
 fi
-
-
-
-gerpcname(){
-      dir=$1
-      originalfilepath="$basepath/massdns/$dir"
-      echo "debug:  $originalfilepath"
-      mkdir -p "$basepath/cname/$dir"
-      latestname=$(ls -t $originalfilepath/*simple* | head -1 )
-      latestfile="$originalfilepath/$latestname"
-      echo "debug: $latestname "
-      echo "debug:  $latestfile"
-      newfile="$bashpath/cname/$dir/cname_$latestname"
-      newfileparsed="$bashpath/cname/$dir/parsed_cname_$latestname"
-      echo "debug: $newfile"
-      echo "debug: $newfileparsed"
-      touch "$newfile"
-      touch "$newfileparsed"
-      grep -i cname $latestfile > $newfile
-      awk 'BEGIN {OFS='\n'} {print $1,$3}' $newfile  > $newfileparsed
-}
