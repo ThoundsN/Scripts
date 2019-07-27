@@ -44,10 +44,12 @@ fi
 gerpcname(){
       dir=$1
       originalfilepath="$basepath/massdns/$dir"
-      echo "$originalfilepath"
+      echo "debug:  $originalfilepath"
       mkdir -p "$basepath/cname/$dir"
       latestname=$(ls -t $originalfilepath/*simple* | head -1 )
       latestfile="$originalfilepath/$latestname"
+      echo "debug: $latestname "
+      echo "debug:  $latestfile"
       newfile="$bashpath/cname/$dir/cname_$latestname"
       newfileparsed="$bashpath/cname/$dir/parsed_cname_$latestname"
       echo "debug: $newfile"
