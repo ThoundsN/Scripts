@@ -27,8 +27,8 @@ screenshot(){
   domainname=$1
   jpgfile=$2
   echo "debug:   domain_name    $domainname"
-  ehco "debug: jpg_file   $jpgfile"
-  curl $(screenshotscloud "url=$domainname&bro wser=fatest&format=jpg") > $jpgfile
+  echo "debug: jpg_file   $jpgfile"
+  curl $(screenshotcloud "url=$domainname&bro wser=fatest&format=jpg") > $jpgfile
 
 }
 
@@ -48,7 +48,7 @@ screenshotdir(){
 
 default(){
   for dir in $rootpath/cname/* ; do
-  if [[ ! $dir =~ ^algolia  ]];then
+  if [[ ! $dir =~ ^algolia*  ]];then
      echo "debug: dir  $dir"
      screenshotdir $dir
   fi
