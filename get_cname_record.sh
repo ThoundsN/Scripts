@@ -5,12 +5,10 @@ grepcname(){
       dir=$1
       echo "debug: dir      $1"
       mkdir -p "$basepath/cname/$(basename $dir)"
-      latestname=$(ls -t $1/*simple* | head -1 )
-      latestfile="$1/$latestname"
-      echo "debug:   $latestname "
-      echo "debug:    $latestfile"
-      newfile="$basepath/cname/cname_$(basename $dir)/"
-      newfileparsed="""$basepath/cname/parsed_cname_$(basename $dir)/"
+      latestfile=$(ls -t $1/*simple* | head -1 )
+      echo "debug:  latestfile    $latestfile"
+      newfile="$basepath/cname/cname_$(basename $latestfile)/"
+      newfileparsed="""$basepath/cname/parsed_cname_$(basename $latestfile)/"
       echo "debug: $newfile"
       echo "debug: $newfileparsed"
       touch "$newfile"
