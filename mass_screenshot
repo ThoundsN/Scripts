@@ -1,0 +1,71 @@
+#!/bin/bash
+rootpath="~/OneDrive/output"
+
+usage(){
+    echo " usage: -d    path of domainlist
+      run default mode with no PARAMETERS
+      " 1>&2;
+    exit 1
+}
+
+while getopts  ":d:" option ;
+do
+    case $option in
+        d) domainlist=$OPTARG
+            ;;
+        *) usage
+          exit 1
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+screenshot(){
+  echo
+
+  domainname=$1
+  jpgfile=$2
+  echo "debug:   domain_name    $domainname"
+  ehco "debug: jpg_file   $jpgfile"
+  curl $(screenshotscloud "url=$domainname&width=800") > $jpgfile
+
+}
+
+screenshotdir(){
+   echo
+
+   dir=$1
+   echo "debug: dir      $1"
+   mkdir -p "$rootpath/screenshot/$(basename $dir)"
+   parsedfile=$(ls -t $1/parsed* | head -1 )
+   echo "debug:  parsed_file    $parsedfile"
+   while read p ; do
+       screenshot   $p  "$rootpath/screenshot/$(basename $dir)/$p.jpg"
+   done < "$parsedfile"
+    echo
+}
+
+default(){
+  for dir in $rootpath/cname/* ; do
+  if [ -d "$dir" ];then
+     echo "debug: dir  $dir"
+     screenshotdir $dir
+  fi
+done
+}
+
+screenshot_domainlist(){
+  $domainlist = $1
+  sed 's/[[:blank:]]*$//' $domainlist
+  while read p ; do
+      echo "debug: dir    $basepath/cname/$p"
+      screenshotdir "$basepath/cname/$p"
+  done < "$domainlist"
+}
+
+
+if [[ -z $domainlist ]]; then
+    default
+else
+    screenshot_domainlist $domainlist
+fi

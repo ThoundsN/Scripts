@@ -17,6 +17,7 @@ do
         m) type=$OPTARG
             ;;
         *) usage
+          exit 1 
             ;;
     esac
 done

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+apiKey="48f0d39e-6340-402b-9a8f-af963231f885"
+apiSecret="QnKKmRNgIm5eJpjuqZHzHTKYDqzhjBK5cc06D8op02zemGSZa0"
+queryString="$1"
+token=`printf '%s' "$queryString" | openssl sha1 -hmac "$apiSecret" | sed 's/^.* //'`
+
+echo "https://api.screenshots.cloud/v1/screenshot/$apiKey/$token?$queryString"
