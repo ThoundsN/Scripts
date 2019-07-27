@@ -13,7 +13,7 @@ grepcname(){
       latestfile=$(ls -t $1/*simple* | head -1 )
       echo "debug:  latestfile    $latestfile"
       newfile="$basepath/cname/$(basename $dir)/cname_$(basename $latestfile)"
-      newfileparsed="""$basepath/$(basename $dir)/cname/parsed_cname_$(basename $latestfile)"
+      newfileparsed="""$basepath/cname/$(basename $dir)/parsed_cname_$(basename $latestfile)"
       echo "debug: $newfile"
       echo "debug: $newfileparsed"
       touch "$newfile"
