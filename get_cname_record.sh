@@ -3,11 +3,11 @@ basepath="~/OneDrive/output"
 
 
 usage(){
-    echo 'usage: default mode - grep all cname records in the latest simple text file of all subdirecotrys in output,
+    echo 'usage: -d default mode - grep all cname records in the latest simple text file of all subdirecotrys in output,
     -w specify list of domain to grep  '
 }
 
-while getopts "wd:" o;
+while getopts ":w:d" o;
 do
     case "${o}" in
         w)
