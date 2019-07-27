@@ -1,7 +1,7 @@
 #!/bin/bash
 
 usage(){
-    echo " usage: -w    path of wordlist; -t    type of output : S - simple, F - full, J - json , -d    domainfile" 1>&2;
+    echo " usage: -w    path of wordlist; -t    type of output : S - simple, F - full, J - json , -d    domainlist" 1>&2;
     exit 1
 }
 
@@ -26,6 +26,7 @@ if [[ ! $type =~ ^(S|F|J)$  ]]; then
     usage
 fi
 
+sed 's/[[:blank:]]*$//' $domainlist
 
 
 while read line ;
