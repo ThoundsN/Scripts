@@ -1,4 +1,5 @@
 #!/bin/bash
+
 rootpath="~/OneDrive/output"
 
 usage(){
@@ -47,7 +48,7 @@ screenshotdir(){
 
 default(){
   for dir in $rootpath/cname/* ; do
-  if [[ -d "$dir" && !$dir =~ ^algolia  ]];then
+  if [[ ! $dir =~ ^algolia  ]];then
      echo "debug: dir  $dir"
      screenshotdir $dir
   fi
