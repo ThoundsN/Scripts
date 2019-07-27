@@ -19,6 +19,11 @@ grepcname(){
       touch "$newfileparsed"
       grep -i cname $latestfile > $newfile
       awk 'BEGIN {OFS="\n"} {print $1,$3}' $newfile  | sed 's/.$//' > $newfileparsed
+      remove_duplines $newfileparsed
+}
+
+remove_duplines(){
+  awk '!seen[$0]++' $1
 }
 
 usage(){
