@@ -27,7 +27,7 @@ screenshot(){
   jpgfile=$2
   echo "debug:   domain_name    $domainname"
   ehco "debug: jpg_file   $jpgfile"
-  curl $(screenshotscloud "url=$domainname&width=800") > $jpgfile
+  curl $(screenshotscloud "url=$domainname&bro wser=fatest&format=jpg") > $jpgfile
 
 }
 
