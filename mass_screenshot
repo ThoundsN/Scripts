@@ -1,21 +1,27 @@
 #!/bin/bash
 
 rootpath="/root/OneDrive/output"
+
 query="&format=jpg&timeout=10000"
 
-
-
 usage(){
-    echo " usage: -d    path of domainlist
-      run default mode with no PARAMETERS
-      " 1>&2;
-    exit 1
+  echo " usage:
+   -d  : path of apex directory where all domains live;
+  -w :keyword which name targeted files  contain .
+  ------------------
+  optional argument -l: domain list to search undr apex directory, if null then search all domain
+    " 1>&2;
+  exit 1
 }
 
-while getopts  ":d:" option ;
+while getopts  ":d:w:l:" option ;
 do
     case $option in
-        d) domainlist=$OPTARG
+        d) directory=$OPTARG
+            ;;
+        w) keyword=$OPTARG
+            ;;
+        l) domainlist=$OPTARG
             ;;
         *) usage
           exit 1
@@ -45,7 +51,7 @@ screenshotdir(){
    dir=$1
    echo "debug: dir      $1"
    mkdir -p "$rootpath/screenshot/$(basename $dir)"
-   parsedfile=$(ls -t $1/parsed* | head -1 )
+   parsedfile=$(ls -t $1/*$keyword* | head -1 )
    echo "debug:  parsed_file    $parsedfile"
    linecount=&(wc -l $parsedfile)
    if [[ $linecount < 500 ]]; then
@@ -57,27 +63,18 @@ screenshotdir(){
     echo
 }
 
-default(){
-  for dir in $rootpath/cname/* ; do
+
+if [[ -z $(domainlist+x)  ]]; then
+  for dir in $rootpath/$directory/* ; do
   if [[ ! $dir =~ ^algolia*  ]];then
      echo "debug: dir  $dir"
      screenshotdir $dir
   fi
 done
-}
-
-screenshot_domainlist(){
-  $domainlist = $1
+else
   sed 's/[[:blank:]]*$//' $domainlist
   while read p ; do
-      echo "debug: dir    $basepath/cname/$p"
-      screenshotdir "$basepath/cname/$p"
+      echo "debug: dir    $rootpath/$directory/$p"
+      screenshotdir "$rootpath/$directory/$p"
   done < "$domainlist"
-}
-
-
-if [[ -z $domainlist ]]; then
-    default
-else
-    screenshot_domainlist $domainlist
 fi

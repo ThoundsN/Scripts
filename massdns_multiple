@@ -1,11 +1,11 @@
 #!/bin/bash
 
+rootpath="/root/OneDrive/output"
+
 usage(){
     echo " usage: -w    path of wordlist; -t    type of output : S - simple, F - full, J - json , -d    domainlist" 1>&2;
     exit 1
 }
-
-
 
 while getopts  "w:t:d:" option;
 do
@@ -14,7 +14,7 @@ do
             ;;
         d) domainlist=$OPTARG
             ;;
-        m) type=$OPTARG
+        t) type=$OPTARG
             ;;
         *) usage
           exit 1
@@ -27,11 +27,15 @@ if [[ ! $type =~ ^(S|F|J)$  ]]; then
     usage
 fi
 
-sed 's/[[:blank:]]*$//' $domainlist
 
-
-while read line ;
-do
-   echo  "$line"
-   massdns_one -w $wordlist -t $type -d $line
-done < "$domainlist"
+if [[ -z $(domainlist+x) ]]; then
+  echo  "debug:domain =  $line"
+  massdns_one -w $wordlist -t $type -d $line
+else
+  sed 's/[[:blank:]]*$//' $domainlist
+  while read line ;
+  do
+     echo  "$line"
+     massdns_one -w $wordlist -t $type -d $line
+  done < "$domainlist"
+fi

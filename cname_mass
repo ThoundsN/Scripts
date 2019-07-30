@@ -1,0 +1,67 @@
+#!/bin/bash
+rootpath="/root/OneDrive/output"
+
+grepcname(){
+      echo
+      echo
+      echo
+
+      dir=$1
+      echo "debug: dir      $1"
+      mkdir -p "$rootpath/cname/$(basename $dir)"
+      latestfile=$(ls -t $1/*simple* | head -1 )
+      echo "debug:  latestfile    $latestfile"
+      newfile="$rootpath/cname/$(basename $dir)/cname_$(basename $latestfile)"
+      newfileparsed="$rootpath/cname/$(basename $dir)/parsed_cname_$(basename $latestfile)"
+      echo "debug: $newfile"
+      echo "debug: $newfileparsed"
+      touch "$newfile"
+      touch "$newfileparsed"
+      grep -i cname $latestfile > $newfile
+      awk 'BEGIN {OFS="\n"} {print $3}' $newfile  | remove_duplines | sed 's/.$//' > $newfileparsed
+}
+
+remove_duplines(){
+  awk '!seen[$0]++' $1
+}
+
+usage(){
+    echo " usage:
+     -d  : path of apex directory where all domains live;
+    -w :keyword which name targeted files  contain .
+    ------------------
+    optional argument -l: domain list to search undr apex directory, if null then search all domain
+      " 1>&2;
+    exit 1
+}
+
+while getopts  ":d:w:l:" option ;
+do
+    case $option in
+        d) directory=$OPTARG
+            ;;
+        w) keyword=$OPTARG
+            ;;
+        l) domainlist=$OPTARG
+            ;;
+        *) usage
+          exit 1
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+
+
+if [[ -z $(domainlist+x) ]]; then
+  for dir in $rootpath/$directory/* ; do
+    echo "debug: domain = $dir "
+    grepcname $dir
+  done
+else
+  sed 's/[[:blank:]]*$//' $domainlist
+  while read p ; do
+      echo "debug: $rootpath/$directory/$p"
+      grepcname "$rootpath/$directory/$p"
+  done < "$domainlist"
+fi

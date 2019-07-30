@@ -1,0 +1,64 @@
+#!bin/bash
+
+rootpath="/root/OneDrive/output"
+
+
+usage(){
+    echo " usage:
+     -d  : path of apex directory where all domains live;
+    -w :keyword which name targeted files  contain .
+    ------------------
+    optional argument -l: domain list to search undr apex directory, if null then search all domain
+      " 1>&2;
+    exit 1
+}
+
+remove_duplines(){
+  awk '!seen[$0]++' $1
+}
+
+grep_singledomain_subdomain(){
+  echo
+  echo
+  echo
+
+  dir=$1
+  echo "debug: dir      $1"
+  mkdir -p "$rootpath/subdomain/$(basename $dir)"
+  file=$(ls -t $dir/*$keyword* | head -1 )
+  echo "debug:  file    $file"
+  newfile="$rootpath/subdomain/$(basename $dir)/subdomain_$(basename $file)"
+  echo "debug: newfile $newfile"
+  touch "$newfile"
+  awk 'BEGIN {OFS="\n"} {print $1}' $file  | remove_duplines | sed 's/.$//' > $newfile
+
+}
+
+while getopts  ":d:w:l:" option ;
+do
+    case $option in
+        d) directory=$OPTARG
+            ;;
+        w) keyword=$OPTARG
+            ;;
+        l) domainlist=$OPTARG
+            ;;
+        *) usage
+          exit 1
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+if [[ -z $(domainlist+x) ]]; then
+  for dir in $rootpath/$directory/* ; do
+    echo "debug: domain = $dir "
+    grep_singledomain_subdomain $dir
+  done
+else
+  sed 's/[[:blank:]]*$//' $domainlist
+  while read p ; do
+      echo "debug: $rootpath/$directory/$p"
+      grep_singledomain_subdomain "$rootpath/$directory/$p"
+  done < "$domainlist"
+fi
