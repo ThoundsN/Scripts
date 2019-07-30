@@ -10,7 +10,7 @@ httprobe_dir(){
     echo
     echo
 
-    $dir=$1
+    dir=$1
     echo "debug: dir      $1"
     mkdir -p "$rootpath/httprobe/$(basename $dir)"
     fileinput=$(ls -t $dir/*$keyword* | head -1 )
