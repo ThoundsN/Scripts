@@ -50,7 +50,7 @@ do
 done
 shift $((OPTIND-1))
 
-if [[ -z $(domainlist+x) ]]; then
+if [[ -z ${domainlist+x} ]]; then
   for dir in $rootpath/$directory/* ; do
     echo "debug: domain = $dir "
     grep_singledomain_subdomain $dir
