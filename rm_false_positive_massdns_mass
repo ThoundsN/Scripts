@@ -47,7 +47,6 @@ if [[ -z ${domainlist+x} ]]; then
   for dir in $rootpath/$directory/* ; do
      echo "debug: dir  $dir"
      rm_false_dir $dir
-  fi
 done
 else
   sed 's/[[:blank:]]*$//' $domainlist
