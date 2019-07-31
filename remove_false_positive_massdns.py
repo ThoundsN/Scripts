@@ -32,6 +32,5 @@ with open(filename,encoding='utf-8') as input:
                 dns_dict[resource] = [[domain], recordtype]
 
 for k,list in dns_dict.items():
-    for row in list:
-        for entity in row[0]:
-            print(' '.join(map(str,[entity,row[1],k])))
+    for row in list[0]:
+            print(' '.join(map(str,[row,list[1],k])))
