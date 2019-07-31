@@ -16,9 +16,9 @@ with open(filename,encoding='utf-8') as input:
         print(recordtype)
         print(resource)
         if resource in dns_dict:
-            if len(dns_dict[resource[0]]) > count:
+            if len(dns_dict[resource][0]) > count:
                 continue
-            dns_dict[resource[0]].append(domain)
+            dns_dict[resource][0].append(domain)
         else:
             dns_dict[resource] = [[domain], recordtype]
 
