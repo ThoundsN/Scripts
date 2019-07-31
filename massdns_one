@@ -17,7 +17,7 @@ do
         m) type=$OPTARG
             ;;
         *) usage
-          exit 1 
+          exit 1
             ;;
     esac
 done
@@ -42,4 +42,4 @@ fi
 
 mkdir -p ~/OneDrive/output/massdns/$domain/
 touch  ~/OneDrive/output/massdns/$domain/$textname
-subbrute.py $wordlist $domain |massdns -r ~/recon_tools/massdns/lists/resolvers.txt -t A -o $type --outfile  ~/OneDrive/output/massdns/$domain/$textname
+subbrute.py $wordlist $domain |massdns -r ~/Wordlist/resolver.txt -t A -o $type --outfile  ~/OneDrive/output/massdns/$domain/$textname
