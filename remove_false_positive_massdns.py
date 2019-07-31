@@ -15,15 +15,15 @@ with open(filename,encoding='utf-8') as input:
     while True:
         lines = input.readlines(bufsize)
         index += bufsize
-        print(index)
+        # print(index)
         if not lines:
             break
         for row in input:
-            print(dns_dict)
+            # print(dns_dict)
             domain, recordtype, resource = row.split()
-            print(domain)
-            print(recordtype)
-            print(resource)
+            # print(domain)
+            # print(recordtype)
+            # print(resource)
             if resource in dns_dict:
                 if len(dns_dict[resource][0]) > count:
                     continue
