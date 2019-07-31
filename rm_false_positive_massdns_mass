@@ -2,8 +2,6 @@
 
 rootpath="/root/OneDrive/output"
 
-query="&format=jpg&timeout=10000"
-
 usage(){
   echo " usage:
    -d  : path of apex directory where all domains live;
@@ -13,6 +11,20 @@ usage(){
     " 1>&2;
   exit 1
 }
+
+rm_false_dir(){
+  echo
+
+  dir=$1
+  echo "debug: dir      $1"
+  mkdir -p "$rootpath/rmed_false/$(basename $dir)"
+  file=$(ls -t $1/*$keyword* | head -1 )
+  echo "debug:  file    $file"
+  newfile=$rootpath/rmed_false/$(basename $dir)/rm_$(basename $file)
+  echo "debug:  newfile    $newfile"
+  rm_false_positive_massdns_one $file > $newfile
+}
+
 
 while getopts  ":d:w:l:" option ;
 do
@@ -31,50 +43,16 @@ done
 shift $((OPTIND-1))
 
 
-screenshot(){
-  echo
-
-  domainname=$1
-  jpgfile=$2
-  echo "debug:   domain_name    $domainname"
-  echo "debug: jpg_file   $jpgfile"
-
-  requestedurl=$(screenshotcloud "url=$domainname$query")
-  echo "debug:  Requested url   $requestedurl"
-  curl $requestedurl > $jpgfile
-
-}
-
-screenshotdir(){
-   echo
-
-   dir=$1
-   echo "debug: dir      $1"
-   mkdir -p "$rootpath/screenshot/$(basename $dir)"
-   file=$(ls -t $1/*$keyword* | head -1 )
-   echo "debug:  file    $file"
-   linecount=&(wc -l $file)
-   if [[ $linecount < 500 ]]; then
-     while read p ; do
-         screenshot   $p  "$rootpath/screenshot/$(basename $dir)/$p.jpg"
-     done < "$file"
-   fi
-
-    echo
-}
-
-
 if [[ -z ${domainlist+x} ]]; then
   for dir in $rootpath/$directory/* ; do
-  if [[ ! $dir =~ ^algolia*  ]];then
      echo "debug: dir  $dir"
-     screenshotdir $dir
+     rm_false_dir $dir
   fi
 done
 else
   sed 's/[[:blank:]]*$//' $domainlist
   while read p ; do
       echo "debug: dir    $rootpath/$directory/$p"
-      screenshotdir "$rootpath/$directory/$p"
+      rm_false_dir "$rootpath/$directory/$p"
   done < "$domainlist"
 fi
