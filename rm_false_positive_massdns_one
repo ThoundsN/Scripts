@@ -7,7 +7,7 @@ filename = sys.argv[1]
 dns_dict = dict()
 
 count = 12
-bufsize = 100000
+bufsize = 10000
 index=0
 
 
