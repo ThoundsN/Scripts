@@ -1,6 +1,10 @@
 #!/bin/bash
 rootpath="/root/OneDrive/output"
 
+remove_duplines(){
+  awk '!seen[$0]++' $1
+}
+
 grepcname(){
       echo
       echo
@@ -17,13 +21,11 @@ grepcname(){
       echo "debug: $newfileparsed"
       touch "$newfile"
       touch "$newfileparsed"
-      grep -i cname $latestfile > $newfile
+      grep  CNAME $latestfile > $newfile
       awk 'BEGIN {OFS="\n"} {print $3}' $newfile  | remove_duplines | sed 's/.$//' > $newfileparsed
 }
 
-remove_duplines(){
-  awk '!seen[$0]++' $1
-}
+
 
 usage(){
     echo " usage:
