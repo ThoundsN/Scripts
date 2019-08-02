@@ -35,7 +35,7 @@ screenshot(){
   echo
 
   domainname=$1
-  jpgfile=$(echo $2| sed -e "s/'/'\\\\''/g; 1s/^/'/; \$s/\$/'/")
+  jpgfile=$2
 
   echo "debug:   domain_name    $domainname"
   echo "debug: jpg_file   $jpgfile"
@@ -44,6 +44,10 @@ screenshot(){
   echo "debug:  Requested url   $requestedurl"
   curl $requestedurl > $jpgfile
 
+}
+
+escape(){
+   echo $1 | sed -e "s/'/'\\\\''/g; 1s/^/'/; \$s/\$/'/"
 }
 
 screenshotdir(){
@@ -57,7 +61,7 @@ screenshotdir(){
    linecount=&(wc -l $file)
    if [[ $linecount < 500 ]]; then
      while read p ; do
-         screenshot   $p  "$rootpath/screenshot/$(basename $dir)/$p.jpg"
+         screenshot   $p  "$rootpath/screenshot/$(basename $dir)/$(escape $p).jpg"
      done < "$file"
    fi
 
