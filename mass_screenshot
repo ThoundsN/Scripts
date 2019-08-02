@@ -39,8 +39,9 @@ screenshot(){
   echo "debug:   domain_name    $domainname"
   echo "debug: jpg_file   $jpgfile"
 
-  requestedurl=$(screenshotcloud "url=$domainname$query")
+  requestedurl=$(screenshotcloud  "url=$domainname$query")
   echo "debug:  Requested url   $requestedurl"
+  touch $jpgfile
   curl $requestedurl > $jpgfile
 
 }
