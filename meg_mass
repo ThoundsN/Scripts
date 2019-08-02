@@ -49,7 +49,7 @@ append(){
 }
 
 run_meg(){
-  meg -c 80 $file_mixed_path $wordlist $output_path
+  meg -c 80 $wordlist $file_mixed_path $output_path
 }
 
 if [[ -z ${domainlist+x} ]]; then

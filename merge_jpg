@@ -28,15 +28,15 @@ do
 done
 shift $((OPTIND-1))
 
-mkdir -p /root/jpg
-jpgpath="/root/jpg/"
+mkdir -p /root/photo_www/jpgs
+photo_path="/root/photo_www/jpgs"
 
-copy_jpg_dir(){
+copy_photo_dir(){
   dir=$1
   last=-1; find $dir -type f -name '*.png' -printf '%f\0' | sort -nz |
     while read -d '' i; do
         s=$(stat -c '%s' "$i");
-        [[ $s = $last ]] || mv "$i" $jpgpath;
+        [[ $s = $last ]] || mv "$i" $photo_path;
     last=$s;
 done
 }
@@ -45,12 +45,12 @@ done
 if [[ -z ${domainlist+x} ]]; then
   for dir in $rootpath/$directory/* ; do
     echo "debug: dir  = $dir "
-    copy_jpg_dir $dir
+    copy_photo_dir $dir
   done
 else
   sed 's/[[:blank:]]*$//' $domainlist
   while read p ; do
       echo "debug:dir  $rootpath/$directory/$p"
-      copy_jpg_dir "$rootpath/$directory/$p"
+      copy_photo_dir "$rootpath/$directory/$p"
   done < "$domainlist"
 fi
