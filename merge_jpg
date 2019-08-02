@@ -28,8 +28,8 @@ do
 done
 shift $((OPTIND-1))
 
-mkdir -p /root/photo_www/jpgs
-photo_path="/root/photo_www/jpgs"
+mkdir -p /root/OneDrive/photo_www/jpgs
+photo_path="/root/OneDrive/photo_www/jpgs"
 
 copy_photo_dir(){
   dir=$1
