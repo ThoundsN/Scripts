@@ -11,21 +11,6 @@ usage(){
   exit 1
 }
 
-httprobe_dir(){
-    echo
-    echo
-
-    dir=$1
-    echo "debug: dir      $1"
-    mkdir -p "$rootpath/httprobe/$(basename $dir)"
-    fileinput=$(ls -t $dir/*$keyword* | head -1 )
-    echo "debug:  fileinput    $fileinput"
-    newfile="$rootpath/httprobe/$(basename $dir)/httprobe_$(basename $fileinput)"
-    echo "debug:  newfile    $newfile"
-    touch $newfile
-    cat $fileinput| httprobe -c 50  >> $newfile
-
-}
 
 while getopts  ":d:w:l:" option ;
 do
@@ -43,16 +28,29 @@ do
 done
 shift $((OPTIND-1))
 
+mkdir -p /root/jpg
+jpgpath="/root/jpg/"
+
+copy_jpg_dir(){
+  dir=$1
+  last=-1; find $dir -type f -name '*.png' -printf '%f\0' | sort -nz |
+    while read -d '' i; do
+        s=$(stat -c '%s' "$i");
+        [[ $s = $last ]] || mv "$i" $jpgpath;
+    last=$s;
+done
+}
+
 
 if [[ -z ${domainlist+x} ]]; then
   for dir in $rootpath/$directory/* ; do
-    echo "debug: domain = $dir "
-    httprobe_dir $dir
+    echo "debug: dir  = $dir "
+    copy_jpg_dir $dir
   done
 else
   sed 's/[[:blank:]]*$//' $domainlist
   while read p ; do
-      echo "debug: $rootpath/$directory/$p"
-      httprobe_dir "$rootpath/$directory/$p"
+      echo "debug:dir  $rootpath/$directory/$p"
+      copy_jpg_dir "$rootpath/$directory/$p"
   done < "$domainlist"
 fi

@@ -71,10 +71,8 @@ screenshotdir(){
 
 if [[ -z ${domainlist+x} ]]; then
   for dir in $rootpath/$directory/* ; do
-  if [[ ! $dir =~ ^algolia*  ]];then
      echo "debug: dir  $dir"
      screenshotdir $dir
-  fi
 done
 else
   sed 's/[[:blank:]]*$//' $domainlist

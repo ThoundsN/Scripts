@@ -1,3 +1,68 @@
 #!/bin/bash
 
 rootpath="/root/OneDrive/output"
+time=$(date +'%Y-%m-%d-%H-%M')
+textname="$time_meg_mixed_input.txt"
+wordlist="/root/Wordlist/endpoint/10w_common.txt"
+
+mkdir -p $rootpath/meg/input
+mkdir -p $rootpath/meg/output
+touch "$rootpath/meg/input/$textname"
+file_mixed_path="$rootpath/meg/input/$textname"
+output_path="$rootpath/meg/output/output_$textname"
+
+usage(){
+  echo " usage:
+   -d  : path of apex directory where all domains live;
+  -w :keyword which name targeted files  contain .
+  ------------------
+  optional argument -l: domain list to search undr apex directory, if null then search all domain
+    " 1>&2;
+  exit 1
+}
+
+while getopts  ":d:w:l:" option ;
+do
+    case $option in
+        d) directory=$OPTARG
+            ;;
+        w) keyword=$OPTARG
+            ;;
+        l) domainlist=$OPTARG
+            ;;
+        *) usage
+          exit 1
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+
+append(){
+    dir=$1
+    echo "debug: dir      $1"
+    file_to_append=$(ls -t $dir/*$keyword* | head -1 )
+    echo "debug:  file_to_append    $file_to_append"
+
+    cat $file_to_append >> $file_mixed_path
+
+}
+
+run_meg(){
+  meg -c 80 $file_mixed_path $wordlist $output_path
+}
+
+if [[ -z ${domainlist+x} ]]; then
+for dir in $rootpath/$directory/* ; do
+      echo "debug: dir  $dir"
+      append $dir
+done
+run_meg
+else
+  sed 's/[[:blank:]]*$//' $domainlist
+  while read p ; do
+      echo "debug: dir    $rootpath/$directory/$p"
+      append $rootpath/$directory/$p
+  done < "$domainlist"
+  run_meg
+fi
