@@ -35,13 +35,13 @@ screenshot(){
   echo
 
   domainname=$1
-  jpgfile=$2
+  jpgfile=$(echo $2| sed -e "s/'/'\\\\''/g; 1s/^/'/; \$s/\$/'/")
+
   echo "debug:   domain_name    $domainname"
   echo "debug: jpg_file   $jpgfile"
 
   requestedurl=$(screenshotcloud  "url=$domainname$query")
   echo "debug:  Requested url   $requestedurl"
-  touch $jpgfile
   curl $requestedurl > $jpgfile
 
 }
