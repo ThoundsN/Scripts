@@ -1,0 +1,73 @@
+#!/bin/bash
+
+rootpath="/root/OneDrive/output"
+
+usage(){
+  echo " usage:
+  This script will use altdns to create permutation of subdomain for every domain under the subdomain directory, and then use massdns to resolve the output recurisively.
+
+
+  -w :keyword which name targeted files  contain .
+  ------------------
+  optional argument -l: domain list to search undr apex directory, if null then search all domain
+    " 1>&2;
+  exit 1
+}
+
+
+while getopts  ":w:l:" option ;
+do
+    case $option in
+        w) keyword=$OPTARG
+            ;;
+        l) domainlist=$OPTARG
+            ;;
+        *) usage
+          exit 1
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+
+subdomainpath=$rootpath/subdomain
+
+resolve_altdns_output(){
+  massdns -r /root/Wordlist/resolver.txt -t A -o S
+  $1 --outfile $2
+}
+
+altdns_dir(){
+  echo
+
+  dir=$1
+  echo "debug: dir      $1"
+  mkdir -p "$rootpath/alt_mass/$(basename $dir)"
+  fileinput=$(ls -t $dir/*$keyword* | head -1 )
+  echo "debug:  fileinput    $fileinput"
+  altdns_output="$rootpath/alt_mass/$(basename $dir)/altdns_$(basename $fileinput)"
+  echo "debug:  altdns_output    $altdns_output"
+  touch $altdns_output
+
+  altdns -i $fileinput -o  $altdns_output -w "/root/Wordlist/altdnsword.txt"
+
+  mkdir -p "$rootpath/alt_mass/$(basename $dir)/"
+
+  massdns_output="$rootpath/alt_mass/$(basename $dir)/massdns_alt_$(basename $fileinput)"
+  resolve_altdns_output $altdns_output $massdns_output
+
+  echo $massdns_output
+}
+
+if [[ -z ${domainlist+x} ]]; then
+  for dir in $subdomainpath/* ; do
+    echo "debug: domain = $dir "
+    altdns_dir $dir
+  done
+else
+  sed 's/[[:blank:]]*$//' $domainlist
+  while read p ; do
+      echo "debug: $subdomainpath/$p"
+      altdns_dir "$subdomainpath/$p"
+  done < "$domainlist"
+fi

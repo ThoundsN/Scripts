@@ -1,0 +1,62 @@
+#!/bin/bash
+
+rootpath="/root/OneDrive/output"
+
+usage(){
+  echo " usage:
+  default: run sublist3r for every domain under subdomain directory.
+  ------------------
+  optional argument -l: domain list to search undr apex directory, if null then search all domain
+    " 1>&2;
+  exit 1
+}
+
+
+while getopts  ":l:" option ;
+do
+    case $option in
+        l) domainlist=$OPTARG
+            ;;
+        *) usage
+          exit 1
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+
+subdomainpath=$rootpath/subdomain
+
+
+sublist3r_dir(){
+  echo
+
+  dir=$1
+  echo "debug: dir      $1"
+  domain=$(basename $dir)
+
+  mkdir -p "$rootpath/sublist3r/$domain"
+
+
+  sublist3r_output="$rootpath/sublist3r/$(basename $dir)/sublist3r_$(basename $fileinput)"
+  echo "debug:  sublist3r_output    $sublist3r_output"
+  touch $sublist3r_output
+
+  sublist3r.py  -d $domain > $sublist3r_output
+
+}
+
+
+
+if [[ -z ${domainlist+x} ]]; then
+  for dir in $subdomainpath/* ; do
+    echo "debug: domain = $dir "
+    sublist3r_dir $dir
+  done
+else
+  sed 's/[[:blank:]]*$//' $domainlist
+  while read p ; do
+      echo "debug: $subdomainpath/$p"
+      sublist3r_dir "$subdomainpath/$p"
+  done < "$domainlist"
+fi
