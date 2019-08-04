@@ -8,14 +8,14 @@ usage(){
     -t  type of output : S - simple, F - full, other - json,
     debug
 
-    fuckyou 
+    fuckyou
      -d domain " 1>&2;
     exit 1
 }
 
 type=S
 
-while getopts  "w:t:d:" option ;
+while getopts  ":w:t:d:" option ;
 do
     case $option in
         w)  wordlist=$OPTARG
@@ -24,8 +24,7 @@ do
             ;;
         t) type=$OPTARG
             ;;
-        *)which usage
-          usage
+        *)usage
           exit 1
             ;;
     esac
@@ -40,6 +39,9 @@ fi
 time=$(date +'%Y-%m-%d-%H-%M')
 textname="${time}_massdns"
 
+echo $textname
+
+
 if [[  $type == "S"  ]]; then
     textname="${textname}_simple.txt"
 elif [[  $type == "F"  ]]; then
@@ -48,12 +50,16 @@ else
     textname="${textname}_json.txt"
 fi
 
+output_file=$rootpath/massdnsfull/$domain/${textname}
+
+echo $output_file
+
 if [[ $type == "F" ]]; then
   mkdir -p $rootpath/massdnsfull/$domain/
   touch  $rootpath/massdnsfull/$domain/$textname
-  subbrute.py $wordlist $domain |massdns -r ~/Wordlist/resolver.txt -t A -o $type --outfile  $rootpath/massdnsfull/$domain/${textname}
+  subbrute.py $wordlist $domain |massdns -r ~/Wordlist/resolver.txt -t A -o $type --outfile  $output_file
 else
   mkdir -p $rootpath/massdns/$domain/
   touch  $rootpath/massdns/$domain/$textname
-  subbrute.py $wordlist $domain |massdns -r ~/Wordlist/resolver.txt -t A -o $type --outfile  $rootpath/massdns/$domain/${textname}
+  subbrute.py $wordlist $domain |massdns -r ~/Wordlist/resolver.txt -t A -o $type --outfile  $output_file
 fi
