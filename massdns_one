@@ -3,7 +3,10 @@ rootpath="/root/OneDrive/output"
 
 
 usage(){
-    echo "usage: -w path of wordlist;-t  type of output : S - simple, F - full, other - json, -d domain " 1>&2;
+    echo "usage:
+    -w  path of wordlist;
+    -t  type of output : S - simple, F - full, other - json,
+     -d domain " 1>&2;
     exit 1
 }
 
