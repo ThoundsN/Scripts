@@ -4,19 +4,16 @@ rootpath="/root/OneDrive/output/massdnsfull"
 
 usage(){
   echo " usage:
-   -f  : path of full massdns output;
-  -w :keyword which name targeted files  contain .
-  ------------------
-  optional argument -l: domain list to search undr apex directory, if null then search all domain
+   -d  : domain name  ;
     " 1>&2;
   exit 1
 }
 
 
-while getopts  ":f:" option ;
+while getopts  ":d:" option ;
 do
     case $option in
-        f) domain=$OPTARG
+        d) domain=$OPTARG
             ;;
 
         *) usage
@@ -29,14 +26,24 @@ shift $((OPTIND-1))
 time=$(date +'%Y-%m-%d-%H-%M')
 domainpath=$rootpath/$domain
 
+output_path="$domainpath/second_result/$time_massdns_secondfull.txt"
 
-sed_domainname(){
+tmp_SR_file="/tmp/$time_SR_$domain.txt"
+
+dig_result_resolvers_name="$time_$domain_resolvers.txt"
+dig_result_resolvers_path=$domainpath/resolvers/$dig_result_resolvers_name
+
+valid_SR_file_name=$time_SR_$domain_valid.txt
+valid_SR_file_path=$domainpath/valid_SR_subdomain/$valid_SR_file_name
+
+
+
+sed_domain_record(){
   sed -n '/REFUSED/{n; n; n; n ; p}' $1 | awk '{print $1}' > $2
   sed -n '/SERVFAIL/{n; n; n; n ; p}' $1 | awk '{print $1}' > $2
 }
 
 dig_domain_file(){
-  touch $2
   while read p; do
     echo "debug:  dig $p"
     answer=$(dig $p +short ns)
@@ -47,17 +54,16 @@ dig_domain_file(){
 done < "$1"
 }
 
-massdns_full(){
-    subbrute.py $wordlist $domain |massdns -r ~/Wordlist/resolver.txt -t A -o F --outfile  $rootpath/massdns/$domain/$textname
+
+main(){
+file=$(ls -t $domainpath/*full* | head -1 )
+sed_domain_record $file $tmp_SR_file
+mkdir -p $domainpath/resolvers
+touch $dig_result_resolvers_path
+
+dig_domain_file $tmp_SR_file  $dig_result_resolvers_path   $valid_SR_file_path
+
+mkdir -p $domainpath/second_result/
+
+massdns -r $dig_result_resolvers_path -t A -o F $valid_SR_file_path --outfile $output_path
 }
-
-list_dir(){
-file=(ls -t $rootpath/$domain/*full* | head -1 )
-}
-
-tmpdomainfile=/tmp/"$time_SR_domain.txt"
-valid_domain_file=$time_SR_domain_valid.txt
-resolvers="$time_resolvers_massdns.txt"
-
-sed_domainname $recordfile $tmpdomainfile
-dig_domain_file $tmpdomainfile
