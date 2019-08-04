@@ -19,7 +19,7 @@ do
             ;;
         d) domain=$OPTARG
             ;;
-        m) type=$OPTARG
+        t) type=$OPTARG
             ;;
         *)which usage
           usage
