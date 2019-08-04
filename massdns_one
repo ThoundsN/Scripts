@@ -21,7 +21,8 @@ do
             ;;
         m) type=$OPTARG
             ;;
-        *) usage
+        *)which usage  
+          usage
           exit 1
             ;;
     esac
