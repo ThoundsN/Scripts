@@ -67,3 +67,5 @@ mkdir -p $domainpath/second_result/
 
 massdns -r $dig_result_resolvers_path -t A -o F $valid_SR_file_path --outfile $massdns_output_path
 }
+
+main
