@@ -28,12 +28,12 @@ domainpath=$rootpath/$domain
 
 massdns_output_path="$domainpath/second_result/${time}_massdns_second_full.txt"
 
-tmp_SR_file="/tmp/$time_SR_$domain.txt"
+tmp_SR_file="/tmp/${time}_SR_$domain.txt"
 
-dig_result_resolvers_name="$time_$domain_resolvers.txt"
+dig_result_resolvers_name="${time}_$domain_resolvers.txt"
 dig_result_resolvers_path=$domainpath/resolvers/$dig_result_resolvers_name
 
-valid_SR_file_name=$time_SR_$domain_valid.txt
+valid_SR_file_name=${time}_SR_$domain_valid.txt
 valid_SR_file_path=$domainpath/valid_SR_subdomain/$valid_SR_file_name
 
 
@@ -47,8 +47,8 @@ dig_domain_file(){
   while read p; do
     echo "debug:  dig $p"
     answer=$(dig $p +short ns)
-     echo $answer>> $2
      if [[ ! -z $answer ]]; then
+       echo $answer>> $2
        echo $p >> $3
      fi
 done < "$1"
@@ -57,9 +57,12 @@ done < "$1"
 
 main(){
 file=$(ls -t $domainpath/*full* | head -1 )
+
+touch $tmp_SR_file
 sed_domain_record $file $tmp_SR_file
 mkdir -p $domainpath/resolvers
 touch $dig_result_resolvers_path
+touch $valid_SR_file_path
 
 dig_domain_file $tmp_SR_file  $dig_result_resolvers_path   $valid_SR_file_path
 
