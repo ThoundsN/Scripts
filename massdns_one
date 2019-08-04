@@ -1,5 +1,6 @@
 #!/bin/bash
 rootpath="/root/OneDrive/output"
+massdns_full_path="/tmp/massdnsfull"
 
 
 usage(){
@@ -50,16 +51,19 @@ else
     textname="${textname}_json.txt"
 fi
 
-output_file=$rootpath/massdnsfull/$domain/${textname}
 
 echo $output_file
 
 if [[ $type == "F" ]]; then
-  mkdir -p $rootpath/massdnsfull/$domain/
-  touch  $rootpath/massdnsfull/$domain/$textname
+  mkdir -p $massdns_full_path/$domain/
+  touch  $massdns_full_path/$domain/$textname
+  output_file=$massdns_full_path/$domain/${textname}
+
   subbrute.py $wordlist $domain |massdns -r ~/Wordlist/resolver.txt -t A -o $type --outfile  $output_file
 else
   mkdir -p $rootpath/massdns/$domain/
   touch  $rootpath/massdns/$domain/$textname
+  output_file=$rootpath/massdns/$domain/${textname}
+
   subbrute.py $wordlist $domain |massdns -r ~/Wordlist/resolver.txt -t A -o $type --outfile  $output_file
 fi

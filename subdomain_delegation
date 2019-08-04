@@ -1,6 +1,9 @@
 #!/bin/bash
 
 rootpath="/root/OneDrive/output/massdnsfull"
+massdns_full_path="/tmp/massdnsfull"
+wordlist="/root/Wordlist/subdomain/726w_subdomain.txt"
+
 
 usage(){
   echo " usage:
@@ -28,18 +31,20 @@ domainpath=$rootpath/$domain
 
 massdns_output_path="$domainpath/second_result/${time}_massdns_second_full.txt"
 
-tmp_SR_file="/tmp/${time}_SR_$domain.txt"
+tmp_SR_file="/tmp/${time}_SR_${domain}.txt"
 
-dig_result_resolvers_name="${time}_$domain_resolvers.txt"
+dig_result_resolvers_name="${time}_${domain}_resolvers.txt"
 dig_result_resolvers_path=$domainpath/resolvers/$dig_result_resolvers_name
 
-valid_SR_file_name=${time}_SR_$domain_valid.txt
+valid_SR_file_name=${time}_SR_${domain}_valid.txt
 valid_SR_file_path=$domainpath/$valid_SR_file_name
 
 
 
 sed_domain_record(){
+  echo "sed $1 to $2"
   sed -n '/REFUSED/{n; n; n; n ; p}' $1 | awk '{print $1}' > $2
+  echo "sed $1 to $2"
   sed -n '/SERVFAIL/{n; n; n; n ; p}' $1 | awk '{print $1}' > $2
 }
 
@@ -54,9 +59,22 @@ dig_domain_file(){
 done < "$1"
 }
 
+clear(){
+    rm -rf $massdns_full_path/$domain
+}
+
+check_aws(){
+  resp=$(dig $domain ns)
+  echo $resp 
+  if [[ ! $resp =~ "aws" ]]; then
+     echo "This domain doesn't use aws, no need to do further check "
+  fi
+}
 
 main(){
-file=$(ls -t $domainpath/*full* | head -1 )
+massdns_one -w $wordlist -t F -d $domain
+
+file=$(ls -t $massdns_full_path/*full* | head -1 )
 
 touch $tmp_SR_file
 sed_domain_record $file $tmp_SR_file
@@ -66,9 +84,15 @@ touch $valid_SR_file_path
 
 dig_domain_file $tmp_SR_file  $dig_result_resolvers_path   $valid_SR_file_path
 
-mkdir -p $domainpath/second_result/
 
-massdns -r $dig_result_resolvers_path -t A -o F $valid_SR_file_path --outfile $massdns_output_path
+if [ -e $valid_SR_file_path ]; then
+  mkdir -p $domainpath/second_result/
+
+  massdns -r $dig_result_resolvers_path -t A -o F $valid_SR_file_path --outfile $massdns_output_path
+else
+   echo "It seems there aren't any possible subdomain delegation"
+fi
+
 }
 
 main
