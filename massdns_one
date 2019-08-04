@@ -12,7 +12,7 @@ usage(){
 
 type=S
 
-while getopts  "w:m:d:" option ;
+while getopts  "w:t:d:" option ;
 do
     case $option in
         w)  wordlist=$OPTARG
@@ -21,7 +21,7 @@ do
             ;;
         m) type=$OPTARG
             ;;
-        *)which usage  
+        *)which usage
           usage
           exit 1
             ;;
