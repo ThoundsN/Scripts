@@ -1,0 +1,63 @@
+#!/bin/bash
+
+rootpath="/root/OneDrive/output/massdnsfull"
+
+usage(){
+  echo " usage:
+   -f  : path of full massdns output;
+  -w :keyword which name targeted files  contain .
+  ------------------
+  optional argument -l: domain list to search undr apex directory, if null then search all domain
+    " 1>&2;
+  exit 1
+}
+
+
+while getopts  ":f:" option ;
+do
+    case $option in
+        f) domain=$OPTARG
+            ;;
+
+        *) usage
+          exit 1
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+time=$(date +'%Y-%m-%d-%H-%M')
+domainpath=$rootpath/$domain
+
+
+sed_domainname(){
+  sed -n '/REFUSED/{n; n; n; n ; p}' $1 | awk '{print $1}' > $2
+  sed -n '/SERVFAIL/{n; n; n; n ; p}' $1 | awk '{print $1}' > $2
+}
+
+dig_domain_file(){
+  touch $2
+  while read p; do
+    echo "debug:  dig $p"
+    answer=$(dig $p +short ns)
+     echo $answer>> $2
+     if [[ ! -z $answer ]]; then
+       echo $p >> $3
+     fi
+done < "$1"
+}
+
+massdns_full(){
+    subbrute.py $wordlist $domain |massdns -r ~/Wordlist/resolver.txt -t A -o F --outfile  $rootpath/massdns/$domain/$textname
+}
+
+list_dir(){
+file=(ls -t $rootpath/$domain/*full* | head -1 )
+}
+
+tmpdomainfile=/tmp/"$time_SR_domain.txt"
+valid_domain_file=$time_SR_domain_valid.txt
+resolvers="$time_resolvers_massdns.txt"
+
+sed_domainname $recordfile $tmpdomainfile
+dig_domain_file $tmpdomainfile

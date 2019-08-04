@@ -1,5 +1,6 @@
 #!/bin/bash
 
+currency_threads=130
 rootpath="/root/OneDrive/output"
 time=$(date +'%Y-%m-%d-%H-%M')
 textname="$time_meg_mixed_input.txt"
@@ -49,7 +50,7 @@ append(){
 }
 
 run_meg(){
-  meg -c 80 $wordlist $file_mixed_path $output_path
+  meg -c $currency_threads $wordlist $file_mixed_path $output_path
 }
 
 if [[ -z ${domainlist+x} ]]; then

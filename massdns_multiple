@@ -29,8 +29,7 @@ fi
 
 
 if [[ -z $(domainlist+x) ]]; then
-  echo  "debug:domain =  $line"
-  massdns_one -w $wordlist -t $type -d $line
+    usage
 else
   sed 's/[[:blank:]]*$//' $domainlist
   while read line ;
