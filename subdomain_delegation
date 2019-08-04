@@ -34,7 +34,7 @@ dig_result_resolvers_name="${time}_$domain_resolvers.txt"
 dig_result_resolvers_path=$domainpath/resolvers/$dig_result_resolvers_name
 
 valid_SR_file_name=${time}_SR_$domain_valid.txt
-valid_SR_file_path=$domainpath/valid_SR_subdomain/$valid_SR_file_name
+valid_SR_file_path=$domainpath/$valid_SR_file_name
 
 
 
