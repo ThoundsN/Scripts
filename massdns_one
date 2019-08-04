@@ -35,14 +35,14 @@ fi
 
 
 time=$(date +'%Y-%m-%d-%H-%M')
-textname="$time_massdns"
+textname="${time}_massdns"
 
 if [[  $type == "S"  ]]; then
-    textname="$textname_simple.txt"
+    textname="${textname}_simple.txt"
 elif [[  $type == "F"  ]]; then
-    textname="$textname_full.txt"
+    textname="${textname}_full.txt"
 else
-    textname="$textname_json.txt"
+    textname="${textname}_json.txt"
 fi
 
 if [[ $type == "F" ]]; then
