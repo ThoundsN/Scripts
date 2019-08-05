@@ -11,21 +11,22 @@ host2domain(){
 
 }
 
-processing(){
-  echo "processing file $1"
-  while read p ; do
-      newfilename=processed_$(basename $p)
-      newfilepath=$processing_subdomain/$newfilename
-
-      host2domain $p > $newfilepath
-  done < $1
+processing_dir(){
+  dir=$1
+  domain=$(basename $dir)
+  for file in $dir/* ; do
+  echo "processing file $file"
+    while read p ; do
+        newfilename=processed_$(basename $p)
+        newfilepath=$processing_subdomain/$domain/$newfilename
+        host2domain $p > $newfilepath
+    done < $file
+  done
 }
 
 for dir in $httprobepath/* ; do
    echo "debug: dir   $dir"
-   for file in $dir/* ; do
-      processing $file
-  done
+   processing_dir $dir
 done
 
 for dir in $processing_subdomain/* ; do
