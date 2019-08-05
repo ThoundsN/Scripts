@@ -26,7 +26,7 @@ shift $((OPTIND-1))
 mergefile(){
   mergedfile=$1/${time}_merged.txt
   cat $1/*.txt > $mergedfile
-  remove_dup $mergedfile
+  remove_dup_file $mergedfile
 
   echo "debug: mergedfile  $mergedfile"
 }
