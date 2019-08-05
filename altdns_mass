@@ -61,9 +61,12 @@ altdns_dir(){
   mkdir -p "$rootpath/alt_mass/$(basename $dir)/"
 
   massdns_output="$rootpath/alt_mass/$(basename $dir)/massdns_alt_$(basename $fileinput)"
+  touch $massdns_output
+  echo "debug massdns output $massdns_output"
+
+
   resolve_altdns_output $altdns_output $massdns_output
 
-  echo $massdns_output
 }
 
 if [[ -z ${domainlist+x} ]]; then
