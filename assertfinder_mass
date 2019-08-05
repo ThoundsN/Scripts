@@ -6,7 +6,7 @@ time=$(date +'%Y-%m-%d-%H-%M')
 
 usage(){
   echo " usage:
-  default: run assertfinder for every domain under subdomain directory.
+  default: run assetfinder for every domain under subdomain directory.
   ------------------
   optional argument -l: domain list to search undr apex directory, if null then search all domain
     " 1>&2;
@@ -30,7 +30,7 @@ shift $((OPTIND-1))
 subdomainpath=$rootpath/subdomain
 
 
-assertfinder_dir(){
+assetfinder_dir(){
   echo
 
   dir=$1
@@ -40,14 +40,14 @@ assertfinder_dir(){
   echo "debug: domain      $domain"
 
 
-  mkdir -p "$rootpath/assertfinder/$domain"
+  mkdir -p "$rootpath/assetfinder/$domain"
 
 
-  assertfinder_output="$rootpath/assertfinder/${domain}/${time}_assertfinder_${domain}.txt"
-  echo "debug:  assertfinder_output    $assertfinder_output"
-  touch $assertfinder_output
+  assetfinder_output="$rootpath/assetfinder/${domain}/${time}_assetfinder_${domain}.txt"
+  echo "debug:  assetfinder_output    $assetfinder_output"
+  touch $assetfinder_output
 
-  assertfinder --subs-only $domain > $assertfinder_output
+  assetfinder. -d $domain > $assetfinder_output
 
 }
 
@@ -56,12 +56,12 @@ assertfinder_dir(){
 if [[ -z ${domainlist+x} ]]; then
   for dir in $subdomainpath/* ; do
     echo "debug: domain = $dir "
-    assertfinder_dir $dir
+    assetfinder_dir $dir
   done
 else
   sed 's/[[:blank:]]*$//' $domainlist
   while read p ; do
       echo "debug: $subdomainpath/$p"
-      assertfinder_dir "$subdomainpath/$p"
+      assetfinder_dir "$subdomainpath/$p"
   done < "$domainlist"
 fi
