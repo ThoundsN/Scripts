@@ -21,7 +21,7 @@ processing(){
 }
 
 for dir in $httprobepath/* ; do
-   echo "debug: domain  $dir"
+   echo "debug: dir   $dir"
    for file in $dir ; do
       processing $file
   done

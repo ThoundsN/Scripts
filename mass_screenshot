@@ -60,11 +60,11 @@ screenshotdir(){
    echo "debug:  file    $file"
 
    while read p ; do
-        newjpgname=$(escape $p).jpg
+      newjpgname=$(escape $p).jpg
       for file in rootpath/screenshot/$(basename $dir)/* ; do
-      if [[ $file == $newjpgname ]]; then
-        continue 2 
-      fi
+        if [[ $file == $newjpgname ]]; then
+            continue 2 
+        fi
       done
 
        screenshot   $p  "$rootpath/screenshot/$(basename $dir)/$newjpgname"
