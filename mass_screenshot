@@ -62,8 +62,9 @@ screenshotdir(){
    while read p ; do
       newjpgname=$(escape $p).jpg
       for file in rootpath/screenshot/$(basename $dir)/* ; do
-        if [[ $file == $newjpgname ]]; then
-            continue 2 
+        name=$(basename $file)
+        if [[ $name == $newjpgname ]]; then
+            continue 2
         fi
       done
 
