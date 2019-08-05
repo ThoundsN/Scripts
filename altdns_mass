@@ -41,11 +41,16 @@ resolve_altdns_output(){
 
 altdns_dir(){
   echo
+  echo
+  echo
+  echo
+
 
   dir=$1
   echo "debug: dir      $1"
   mkdir -p "$rootpath/alt_mass/$(basename $dir)"
   fileinput=$(ls -t $dir/*$keyword* | head -1 )
+  chmod 777 $fileinput
   echo "debug:  fileinput    $fileinput"
   altdns_output="$rootpath/alt_mass/$(basename $dir)/altdns_$(basename $fileinput)"
   echo "debug:  altdns_output    $altdns_output"
