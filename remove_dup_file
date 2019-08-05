@@ -1,9 +1,5 @@
 #!/bin/bash
 
-remove_dup(){
-  tmpfile=/tmp/$(basename $1)
-  echo $1
-  echo $tmpfile
-  awk '!seen[$0]++' $1 > $tmpfile
-  mv $tmpfile $1
-}
+tmpfile=/tmp/$(basename $1)
+awk '!seen[$0]++' $1 > $tmpfile
+mv $tmpfile $1
