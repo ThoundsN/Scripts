@@ -4,7 +4,7 @@ httprobepath="/root/OneDrive/output/httprobe"
 
 processing_subdomain="/root/OneDrive/output/processing_sub"
 
-mkdir -p $processing_sub
+mkdir -p $processing_subdomain
 
 host2domain(){
   echo $1 | awk -F[/:] '{print $4}'
@@ -16,6 +16,7 @@ processing(){
   while read p ; do
       newfilename=processed_$(basename $p)
       newfilepath=$processing_subdomain/$newfilename
+
       host2domain $p > $newfilepath
   done < $1
 }
@@ -28,7 +29,7 @@ for dir in $httprobepath/* ; do
 done
 
 for dir in $processing_subdomain/* ; do
-   echo "debug: deduplicating.....  domain  $dir"
+   echo "debug: de duplicating.....  domain  $dir"
    for file in $dir/* ; do
       remove_dup $file
   done
