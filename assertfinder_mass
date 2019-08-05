@@ -47,7 +47,7 @@ assetfinder_dir(){
   echo "debug:  assetfinder_output    $assetfinder_output"
   touch $assetfinder_output
 
-  assetfinder -d $domain > $assetfinder_output
+  assetfinder -sub-only $domain > $assetfinder_output
 
 }
 
