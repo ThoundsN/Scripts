@@ -6,7 +6,7 @@ time=$(date +'%Y-%m-%d-%H-%M')
 
 usage(){
   echo " usage:
-  default: run sublist3r for every domain under subdomain directory.
+  default: run assertfinder for every domain under subdomain directory.
   ------------------
   optional argument -l: domain list to search undr apex directory, if null then search all domain
     " 1>&2;
@@ -30,7 +30,7 @@ shift $((OPTIND-1))
 subdomainpath=$rootpath/subdomain
 
 
-sublist3r_dir(){
+assertfinder_dir(){
   echo
 
   dir=$1
@@ -40,14 +40,14 @@ sublist3r_dir(){
   echo "debug: domain      $domain"
 
 
-  mkdir -p "$rootpath/sublist3r/$domain"
+  mkdir -p "$rootpath/assertfinder/$domain"
 
 
-  sublist3r_output="$rootpath/sublist3r/${domain}/${time}_sublist3r_${domain}.txt"
-  echo "debug:  sublist3r_output    $sublist3r_output"
-  touch $sublist3r_output
+  assertfinder_output="$rootpath/assertfinder/${domain}/${time}_assertfinder_${domain}.txt"
+  echo "debug:  assertfinder_output    $assertfinder_output"
+  touch $assertfinder_output
 
-  sublist3r.py  -d $domain > $sublist3r_output
+  assertfinder --subs-only $domain > $assertfinder_output
 
 }
 
@@ -56,12 +56,12 @@ sublist3r_dir(){
 if [[ -z ${domainlist+x} ]]; then
   for dir in $subdomainpath/* ; do
     echo "debug: domain = $dir "
-    sublist3r_dir $dir
+    assertfinder_dir $dir
   done
 else
   sed 's/[[:blank:]]*$//' $domainlist
   while read p ; do
       echo "debug: $subdomainpath/$p"
-      sublist3r_dir "$subdomainpath/$p"
+      assertfinder_dir "$subdomainpath/$p"
   done < "$domainlist"
 fi
