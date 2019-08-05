@@ -35,8 +35,7 @@ shift $((OPTIND-1))
 subdomainpath=$rootpath/$directory
 
 resolve_altdns_output(){
-  massdns -r /root/Wordlist/resolver.txt -t A -o S
-  $1 --outfile $2
+  massdns -r /root/Wordlist/resolver.txt -t A -o S $1 --outfile $2
 }
 
 altdns_dir(){
