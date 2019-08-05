@@ -42,7 +42,7 @@ screenshot(){
 
   requestedurl=$(screenshotcloud  "url=$domainname$query")
   echo "debug:  Requested url   $requestedurl"
-  curl $requestedurl > $jpgfile
+  curl -m 60 $requestedurl > $jpgfile
 
 }
 
