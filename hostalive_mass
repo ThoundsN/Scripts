@@ -20,6 +20,11 @@ httprobe_dir(){
     mkdir -p "$rootpath/httprobe/$(basename $dir)"
     fileinput=$(ls -t $dir/*$keyword* | head -1 )
     echo "debug:  fileinput    $fileinput"
+
+    if [[ ! -s $fileinput ]]; then
+      return
+    fi
+    
     newfile="$rootpath/httprobe/$(basename $dir)/httprobe_$(basename $fileinput)"
     echo "debug:  newfile    $newfile"
     touch $newfile
