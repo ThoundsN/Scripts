@@ -16,11 +16,15 @@ processing_dir(){
   domain=$(basename $dir)
   for file in $dir/* ; do
   echo "processing file $file"
+
+  newfilename=processed_$(basename $file)
+  newfilepath=$processing_subdomain/$domain/$newfilename
+  echo "newfilepath $newfilepath"
+  mkdir -p $processing_subdomain/$domain/
+  touch $newfilepath
+  echo
     while read p ; do
-        mkdir -p $processing_subdomain/$domain/
-        newfilename=processed_$(basename $p)
-        newfilepath=$processing_subdomain/$domain/$newfilename
-        host2domain $p > $newfilepath
+        host2domain $p >> $newfilepath
     done < $file
   done
 }
