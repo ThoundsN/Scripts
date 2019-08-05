@@ -1,0 +1,37 @@
+#!/bin/bash
+
+rootpath="/root/OneDrive/output"
+time=$(date +'%Y-%m-%d-%H-%M')
+
+usage(){
+  echo " usage:
+   -d  : path of apex directory where
+    " 1>&2;
+  exit 1
+}
+
+
+while getopts  ":d:w:l:" option ;
+do
+    case $option in
+        d) directory=$OPTARG
+            ;;
+        *) usage
+          exit 1
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+mergefile(){
+  mergedfile=$1/${time}_merged.txt
+  cat $1/*.txt > $mergefile
+  remove_dup $mergefile
+
+  echo "debug: mergedfile  $mergefile"
+}
+
+for dir in $rootpath/$directory/* ; do
+   echo "debug: dir  $dir"
+   mergefile $dir
+done

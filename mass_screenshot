@@ -58,12 +58,18 @@ screenshotdir(){
    mkdir -p "$rootpath/screenshot/$(basename $dir)"
    file=$(ls -t $1/*$keyword* | head -1 )
    echo "debug:  file    $file"
-   linecount=&(wc -l $file)
-   if [[ $linecount < 500 ]]; then
-     while read p ; do
-         screenshot   $p  "$rootpath/screenshot/$(basename $dir)/$(escape $p).jpg"
-     done < "$file"
-   fi
+
+   while read p ; do
+        newjpgname=$(escape $p).jpg
+      for file in rootpath/screenshot/$(basename $dir)/* ; do
+      if [[ $file == $newjpgname ]]; then
+        continue 2 
+      fi
+      done
+
+       screenshot   $p  "$rootpath/screenshot/$(basename $dir)/$newjpgname"
+    done < "$file"
+
 
     echo
 }
