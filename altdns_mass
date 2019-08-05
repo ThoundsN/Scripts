@@ -45,13 +45,16 @@ altdns_dir(){
   mkdir -p "$rootpath/alt_mass/$(basename $dir)"
   fileinput=$(ls -t $dir/*$keyword* | head -1 )
   echo "debug:  fileinput    $fileinput"
+
+  if [[ ! -s $fileinput ]]; then
+    return 
+  fi
+
   altdns_output="$rootpath/alt_mass/$(basename $dir)/altdns_$(basename $fileinput)"
   echo "debug:  altdns_output    $altdns_output"
   touch $altdns_output
 
   altdns -i $fileinput -o  $altdns_output -w "/root/Wordlist/altdnsword.txt"
-
-  chmod 777 $altdns_output
 
   mkdir -p "$rootpath/alt_mass/$(basename $dir)/"
 
