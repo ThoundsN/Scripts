@@ -35,6 +35,9 @@ sublist3r_dir(){
   echo "debug: dir      $1"
   domain=$(basename $dir)
 
+  echo "debug: domain      $domain"
+
+
   mkdir -p "$rootpath/sublist3r/$domain"
 
 
