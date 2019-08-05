@@ -5,7 +5,7 @@ time=$(date +'%Y-%m-%d-%H-%M')
 
 usage(){
   echo " usage:
-   -d  : path of apex directory where
+   -d  : path of apex directory
     " 1>&2;
   exit 1
 }
@@ -25,10 +25,10 @@ shift $((OPTIND-1))
 
 mergefile(){
   mergedfile=$1/${time}_merged.txt
-  cat $1/*.txt > $mergefile
-  remove_dup $mergefile
+  cat $1/*.txt > $mergedfile
+  remove_dup $mergedfile
 
-  echo "debug: mergedfile  $mergefile"
+  echo "debug: mergedfile  $mergedfile"
 }
 
 for dir in $rootpath/$directory/* ; do
