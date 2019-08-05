@@ -22,14 +22,14 @@ processing(){
 
 for dir in $httprobepath/* ; do
    echo "debug: dir   $dir"
-   for file in $dir ; do
+   for file in $dir/* ; do
       processing $file
   done
 done
 
 for dir in $processing_subdomain/* ; do
    echo "debug: deduplicating.....  domain  $dir"
-   for file in $dir ; do
+   for file in $dir/* ; do
       remove_dup $file
   done
 done
