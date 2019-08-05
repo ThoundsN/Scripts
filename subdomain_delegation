@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rootpath="/root/OneDrive/output/massdnsfull"
+rootpath="/root/OneDrive/output/subdomain_delegation"
 massdns_full_path="/tmp/massdnsfull"
 wordlist="/root/Wordlist/subdomain/726w_subdomain.txt"
 time=$(date +'%Y-%m-%d-%H-%M')
