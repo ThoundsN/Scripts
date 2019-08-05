@@ -21,11 +21,15 @@ processing(){
 }
 
 for dir in $httprobepath/* ; do
-   echo "debug: domain  $domain"
-    ls -t $dir | xargs processing
+   echo "debug: domain  $dir"
+   for file in $dir ; do
+      processing $file
+  done
 done
 
 for dir in $processing_subdomain/* ; do
-   echo "debug: deduplicating.....  domain  $domain"
-    ls -t $dir | xargs remove_dup
+   echo "debug: deduplicating.....  domain  $dir"
+   for file in $dir ; do
+      remove_dup $file
+  done
 done
