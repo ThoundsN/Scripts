@@ -1,6 +1,8 @@
 #!/bin/bash
 
 rootpath="/root/OneDrive/output"
+time=$(date +'%Y-%m-%d-%H-%M')
+
 
 usage(){
   echo " usage:
@@ -41,7 +43,7 @@ sublist3r_dir(){
   mkdir -p "$rootpath/sublist3r/$domain"
 
 
-  sublist3r_output="$rootpath/sublist3r/$(basename $dir)/sublist3r_$(basename $fileinput)"
+  sublist3r_output="$rootpath/sublist3r/${domain}/${time}_sublist3r_${domain}.txt"
   echo "debug:  sublist3r_output    $sublist3r_output"
   touch $sublist3r_output
 
