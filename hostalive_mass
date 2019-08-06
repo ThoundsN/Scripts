@@ -12,9 +12,6 @@ usage(){
 }
 
 httprobe_dir(){
-    echo
-    echo
-
     dir=$1
     echo "debug: dir      $1"
     mkdir -p "$rootpath/httprobe/$(basename $dir)"
@@ -24,12 +21,16 @@ httprobe_dir(){
     if [[ ! -s $fileinput ]]; then
       return
     fi
-    
+
     newfile="$rootpath/httprobe/$(basename $dir)/httprobe_$(basename $fileinput)"
     echo "debug:  newfile    $newfile"
     touch $newfile
     cat $fileinput| httprobe -c 50  >> $newfile
 
+    echo
+    echo
+    echo
+    echo
 }
 
 while getopts  ":d:w:l:" option ;
