@@ -83,7 +83,7 @@ screenshotdir(){
    file=$(ls -t $1/*$keyword* | head -1 )
    echo "debug:  file    $file"
 
-    cat $file| parallel -j50  screenshot_line {} $dir
+    cat $file| parallel -j40  screenshot_line {} $dir
 
    # while read p ; do
    #    newjpgname=$(escape $p).jpg
