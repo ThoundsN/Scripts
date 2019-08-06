@@ -70,24 +70,30 @@ remove_unnecessary_dir(){
   done
 }
 
+run(){
+  trap 'kill %1' SIGINT
+  remove_unnecessary_dir &
+  run_meg | tee $output_dir/error.log
+  wait
+}
+
+
 
 if [[ -z ${domainlist+x} ]]; then
 for dir in $rootpath/$directory/* ; do
       echo "debug: dir  $dir"
       append $dir
 done
-trap 'kill %1' SIGINT
-remove_unnecessary_dir &
-run_meg
-wait
+
+run
+
 else
-  sed 's/[[:blank:]]*$//' $domainlist
+  
+sed 's/[[:blank:]]*$//' $domainlist
   while read p ; do
       echo "debug: dir    $rootpath/$directory/$p"
       append $rootpath/$directory/$p
   done < "$domainlist"
-  trap 'kill %1' SIGINT
-  remove_unnecessary_dir &
-  run_meg
-  wait
+
+run
 fi
