@@ -18,9 +18,7 @@ remove_duplines(){
 }
 
 grep_singledomain_subdomain(){
-  echo
-  echo
-  echo
+
 
   dir=$1
   echo "debug: dir      $1"
@@ -36,6 +34,9 @@ grep_singledomain_subdomain(){
   touch "$newfile"
   awk 'BEGIN {OFS="\n"} {print $1}' $file  | remove_duplines | sed 's/.$//' > $newfile
 
+  echo
+  echo
+  echo
 }
 
 while getopts  ":d:w:l:" option ;
