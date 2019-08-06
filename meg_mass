@@ -4,7 +4,7 @@ concurrency_threads=1000
 rootpath="/root/OneDrive/output"
 time=$(date +'%Y-%m-%d-%H-%M')
 textname="${time}_meg_mixed_input.txt"
-wordlist="/root/Wordlist/endpoint/meg.txt"
+# wordlist="/root/Wordlist/endpoint/meg.txt"
 
 mkdir -p $rootpath/meg/input
 touch "$rootpath/meg/input/$textname"
@@ -17,19 +17,22 @@ mkdir -p $output_dir
 usage(){
   echo " usage:
    -d  : path of apex directory where all domains live;
-  -w :keyword which name targeted files  contain .
+  -w :wordlist .
+  -k :keyword which name targeted files  contain .
   ------------------
   optional argument -l: domain list to search undr apex directory, if null then search all domain
     " 1>&2;
   exit 1
 }
 
-while getopts  ":d:w:l:" option ;
+while getopts  ":d:w:k:l:" option ;
 do
     case $option in
         d) directory=$OPTARG
             ;;
-        w) keyword=$OPTARG
+        w) wordlist=$OPTARG
+            ;;
+        k) keyword=$OPTARG
             ;;
         l) domainlist=$OPTARG
             ;;
