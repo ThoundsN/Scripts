@@ -30,9 +30,7 @@ escape(){
    echo $1 | awk '{gsub(/\:\/\//,"_")}1'
 }
 
-escape(){
-   echo $1 | awk '{gsub(/\:\/\//,"_")}1'
-}
+
 
 screenshot_line(){
   p=$1
@@ -48,6 +46,8 @@ screenshot_line(){
 }
 
 export -f screenshot_line
+export -f screenshot
+export -f escape
 
 screenshotdir(){
    echo
