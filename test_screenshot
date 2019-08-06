@@ -51,6 +51,7 @@ screenshot_line(){
 export -f screenshot_line
 export -f screenshot
 export -f escape
+export rootpath
 
 screenshotdir(){
 
