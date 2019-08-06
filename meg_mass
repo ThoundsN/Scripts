@@ -1,16 +1,18 @@
 #!/bin/bash
 
-currency_threads=130
+concurrency_threads=130
 rootpath="/root/OneDrive/output"
 time=$(date +'%Y-%m-%d-%H-%M')
-textname="$time_meg_mixed_input.txt"
+textname="${time}_meg_mixed_input.txt"
 wordlist="/root/Wordlist/endpoint/10w_common.txt"
 
 mkdir -p $rootpath/meg/input
-mkdir -p $rootpath/meg/output
 touch "$rootpath/meg/input/$textname"
 file_mixed_path="$rootpath/meg/input/$textname"
-output_path="$rootpath/meg/output/output_$textname"
+output_dir="$rootpath/meg/output/${time}_mixed"
+
+mkdir -p $output_dir
+
 
 usage(){
   echo " usage:
@@ -43,6 +45,9 @@ append(){
     dir=$1
     echo "debug: dir      $1"
     file_to_append=$(ls -t $dir/*$keyword* | head -1 )
+    if [[ ! -s $file_to_append ]]; then
+      return
+    fi
     echo "debug:  file_to_append    $file_to_append"
 
     cat $file_to_append >> $file_mixed_path
@@ -50,7 +55,7 @@ append(){
 }
 
 run_meg(){
-  meg -c $currency_threads $wordlist $file_mixed_path $output_path
+  meg -c $concurrency_threads $wordlist $file_mixed_path $output_dir
 }
 
 if [[ -z ${domainlist+x} ]]; then
