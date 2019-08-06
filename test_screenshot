@@ -1,37 +1,15 @@
 #!/bin/bash
 
-rootpath="/root/OneDrive/output"
+rootpath="/tmp/test"
 
 query="&format=jpg&timeout=10000"
 
-usage(){
-  echo " usage:
-   -d  : path of apex directory where all domains live;
-  -w :keyword which name targeted files  contain .
-  ------------------
-  optional argument -l: domain list to search undr apex directory, if null then search all domain
-    " 1>&2;
-  exit 1
-}
 
-while getopts  ":d:w:l:" option ;
-do
-    case $option in
-        d) directory=$OPTARG
-            ;;
-        w) keyword=$OPTARG
-            ;;
-        l) domainlist=$OPTARG
-            ;;
-        *) usage
-          exit 1
-            ;;
-    esac
-done
-shift $((OPTIND-1))
-
+directory=hosts
+keyword=hostfiles
 
 screenshot(){
+
 
   domainname=$1
   jpgfile=$2
@@ -45,8 +23,11 @@ screenshot(){
 
   echo
   echo
-  echo
+    echo
+}
 
+escape(){
+   echo $1 | awk '{gsub(/\:\/\//,"_")}1'
 }
 
 escape(){
@@ -60,8 +41,6 @@ screenshot_line(){
   for file in rootpath/screenshot/$(basename $dir)/* ; do
     name=$(basename $file)
     if [[ $name == $newjpgname ]]; then
-        echo "skipping already existed jpg $name"
-
         return
     fi
   done
@@ -96,15 +75,7 @@ screenshotdir(){
 }
 
 
-if [[ -z ${domainlist+x} ]]; then
-  for dir in $rootpath/$directory/* ; do
-     echo "debug: dir  $dir"
-     screenshotdir $dir
+for dir in $rootpath/$directory/* ; do
+   echo "debug: dir  $dir"
+   screenshotdir $dir
 done
-else
-  sed 's/[[:blank:]]*$//' $domainlist
-  while read p ; do
-      echo "debug: dir    $rootpath/$directory/$p"
-      screenshotdir "$rootpath/$directory/$p"
-  done < "$domainlist"
-fi
