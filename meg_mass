@@ -1,6 +1,6 @@
 #!/bin/bash
 
-concurrency_threads=150
+concurrency_threads=300
 rootpath="/root/OneDrive/output"
 time=$(date +'%Y-%m-%d-%H-%M')
 textname="${time}_meg_mixed_input.txt"
