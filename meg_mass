@@ -1,10 +1,10 @@
 #!/bin/bash
 
-concurrency_threads=130
+concurrency_threads=150
 rootpath="/root/OneDrive/output"
 time=$(date +'%Y-%m-%d-%H-%M')
 textname="${time}_meg_mixed_input.txt"
-wordlist="/root/Wordlist/endpoint/10w_common.txt"
+wordlist="/root/Wordlist/endpoint/meg.txt"
 
 mkdir -p $rootpath/meg/input
 touch "$rootpath/meg/input/$textname"
