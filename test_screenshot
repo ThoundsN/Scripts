@@ -36,12 +36,15 @@ screenshot_line(){
   p=$1
   dir=$2
   newjpgname=$(escape $p).jpg
-  for file in rootpath/screenshot/$(basename $dir)/* ; do
+  for file in $rootpath/screenshot/$(basename $dir)/* ; do
     name=$(basename $file)
     if [[ $name == $newjpgname ]]; then
+      echo "skipping already existed jpg $name"
+
         return
     fi
   done
+
    screenshot   $p  "$rootpath/screenshot/$(basename $dir)/$newjpgname"
 }
 
@@ -50,13 +53,11 @@ export -f screenshot
 export -f escape
 
 screenshotdir(){
-   echo
 
    dir=$1
-   echo "debug: dir      $1"
    mkdir -p "$rootpath/screenshot/$(basename $dir)"
    file=$(ls -t $1/*$keyword* | head -1 )
-   echo "debug:  file    $file"
+   echo "debug:  host file:    $file"
 
     cat $file| parallel -j0  screenshot_line {} $dir
 

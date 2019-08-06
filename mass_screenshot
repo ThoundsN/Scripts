@@ -57,7 +57,7 @@ screenshot_line(){
   p=$1
   dir=$2
   newjpgname=$(escape $p).jpg
-  for file in rootpath/screenshot/$(basename $dir)/* ; do
+  for file in $rootpath/screenshot/$(basename $dir)/* ; do
     name=$(basename $file)
     if [[ $name == $newjpgname ]]; then
         echo "skipping already existed jpg $name"
