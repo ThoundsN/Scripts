@@ -26,6 +26,10 @@ grep_singledomain_subdomain(){
   echo "debug: dir      $1"
   mkdir -p "$rootpath/subdomain/$(basename $dir)"
   file=$(ls -t $dir/*$keyword* | head -1 )
+
+  if [[ ! -s $file ]]; then
+    return
+  fi
   echo "debug:  file    $file"
   newfile="$rootpath/subdomain/$(basename $dir)/subdomain_$(basename $file)"
   echo "debug: newfile $newfile"
