@@ -1,6 +1,6 @@
 #!/bin/bash
 
-concurrency_threads=800
+concurrency_threads=1000
 rootpath="/root/OneDrive/output"
 time=$(date +'%Y-%m-%d-%H-%M')
 textname="${time}_meg_mixed_input.txt"
@@ -58,17 +58,33 @@ run_meg(){
   meg -c $concurrency_threads $wordlist $file_mixed_path $output_dir
 }
 
+remove_unnecessary_dir(){
+  while sleep 600; do
+    find $output_dir -mindepth 1 -maxdepth 1 -type d -print0 | xargs -0 rm -R
+    echo
+    echo "Clear the dirs under $output_dir"
+    echo
+  done
+}
+
+
 if [[ -z ${domainlist+x} ]]; then
 for dir in $rootpath/$directory/* ; do
       echo "debug: dir  $dir"
       append $dir
 done
+trap 'kill %1' SIGINT
+remove_unnecessary_dir &
 run_meg
+wait
 else
   sed 's/[[:blank:]]*$//' $domainlist
   while read p ; do
       echo "debug: dir    $rootpath/$directory/$p"
       append $rootpath/$directory/$p
   done < "$domainlist"
+  trap 'kill %1' SIGINT
+  remove_unnecessary_dir &
   run_meg
+  wait
 fi
