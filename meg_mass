@@ -58,7 +58,7 @@ append(){
 }
 
 run_meg(){
-  meg -c $concurrency_threads $wordlist $file_mixed_path $output_dir
+  meg -c $concurrency_threads $wordlist $file_mixed_path $output_dir | tee $output_dir/error.log
 }
 
 remove_unnecessary_dir(){
@@ -73,7 +73,7 @@ remove_unnecessary_dir(){
 run(){
   trap 'kill %1' SIGINT
   remove_unnecessary_dir &
-  run_meg | tee $output_dir/error.log
+  run_meg
   wait
 }
 
@@ -88,7 +88,7 @@ done
 run
 
 else
-  
+
 sed 's/[[:blank:]]*$//' $domainlist
   while read p ; do
       echo "debug: dir    $rootpath/$directory/$p"
