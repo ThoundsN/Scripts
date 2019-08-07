@@ -58,7 +58,7 @@ append(){
 }
 
 run_meg(){
-  meg -c $concurrency_threads $wordlist $file_mixed_path $output_dir | tee $output_dir/error.log
+  meg -c $concurrency_threads $wordlist $file_mixed_path $output_dir | tee $output_dir/error.log 2>&1
 }
 
 remove_unnecessary_dir(){

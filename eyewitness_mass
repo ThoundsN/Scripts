@@ -1,0 +1,103 @@
+#!/bin/bash
+
+rootpath="/root/OneDrive/output"
+
+query="&format=jpg&timeout=10000"
+
+usage(){
+  echo " usage:
+   -d  : path of apex directory where all domains live;
+  -w :keyword which name targeted files  contain .
+  ------------------
+  optional argument -l: domain list to search undr apex directory, if null then search all domain
+    " 1>&2;
+  exit 1
+}
+
+while getopts  ":d:w:l:" option ;
+do
+    case $option in
+        d) directory=$OPTARG
+            ;;
+        w) keyword=$OPTARG
+            ;;
+        l) domainlist=$OPTARG
+            ;;
+        *) usage
+          exit 1
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+
+screenshot(){
+
+  domainname=$1
+  jpgfile=$2
+
+  echo "debug:  starting to screenshot domain_name:   $domainname"
+  echo "debug: will generate new jpg_file: $jpgfile"
+
+  requestedurl=$(screenshotcloud  "url=$domainname$query")
+  echo "debug:  Requested url   $requestedurl"
+  curl -m 120 $requestedurl > $jpgfile
+
+  echo
+  echo
+  echo
+
+}
+
+escape(){
+   echo $1 | awk '{gsub(/\:\/\//,"_")}1'
+}
+
+screenshot_line(){
+  p=$1
+  dir=$2
+  newjpgname=$(escape $p).jpg
+  for file in $rootpath/screenshot/$(basename $dir)/* ; do
+    name=$(basename $file)
+    if [[ $name == $newjpgname ]]; then
+        echo "skipping already existed jpg $name"
+
+        return
+    fi
+  done
+   screenshot   $p  "$rootpath/screenshot/$(basename $dir)/$newjpgname"
+}
+
+export -f screenshot_line
+export -f screenshot
+export -f escape
+export rootpath
+
+
+screenshotdir(){
+   echo
+
+   dir=$1
+   echo "debug: dir      $1"
+   mkdir -p "$rootpath/screenshot/$(basename $dir)"
+   file=$(ls -t $1/*$keyword* | head -1 )
+   echo "debug:  file    $file"
+
+    cat $file| parallel -j40  screenshot_line {} $dir
+
+    echo
+}
+
+
+if [[ -z ${domainlist+x} ]]; then
+  for dir in $rootpath/$directory/* ; do
+     echo "debug: dir  $dir"
+     screenshotdir $dir
+done
+else
+  sed 's/[[:blank:]]*$//' $domainlist
+  while read p ; do
+      echo "debug: dir    $rootpath/$directory/$p"
+      screenshotdir "$rootpath/$directory/$p"
+  done < "$domainlist"
+fi
