@@ -1,7 +1,7 @@
 #!/bin/bash
 
-apiKey="ba71e02d-3f12-41d8-9e09-4007ef00fd52"
-apiSecret="xNwslKDRcB3xJn3flgHPG3m7WJUXTivIdXZuydAa97YQug90dl"
+apiKey="580e4465-e308-4474-a5d8-46a9b85640f3"
+apiSecret="ucQB4oTfUDSzTpGJJSGx2v1daeRP2hjmfHVvIgcJY3qyw7Rdvm"
 queryString="$1"
 token=`printf '%s' "$queryString" | openssl sha1 -hmac "$apiSecret" | sed 's/^.* //'`
 
