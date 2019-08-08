@@ -2,26 +2,29 @@
 
 rootpath="/root/OneDrive/output"
 
-query="&format=jpg&timeout=10000"
+
+input_dir="$rootpath/eyewitness/input"
+output_dir="$rootpath/eyewitness/output"
+mkdir $output_dir
+time=$(date +'%Y-%m-%d-%H-%M')
+mkdir $input_dir
+input_path="$input_dir/${time}_mixed_eyewitness.txt"
+
 
 usage(){
   echo " usage:
    -d  : path of apex directory where all domains live;
   -w :keyword which name targeted files  contain .
-  ------------------
-  optional argument -l: domain list to search undr apex directory, if null then search all domain
     " 1>&2;
   exit 1
 }
 
-while getopts  ":d:w:l:" option ;
+while getopts  ":d:w:" option ;
 do
     case $option in
         d) directory=$OPTARG
             ;;
         w) keyword=$OPTARG
-            ;;
-        l) domainlist=$OPTARG
             ;;
         *) usage
           exit 1
@@ -31,21 +34,12 @@ done
 shift $((OPTIND-1))
 
 
-screenshot(){
+adding_url(){
 
   domainname=$1
-  jpgfile=$2
 
-  echo "debug:  starting to screenshot domain_name:   $domainname"
-  echo "debug: will generate new jpg_file: $jpgfile"
-
-  requestedurl=$(screenshotcloud  "url=$domainname$query")
-  echo "debug:  Requested url   $requestedurl"
-  curl -m 120 $requestedurl > $jpgfile
-
-  echo
-  echo
-  echo
+  echo "debug:  Adding host to $input_path:   $domainname"
+  echo $domainname >> $input_path
 
 }
 
@@ -53,7 +47,7 @@ escape(){
    echo $1 | awk '{gsub(/\:\/\//,"_")}1'
 }
 
-screenshot_line(){
+check_line(){
   p=$1
   dir=$2
   newjpgname=$(escape $p).jpg
@@ -65,17 +59,11 @@ screenshot_line(){
         return
     fi
   done
-   screenshot   $p  "$rootpath/screenshot/$(basename $dir)/$newjpgname"
+   adding_url   $p
 }
 
-export -f screenshot_line
-export -f screenshot
-export -f escape
-export rootpath
 
-
-screenshotdir(){
-   echo
+extract_dir(){
 
    dir=$1
    echo "debug: dir      $1"
@@ -83,21 +71,15 @@ screenshotdir(){
    file=$(ls -t $1/*$keyword* | head -1 )
    echo "debug:  file    $file"
 
-    cat $file| parallel -j40  screenshot_line {} $dir
+    cat $file| parallel -j0  check_line {} $dir
 
+    echo
+    echo
     echo
 }
 
 
-if [[ -z ${domainlist+x} ]]; then
+
   for dir in $rootpath/$directory/* ; do
-     echo "debug: dir  $dir"
-     screenshotdir $dir
+     extract_dir $dir
 done
-else
-  sed 's/[[:blank:]]*$//' $domainlist
-  while read p ; do
-      echo "debug: dir    $rootpath/$directory/$p"
-      screenshotdir "$rootpath/$directory/$p"
-  done < "$domainlist"
-fi
