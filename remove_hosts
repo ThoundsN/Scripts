@@ -4,7 +4,7 @@ import sys
 
 recordfile = sys.argv[1]
 originalfile = sys.argv[2]
-outputfilename = "output_"+todeletefile
+outputfilename = "output_"+originalfile
 
 
 lines_to_save = set()
