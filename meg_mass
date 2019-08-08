@@ -6,12 +6,16 @@ time=$(date +'%Y-%m-%d-%H-%M')
 textname="${time}_meg_mixed_input.txt"
 # wordlist="/root/Wordlist/endpoint/meg.txt"
 
-mkdir -p $rootpath/meg/input
 touch "$rootpath/meg/input/$textname"
-file_mixed_path="$rootpath/meg/input/$textname"
 output_dir="$rootpath/meg/output/${time}_mixed"
+input_dir="$rootpath/meg/input/${time}_inut"
+file_mixed_path="$input_dir/$textname"
+filtered_file_path="$input_dir/filtered_$textname"
+random_file="$rootpath/meg/randompath.txt"
+
 
 mkdir -p $output_dir
+mkdir -p $input_dir
 
 
 usage(){
@@ -57,8 +61,15 @@ append(){
 
 }
 
+test_meg(){
+  meg -c 100 --savestatus 200   $random_file  $file_mixed_path $input_dir
+  find $input_dir -mindepth 1 -maxdepth 1 -type d -print0 | xargs -0 rm -R
+  awk '{print $2}' $input_dir/index | awk -F[/:] '{print $1"://"$4}' | awk '!seen[$0]++'  > $input_dir/host_to_remove
+  comm -2 -3 <(sort $file_mixed_path) <(sort $input_dir/host_to_remove) > $filtered_file_path
+}
+
 run_meg(){
-  meg -c $concurrency_threads $wordlist $file_mixed_path $output_dir | tee $output_dir/error.log 2>&1
+  meg -c $concurrency_threads --savestatus 200 $wordlist $filtered_file_path $output_dir 2>&1 | tee $output_dir/error.log
 }
 
 remove_unnecessary_dir(){

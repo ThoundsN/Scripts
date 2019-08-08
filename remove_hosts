@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+
+import sys
+
+recordfile = sys.argv[1]
+originalfile = sys.argv[2]
+outputfilename = "output_"+todeletefile
+
+
+lines_to_save = set()
+
+
+with open(recordfile, "r",encoding='utf-8') as f:
+    for line in f.readlines():
+        lines_to_save.add(line)
+
+
+line_to_write=[]
+
+with open(originalfile, "r",encoding='utf-8') as f:
+    for line in [line.strip() for line in f.readlines()]:
+        if  any(s in line for s in lines_to_save):
+            line_to_write.append(line)
+
+print(line_to_write)
+
+with open(outputfilename,'w',encoding='utf-8') as w:
+    w.write('\n'.join(line_to_write))
