@@ -19,6 +19,7 @@ line_to_write=[]
 
 with open(originalfile, "r",encoding='utf-8') as f:
      for line in f.readlines():
+            print(line)
         if  any(s in line for s in lines_to_save):
             line_to_write.append(line)
             print(line)
