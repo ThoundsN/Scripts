@@ -8,7 +8,7 @@ textname="${time}_meg_mixed_input.txt"
 
 touch "$rootpath/meg/input/$textname"
 output_dir="$rootpath/meg/output/${time}_mixed"
-input_dir="$rootpath/meg/input/${time}_input"
+input_dir="$rootpath/meg/input/${time}_mixed"
 file_mixed_path="$input_dir/$textname"
 filtered_file_path="$input_dir/filtered_$textname"
 random_file="$rootpath/meg/randompath.txt"
