@@ -59,6 +59,7 @@ append(){
 
     cat $file_to_append >> $file_mixed_path
 
+    echo
 }
 
 test_meg(){
@@ -85,6 +86,7 @@ remove_unnecessary_dir(){
 
 run(){
   trap 'kill %1' SIGINT
+  test_meg
   remove_unnecessary_dir &
   run_meg
   wait
