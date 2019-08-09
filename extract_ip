@@ -1,0 +1,63 @@
+#!/bin/bash
+
+rootpath="/root/OneDrive/output"
+
+time=$(date +'%Y-%m-%d-%H-%M')
+
+mkdir $rootpath/ip
+
+hostfile="$rootpath/ip/${time}_hosts.txt"
+subdomainfile="$rootpath/ip/${time}_mixed_subdomain.txt"
+mass_dnsrecord="$rootpath/ip/${time}_mixed_massdns.txt"
+ipfile="$rootpath/ip/${time}_mixed_ip.txt"
+
+touch $hostfile
+touch $subdomainfile
+touch $mass_dnsrecord
+
+usage(){
+  echo " usage:
+   -d  : path of apex directory where all domains live;
+  -w :keyword which name targeted files  contain .
+    " 1>&2;
+  exit 1
+}
+
+while getopts  ":d:w:" option ;
+do
+    case $option in
+        d) directory=$OPTARG
+            ;;
+        w) keyword=$OPTARG
+            ;;
+        *) usage
+          exit 1
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+
+
+extract_dir(){
+
+   dir=$1
+   echo "debug: dir      $1"
+   file=$(ls -t $1/*$keyword* | head -1 )
+   echo "debug:  file    $file"
+
+    cat $file >> $hostfile
+
+    echo
+}
+
+
+for dir in $rootpath/$directory/*; do
+  extract_dir $dir
+done
+
+awk -F[/:] '{print $4}' $hostfile | awk '!seen[$0]++' > $subdomainfile
+
+massdns   -r ~/Wordlist/resolver.txt -t A -o S $subdomainfile --outfile  $mass_dnsrecord
+
+grep -Eo "(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])" $mass_dnsrecord | sort | uniq > $ipfile

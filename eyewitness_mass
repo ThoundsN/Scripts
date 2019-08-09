@@ -67,7 +67,6 @@ extract_dir(){
 
    dir=$1
    echo "debug: dir      $1"
-   mkdir -p "$rootpath/screenshot/$(basename $dir)"
    file=$(ls -t $1/*$keyword* | head -1 )
    echo "debug:  file    $file"
 
