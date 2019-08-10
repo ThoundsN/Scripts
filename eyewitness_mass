@@ -63,14 +63,14 @@ check_line(){
    adding_url   $p
 }
 
-export -f check_line
-export -f adding_url
-export -f escape
-export input_path
-export input_dir
-export output_dir
-export time
-export rootpath
+# export -f check_line
+# export -f adding_url
+# export -f escape
+# export input_path
+# export input_dir
+# export output_dir
+# export time
+# export rootpath
 
 
 
@@ -81,7 +81,11 @@ extract_dir(){
    file=$(ls -t $1/*$keyword* | head -1 )
    echo "debug:  file    $file"
 
-    cat $file| parallel -j0  check_line {} $dir
+    # cat $file| parallel -j0  check_line {} $dir
+    while read p; do
+      check_line $p $dir
+    done < $file
+
 
     echo
     echo
