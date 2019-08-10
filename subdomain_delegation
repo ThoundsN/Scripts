@@ -75,7 +75,7 @@ check_aws(){
   resp=$(dig $domain ns)
   echo $resp
 
-  if cat $resp | grep -q 'aws'; then
+  if echo $resp | grep -q 'aws'; then
       echo "Starting to investigate $domain"
   else
     echo "This domain doesn't use aws, no need to do further check "
