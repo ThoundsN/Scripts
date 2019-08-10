@@ -9,6 +9,7 @@ mkdir -p $output_dir
 time=$(date +'%Y-%m-%d-%H-%M')
 mkdir -p $input_dir
 input_path="$input_dir/${time}_mixed_eyewitness.txt"
+touch $input_path
 
 
 usage(){
