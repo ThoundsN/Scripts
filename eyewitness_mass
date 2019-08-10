@@ -62,6 +62,7 @@ check_line(){
    adding_url   $p
 }
 
+export -f check_line
 
 extract_dir(){
 
