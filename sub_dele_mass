@@ -3,6 +3,10 @@
 rootpath="/root/OneDrive/output"
 
 for dir in $rootpath/subdomain/* ; do
-   echo "debug: dir  $dir"
-   subdomain_delegation $(basename $dir)
+   echo "debug: dir  $(basename $dir)"
+   subdomain_delegation -d $(basename $dir)
+
+   echo
+   echo
+   echo
 done

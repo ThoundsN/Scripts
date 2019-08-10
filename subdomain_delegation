@@ -74,12 +74,17 @@ clear(){
 check_aws(){
   resp=$(dig $domain ns)
   echo $resp
-  echo
-  echo
-  if [[ ! $resp =~ "aws" ]]; then
-     echo "This domain doesn't use aws, no need to do further check "
-     exit 0
+  
+  if cat $resp | grep -q 'aws'; then
+    echo "This domain doesn't use aws, no need to do further check "
+    exit 0
   fi
+  echo
+  echo
+  # if [[ ! $resp =~ "aws" ]]; then
+  #    echo "This domain doesn't use aws, no need to do further check "
+  #    exit 0
+  # fi
 }
 
 main(){
