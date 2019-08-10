@@ -5,9 +5,9 @@ rootpath="/root/OneDrive/output"
 
 input_dir="$rootpath/eyewitness/input"
 output_dir="$rootpath/eyewitness/output"
-mkdir $output_dir
+mkdir -p $output_dir
 time=$(date +'%Y-%m-%d-%H-%M')
-mkdir $input_dir
+mkdir -p $input_dir
 input_path="$input_dir/${time}_mixed_eyewitness.txt"
 
 
@@ -63,6 +63,8 @@ check_line(){
 }
 
 export -f check_line
+export -f adding_url
+export -f escape
 
 extract_dir(){
 
