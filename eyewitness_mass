@@ -66,6 +66,13 @@ check_line(){
 export -f check_line
 export -f adding_url
 export -f escape
+export input_path
+export input_dir
+export output_dir
+export time
+export rootpath
+
+
 
 extract_dir(){
 
