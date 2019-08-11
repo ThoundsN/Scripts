@@ -1,0 +1,40 @@
+#!/bin/bash
+
+rootpath="/root/OneDrive/output/masscan"
+outputpath="$rootpath/output/$time"
+
+time=$(date +'%Y-%m-%d-%H-%M')
+mkdir -p $outputpath/$time
+
+usage(){
+  echo " usage:
+   -d  : file name  ;
+    " 1>&2;
+  exit 1
+}
+
+while getopts  ":d:" option ;
+do
+    case $option in
+        d) inputfile=$OPTARG
+            ;;
+
+        *) usage
+          exit 1
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+outfile=$outputpath/nmap.out
+touch $outfile
+
+
+nmap_one(){
+  nmap -sV -T3 -p $1 $2 -g 60000 --version-intensity 8 -oG $outfile
+}
+
+export -f nmap_one
+export outfile
+
+cat $inputfile | parallel -j50 nmap_one
