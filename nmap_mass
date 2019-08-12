@@ -26,15 +26,16 @@ do
 done
 shift $((OPTIND-1))
 
-
+outfile=$outputpath/nmap.out
+touch $outfile
 
 
 nmap_one(){
-  outfile=$outputpath/${1}_nmap.out
-  touch $outfile
-  nmap -sV -T3 -p$2   -g 60000 --version-intensity 8 -oG $outfile $1
+
+  nmap -sV -T3 -p$2   -g 60000 --version-intensity 8 -$1 >> $outfile
 }
 
 export -f nmap_one
+export outfile
 
 parallel -j10 --colsep ' ' nmap_one {1} {2}  :::: $inputfile
