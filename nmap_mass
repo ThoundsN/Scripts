@@ -37,4 +37,4 @@ nmap_one(){
 
 export -f nmap_one
 
-parallel -j10 --closep ' ' nmap_one {1} {2}  :::: $inputfile
+parallel -j10 --colsep ' ' nmap_one {1} {2}  :::: $inputfile
