@@ -31,10 +31,10 @@ touch $outfile
 
 
 nmap_one(){
-  nmap -sV -T3 -p $1 $2 -g 60000 --version-intensity 8 -oG $outfile
+  nmap -sV -T3 -p$1 $2 -g 60000 --version-intensity 8 -oG $outfile
 }
 
 export -f nmap_one
 export outfile
 
-cat $inputfile | parallel -j50 nmap_one
+cat $inputfile | parallel -j20 nmap_one

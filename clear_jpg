@@ -1,0 +1,9 @@
+#!/bin/bash 
+
+dir=$1
+last=-1; find $dir -type f -name '*.jpg' -printf '%f\0' | sort -nz |
+  while read -d '' i; do
+      s=$(stat -c '%s' "$i");
+      [[ $s = $last ]] || mv "$i" $photo_path;
+  last=$s;
+done
