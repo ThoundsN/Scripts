@@ -15,12 +15,16 @@ processing(){
 previous=dummy
 after=ymmuy
 pwd=$(pwd)
+index=0
 
 before=$(wc -l /root/Wordlist/resolver.txt| awk '{print $1}')
 
 
 
-while [[ $previous != "$after" ]]; do
+while [[ $index -le 10 ]]; do
+  if [[ $previous -eq $after ]]; then
+    index=$index+1
+  fi
   previous=$(wc -l /root/Wordlist/resolver.txt| awk '{print $1}')
   echo "before $previous"
   processing
