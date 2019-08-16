@@ -16,15 +16,15 @@ previous=dummy
 after=ymmuy
 pwd=$(pwd)
 
-before=$(wc -l /root/Wordlist/resolver.txt| awk 'print {1}')
+before=$(wc -l /root/Wordlist/resolver.txt| awk '{print $1}')
 
 
 
 while [[ $previous != "$after" ]]; do
-  previous=$(wc -l /root/Wordlist/resolver.txt| awk 'print {1}')
+  previous=$(wc -l /root/Wordlist/resolver.txt| awk '{print $1}')
   echo "before $previous"
   processing
-  after=$(wc -l /root/Wordlist/resolver.txt| awk 'print {1}')
+  after=$(wc -l /root/Wordlist/resolver.txt|  awk '{print $1}')
   echo "after $after"
 
 done
