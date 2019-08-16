@@ -9,7 +9,7 @@ def randomString(stringLength=10):
     return ''.join(random.choice(letters) for i in range(stringLength))
 
 with open("Generated_domain.txt", 'w', encoding='utf-8') as w :
-    for i in range(100000):
+    for i in range(122222):
         w.write(randomString(5)+'.dev.jupiterone.io')
         w.write('\n')
 
