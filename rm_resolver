@@ -22,17 +22,17 @@ before=$(wc -l /root/Wordlist/resolver.txt| awk '{print $1}')
 
 
 while [[ $index -le 10 ]]; do
-  if [[ $previous -eq $after ]]; then
-    index=$index+1
-  else
-    index=0
-  fi
+
   previous=$(wc -l /root/Wordlist/resolver.txt| awk '{print $1}')
   processing
   after=$(wc -l /root/Wordlist/resolver.txt|  awk '{print $1}')
 
   echo "current $after"
-
+  if [[ $previous -eq $after ]]; then
+    index=$index+1
+  else
+    index=0
+  fi
 done
 
 cd $pwd
