@@ -20,7 +20,7 @@ before=$(wc -l /root/Wordlist/resolver.txt| awk 'print {1}')
 
 
 
-while [[ $previous -nq $after ]]; do
+while [[ $previous != "$after" ]]; do
   previous=$(wc -l /root/Wordlist/resolver.txt| awk 'print {1}')
   echo "before $previous"
   processing
