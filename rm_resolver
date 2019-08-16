@@ -1,17 +1,38 @@
 #!/bin/bash
-wc -l /root/Wordlist/resolver.txt
 
+processing(){
+  cd /tmp
+  python3 ~/recon_tools/Scripts/python/random_domain.py
+
+  massdns -r /root/Wordlist/resolver.txt Generated_domain.txt.1  -t A -o F -w  /tmp/test.massdns
+
+  grep -B 3 --no-group-separator -i -E "noerror|refused|servfail"  test.massdns| sed -n 1~4p| awk -F: '{print $2}'| awk '{$1=$1}1' | awk '!seen[$0]++' > bad_resolvers.txt
+
+  comm -2 -3 <(sort /root/Wordlist/resolver.txt) <(sort /tmp/bad_resolvers.txt) > /tmp/resolver.txt
+  mv /tmp/resolver.txt /root/Wordlist/resolver.txt
+}
+
+previous=dummy
+after=ymmuy
 pwd=$(pwd)
-cd /tmp
-python3 ~/recon_tools/Scripts/python/random_domain.py
 
-massdns -r /root/Wordlist/resolver.txt Generated_domain.txt.1  -t A -o F -w  /tmp/test.massdns
+before=$(wc -l /root/Wordlist/resolver.txt| awk 'print {1}')
 
-grep -B 3 --no-group-separator -i -E "noerror|refused|servfail"  test.massdns| sed -n 1~4p| awk -F: '{print $2}'| awk '{$1=$1}1' | awk '!seen[$0]++' > bad_resolvers.txt
 
-comm -2 -3 <(sort /root/Wordlist/resolver.txt) <(sort /tmp/bad_resolvers.txt) > /tmp/resolver.txt
-mv /tmp/resolver.txt /root/Wordlist/resolver.txt
 
-wc -l /root/Wordlist/resolver.txt
+while [[ $previous -nq $after ]]; do
+  previous=$(wc -l /root/Wordlist/resolver.txt| awk 'print {1}')
+  echo "before $previous"
+  processing
+  after=$(wc -l /root/Wordlist/resolver.txt| awk 'print {1}')
+  echo "after $after"
+
+done
 
 cd $pwd
+
+
+echo "Finished!!!
+      before: $before
+      now: $after
+"
