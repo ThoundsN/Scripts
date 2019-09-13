@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+ffuf_Wordlist=/root/Wordlist/endpoint/10w_common.txt
+
+usage() { echo -e "Usage: $0 -f input file, -o output " 1>&2; exit 1; }
+
+while getopts ":f:o" o; do
+    case "${o}" in
+      f) input=$OPTARG
+        ;;
+      o) output=$OPTARG
+          ;;
+      *) usage
+        exit 1
+          ;;
+    esac
+done
+shift $((OPTIND - 1))
+
+touch $output
+
+ffuf_one(){
+    echo "ffufing $1 "
+    ffuf -w $ffuf_Wordlist   -u $1/FUZZ -se  -mc 200 >> $output
+}
+
+export -f ffuf_one
+export output
+
+  cat $input | parallel -j2 ffuf_one {}
