@@ -3,7 +3,7 @@ ffuf_Wordlist=/root/Wordlist/endpoint/10w_common.txt
 
 usage() { echo -e "Usage: $0 -f input file, -o output " 1>&2; exit 1; }
 
-while getopts ":f:o" o; do
+while getopts ":f:o:" o; do
     case "${o}" in
       f) input=$OPTARG
         ;;
