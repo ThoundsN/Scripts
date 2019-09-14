@@ -17,6 +17,8 @@ done
 shift $((OPTIND - 1))
 
 touch $output
+export output
+
 
 ffuf_one(){
     echo "ffufing $1 "
@@ -24,6 +26,5 @@ ffuf_one(){
 }
 
 export -f ffuf_one
-export output
 
   cat $input | parallel -j2 ffuf_one {}
