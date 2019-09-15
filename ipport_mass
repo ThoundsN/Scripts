@@ -36,5 +36,5 @@ parallel -j10 --colsep ' ' nmap_one {1} {2}  :::: $outputdir/open_ip_port.txt
 
 touch $outputdir/ip_services.txt
 cd $outputdir/nmap/
-ls | xargs cat  >> $outputdir/ip_services.txt
+ls | xargs cat  > $outputdir/ip_services.txt
 cd -
