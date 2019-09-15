@@ -1,0 +1,40 @@
+#!/bin/bash
+
+usage() { echo -e "Usage: $0 -f input file which containing lots of ip, one ip a row in the common format
+;
+ -o output directory" 1>&2; exit 1; }
+
+while getopts ":f:o:" o; do
+    case "${o}" in
+      f) inputfile=$OPTARG
+        ;;
+      o) outputdir=$OPTARG
+          ;;
+      *) usage
+        exit 1
+          ;;
+    esac
+done
+shift $((OPTIND - 1))
+
+nmap_one(){
+  nmap  --script nmap-vulners,vulscan --script-args vulscandb=scipvuldb.csv -sV -T3 -p$2   -g 61000 --version-intensity 8 $1 | tee  $outputdir/nmap/${1}_${2}.out
+}
+
+export -f nmap_one
+export outputdir
+
+mkdir -p $outputdir/nmap/
+
+
+masscan  -p1-65535 -iL $inputfile --source-port 61000 --rate 50000 -oL  $outputdir/masscan.out
+
+awk '{print $4,$3}' $outputdir/masscan.out | sed '/^[[:space:]]*$/d' > $outputdir/open_ip_port.txt
+
+parallel -j10 --colsep ' ' nmap_one {1} {2}  :::: $outputdir/open_ip_port.txt
+
+
+touch $outputdir/ip_services.txt
+cd $outputdir/nmap/
+ls | xargs cat  >> $outputdir/ip_services.txt
+cd -
