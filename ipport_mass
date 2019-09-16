@@ -18,7 +18,7 @@ done
 shift $((OPTIND - 1))
 
 nmap_one(){
-  nmap  --script nmap-vulners,vulscan --script-args vulscandb=cve.csv -sV -T3 -p$2   -g 61000 --version-intensity 8 $1 | tee  $outputdir/nmap/${1}_${2}.out
+  nmap  --script vulners,vulscan --script-args vulscandb=cve.csv -sV -T3 -p$2   -g 61000 --version-intensity 9 $1 | tee  $outputdir/nmap/${1}_${2}.out
 }
 
 export -f nmap_one
