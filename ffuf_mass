@@ -23,7 +23,7 @@ export ffuf_Wordlist
 
 ffuf_one(){
     echo "ffufing $1 "
-    ffuf -w $ffuf_Wordlist   -u $1/FUZZ -se -fs 0  >> $output
+    ffuf -w $ffuf_Wordlist   -u $1/FUZZ -se -fs 0 -fw 1  >> $output
 }
 
 export -f ffuf_one
