@@ -23,7 +23,7 @@ export ffuf_Wordlist
 
 ffuf_one(){
     echo "ffufing $1 "
-    ffuf -w $ffuf_Wordlist   -u $1/FUZZ -se -fs 0 -fw 1  >> $outputdir/ffuf_ouput.txt
+    ffuf -w $ffuf_Wordlist   -u $1/FUZZ -se -fs 0 -fw 1  >> $outputdir/ffuf_output.txt
 }
 
 export -f ffuf_one
@@ -31,5 +31,5 @@ export -f ffuf_one
   cat $input | parallel -j2 ffuf_one {}
 
 cd $outputdir
-python3 ~/recon_tools/Scripts/python/ffuf_filter.py $outputdir/ffuf_ouput.txt
+python3 ~/recon_tools/Scripts/python/ffuf_filter.py $outputdir/ffuf_output.txt
 cd -

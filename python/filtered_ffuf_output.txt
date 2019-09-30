@@ -1,0 +1,1364 @@
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://runbyyou.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://community.staging.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+index.php,v             [Status: 200, Size: 127202, Words: 63364]
+globals.php,v           [Status: 200, Size: 127202, Words: 63364]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+soap                    [Status: 200, Size: 0, Words: 1]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://redir.info.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://id.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://publicapi.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://nid.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://images.info.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://teststudio.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://studio.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://mirror.info.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://mirror2.info.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+remove.php              [Status: 200, Size: 844, Words: 26]
+VolumeFeed.php          [Status: 200, Size: 844, Words: 26]
+Firebird                [Status: 200, Size: 844, Words: 26]
+AsyncMessage.php        [Status: 200, Size: 844, Words: 26]
+RemotingMessage.php     [Status: 200, Size: 844, Words: 26]
+Viewability.php         [Status: 200, Size: 844, Words: 26]
+BinaryStream.php        [Status: 200, Size: 844, Words: 26]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+top.htm                 [Status: 200, Size: 846, Words: 26]
+class.wsdlcache.php     [Status: 200, Size: 846, Words: 26]
+Deserializer.php        [Status: 200, Size: 846, Words: 26]
+player.php              [Status: 200, Size: 846, Words: 26]
+ThumbnailLink.php       [Status: 200, Size: 846, Words: 26]
+PreviewLink.php         [Status: 200, Size: 846, Words: 26]
+ASPNETDB.MDF            [Status: 200, Size: 845, Words: 26]
+Hook                    [Status: 200, Size: 845, Words: 26]
+Association             [Status: 200, Size: 845, Words: 26]
+Recorded.php            [Status: 200, Size: 845, Words: 26]
+BooksCategory.php       [Status: 200, Size: 845, Words: 26]
+Embeddability.php       [Status: 200, Size: 845, Words: 26]
+CommandMessage.php      [Status: 200, Size: 845, Words: 26]
+Log.cs                  [Status: 200, Size: 847, Words: 26]
+DublinCore.php          [Status: 200, Size: 847, Words: 26]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://surveys.info.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+Log.cs                  [Status: 200, Size: 847, Words: 26]
+DublinCore.php          [Status: 200, Size: 847, Words: 26]
+my_MM.xml               [Status: 200, Size: 847, Words: 26]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+ElementFactory.php      [Status: 200, Size: 842, Words: 26]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://redir2.info.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+Log.cs                  [Status: 200, Size: 847, Words: 26]
+DublinCore.php          [Status: 200, Size: 847, Words: 26]
+my_MM.xml               [Status: 200, Size: 847, Words: 26]
+ImageUniqueId.php       [Status: 200, Size: 847, Words: 26]
+MediaCredit.php         [Status: 200, Size: 847, Words: 26]
+FStop.php               [Status: 200, Size: 847, Words: 26]
+MediaCategory.php       [Status: 200, Size: 847, Words: 26]
+BytesUsed.php           [Status: 200, Size: 847, Words: 26]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+ElementFactory.php      [Status: 200, Size: 842, Words: 26]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://returns.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+ElementFactory.php      [Status: 200, Size: 842, Words: 26]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://labs.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+ElementFactory.php      [Status: 200, Size: 842, Words: 26]
+index.php               [Status: 200, Size: 55085, Words: 11303]
+site                    [Status: 200, Size: 55085, Words: 11303]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://peer2peer.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+ElementFactory.php      [Status: 200, Size: 842, Words: 26]
+index.php               [Status: 200, Size: 55085, Words: 11303]
+site                    [Status: 200, Size: 55085, Words: 11303]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://push.info.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+ElementFactory.php      [Status: 200, Size: 842, Words: 26]
+de_CH.xml               [Status: 200, Size: 842, Words: 26]
+dv.xml                  [Status: 200, Size: 842, Words: 26]
+index.php               [Status: 200, Size: 55085, Words: 11303]
+site                    [Status: 200, Size: 55085, Words: 11303]
+browse                  [Status: 200, Size: 45127, Words: 5036]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://www.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+ElementFactory.php      [Status: 200, Size: 842, Words: 26]
+de_CH.xml               [Status: 200, Size: 842, Words: 26]
+dv.xml                  [Status: 200, Size: 842, Words: 26]
+index.php               [Status: 200, Size: 55085, Words: 11303]
+site                    [Status: 200, Size: 55085, Words: 11303]
+browse                  [Status: 200, Size: 45127, Words: 5036]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://support.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+ElementFactory.php      [Status: 200, Size: 842, Words: 26]
+de_CH.xml               [Status: 200, Size: 842, Words: 26]
+dv.xml                  [Status: 200, Size: 842, Words: 26]
+index.php               [Status: 200, Size: 55085, Words: 11303]
+site                    [Status: 200, Size: 55085, Words: 11303]
+browse                  [Status: 200, Size: 45127, Words: 5036]
+?                       [Status: 200, Size: 55120, Words: 11307]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://staging-giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+ElementFactory.php      [Status: 200, Size: 842, Words: 26]
+de_CH.xml               [Status: 200, Size: 842, Words: 26]
+dv.xml                  [Status: 200, Size: 842, Words: 26]
+index.php               [Status: 200, Size: 55085, Words: 11303]
+site                    [Status: 200, Size: 55085, Words: 11303]
+browse                  [Status: 200, Size: 45127, Words: 5036]
+Browse                  [Status: 200, Size: 45127, Words: 5036]
+?                       [Status: 200, Size: 55120, Words: 11307]
+Site                    [Status: 200, Size: 55120, Words: 11307]
+index.php/              [Status: 200, Size: 55120, Words: 11307]
+how                     [Status: 200, Size: 35693, Words: 4873]
+mine                    [Status: 200, Size: 36584, Words: 4971]
+                        [Status: 200, Size: 55082, Words: 11305]
+index-test.php          [Status: 200, Size: 55116, Words: 11307]
+How                     [Status: 200, Size: 35731, Words: 4875]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://preview.community.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+ElementFactory.php      [Status: 200, Size: 842, Words: 26]
+de_CH.xml               [Status: 200, Size: 842, Words: 26]
+dv.xml                  [Status: 200, Size: 842, Words: 26]
+index.php               [Status: 200, Size: 55085, Words: 11303]
+site                    [Status: 200, Size: 55085, Words: 11303]
+browse                  [Status: 200, Size: 45127, Words: 5036]
+Browse                  [Status: 200, Size: 45127, Words: 5036]
+?                       [Status: 200, Size: 55120, Words: 11307]
+Site                    [Status: 200, Size: 55120, Words: 11307]
+index.php/              [Status: 200, Size: 55120, Words: 11307]
+how                     [Status: 200, Size: 35693, Words: 4873]
+mine                    [Status: 200, Size: 36584, Words: 4971]
+                        [Status: 200, Size: 55082, Words: 11305]
+index-test.php          [Status: 200, Size: 55116, Words: 11307]
+How                     [Status: 200, Size: 35731, Words: 4875]
+robots.txt              [Status: 200, Size: 23, Words: 3]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://info.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+ElementFactory.php      [Status: 200, Size: 842, Words: 26]
+de_CH.xml               [Status: 200, Size: 842, Words: 26]
+dv.xml                  [Status: 200, Size: 842, Words: 26]
+index.php               [Status: 200, Size: 55085, Words: 11303]
+site                    [Status: 200, Size: 55085, Words: 11303]
+browse                  [Status: 200, Size: 45127, Words: 5036]
+Browse                  [Status: 200, Size: 45127, Words: 5036]
+?                       [Status: 200, Size: 55120, Words: 11307]
+Site                    [Status: 200, Size: 55120, Words: 11307]
+index.php/              [Status: 200, Size: 55120, Words: 11307]
+how                     [Status: 200, Size: 35693, Words: 4873]
+mine                    [Status: 200, Size: 36584, Words: 4971]
+                        [Status: 200, Size: 55082, Words: 11305]
+index-test.php          [Status: 200, Size: 55116, Words: 11307]
+How                     [Status: 200, Size: 35731, Words: 4875]
+robots.txt              [Status: 200, Size: 23, Words: 3]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://support.staging.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+ElementFactory.php      [Status: 200, Size: 842, Words: 26]
+de_CH.xml               [Status: 200, Size: 842, Words: 26]
+dv.xml                  [Status: 200, Size: 842, Words: 26]
+index.php               [Status: 200, Size: 55085, Words: 11303]
+site                    [Status: 200, Size: 55085, Words: 11303]
+browse                  [Status: 200, Size: 45127, Words: 5036]
+Browse                  [Status: 200, Size: 45127, Words: 5036]
+?                       [Status: 200, Size: 55120, Words: 11307]
+Site                    [Status: 200, Size: 55120, Words: 11307]
+index.php/              [Status: 200, Size: 55120, Words: 11307]
+how                     [Status: 200, Size: 35693, Words: 4873]
+mine                    [Status: 200, Size: 36584, Words: 4971]
+                        [Status: 200, Size: 55082, Words: 11305]
+index-test.php          [Status: 200, Size: 55116, Words: 11307]
+How                     [Status: 200, Size: 35731, Words: 4875]
+robots.txt              [Status: 200, Size: 23, Words: 3]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://community.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+ElementFactory.php      [Status: 200, Size: 842, Words: 26]
+de_CH.xml               [Status: 200, Size: 842, Words: 26]
+dv.xml                  [Status: 200, Size: 842, Words: 26]
+index.php               [Status: 200, Size: 55085, Words: 11303]
+site                    [Status: 200, Size: 55085, Words: 11303]
+browse                  [Status: 200, Size: 45127, Words: 5036]
+Browse                  [Status: 200, Size: 45127, Words: 5036]
+?                       [Status: 200, Size: 55120, Words: 11307]
+Site                    [Status: 200, Size: 55120, Words: 11307]
+index.php/              [Status: 200, Size: 55120, Words: 11307]
+how                     [Status: 200, Size: 35693, Words: 4873]
+mine                    [Status: 200, Size: 36584, Words: 4971]
+                        [Status: 200, Size: 55082, Words: 11305]
+index-test.php          [Status: 200, Size: 55116, Words: 11307]
+How                     [Status: 200, Size: 35731, Words: 4875]
+robots.txt              [Status: 200, Size: 23, Words: 3]
+api                     [Status: 200, Size: 39704, Words: 359]
+robots.txt              [Status: 200, Size: 76, Words: 4]
+tags                    [Status: 200, Size: 54891, Words: 7104]
+0                       [Status: 200, Size: 134861, Words: 8794]
+sitemap.xml             [Status: 200, Size: 3909, Words: 4]
+all                     [Status: 200, Size: 134851, Words: 8764]
+?                       [Status: 200, Size: 132371, Words: 8466]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://static.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+ElementFactory.php      [Status: 200, Size: 842, Words: 26]
+de_CH.xml               [Status: 200, Size: 842, Words: 26]
+dv.xml                  [Status: 200, Size: 842, Words: 26]
+index.php               [Status: 200, Size: 55085, Words: 11303]
+site                    [Status: 200, Size: 55085, Words: 11303]
+browse                  [Status: 200, Size: 45127, Words: 5036]
+Browse                  [Status: 200, Size: 45127, Words: 5036]
+?                       [Status: 200, Size: 55120, Words: 11307]
+Site                    [Status: 200, Size: 55120, Words: 11307]
+index.php/              [Status: 200, Size: 55120, Words: 11307]
+how                     [Status: 200, Size: 35693, Words: 4873]
+mine                    [Status: 200, Size: 36584, Words: 4971]
+                        [Status: 200, Size: 55082, Words: 11305]
+index-test.php          [Status: 200, Size: 55116, Words: 11307]
+How                     [Status: 200, Size: 35731, Words: 4875]
+robots.txt              [Status: 200, Size: 23, Words: 3]
+api                     [Status: 200, Size: 39704, Words: 359]
+robots.txt              [Status: 200, Size: 76, Words: 4]
+tags                    [Status: 200, Size: 54891, Words: 7104]
+0                       [Status: 200, Size: 134861, Words: 8794]
+sitemap.xml             [Status: 200, Size: 3909, Words: 4]
+all                     [Status: 200, Size: 134851, Words: 8764]
+?                       [Status: 200, Size: 132371, Words: 8466]
+?:                      [Status: 200, Size: 137020, Words: 8756]
+                        [Status: 200, Size: 136555, Words: 8815]
+?level=12               [Status: 200, Size: 136555, Words: 8815]
+?&what=                 [Status: 200, Size: 136555, Words: 8815]
+?favorites              [Status: 200, Size: 136555, Words: 8815]
+?msk                    [Status: 200, Size: 136555, Words: 8815]
+?*                      [Status: 200, Size: 136555, Words: 8815]
+api/                    [Status: 200, Size: 39661, Words: 358]
+?q=*                    [Status: 200, Size: 114515, Words: 5542]
+following               [Status: 200, Size: 45971, Words: 1321]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://phonefinder.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+ElementFactory.php      [Status: 200, Size: 842, Words: 26]
+de_CH.xml               [Status: 200, Size: 842, Words: 26]
+dv.xml                  [Status: 200, Size: 842, Words: 26]
+index.php               [Status: 200, Size: 55085, Words: 11303]
+site                    [Status: 200, Size: 55085, Words: 11303]
+browse                  [Status: 200, Size: 45127, Words: 5036]
+Browse                  [Status: 200, Size: 45127, Words: 5036]
+?                       [Status: 200, Size: 55120, Words: 11307]
+Site                    [Status: 200, Size: 55120, Words: 11307]
+index.php/              [Status: 200, Size: 55120, Words: 11307]
+how                     [Status: 200, Size: 35693, Words: 4873]
+mine                    [Status: 200, Size: 36584, Words: 4971]
+                        [Status: 200, Size: 55082, Words: 11305]
+index-test.php          [Status: 200, Size: 55116, Words: 11307]
+How                     [Status: 200, Size: 35731, Words: 4875]
+robots.txt              [Status: 200, Size: 23, Words: 3]
+api                     [Status: 200, Size: 39704, Words: 359]
+robots.txt              [Status: 200, Size: 76, Words: 4]
+tags                    [Status: 200, Size: 54891, Words: 7104]
+0                       [Status: 200, Size: 134861, Words: 8794]
+sitemap.xml             [Status: 200, Size: 3909, Words: 4]
+all                     [Status: 200, Size: 134851, Words: 8764]
+?                       [Status: 200, Size: 132371, Words: 8466]
+?:                      [Status: 200, Size: 137020, Words: 8756]
+                        [Status: 200, Size: 136555, Words: 8815]
+?level=12               [Status: 200, Size: 136555, Words: 8815]
+?&what=                 [Status: 200, Size: 136555, Words: 8815]
+?favorites              [Status: 200, Size: 136555, Words: 8815]
+?msk                    [Status: 200, Size: 136555, Words: 8815]
+?*                      [Status: 200, Size: 136555, Words: 8815]
+api/                    [Status: 200, Size: 39661, Words: 358]
+?q=*                    [Status: 200, Size: 114515, Words: 5542]
+following               [Status: 200, Size: 45971, Words: 1321]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://phonefinder.staging.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+ElementFactory.php      [Status: 200, Size: 842, Words: 26]
+de_CH.xml               [Status: 200, Size: 842, Words: 26]
+dv.xml                  [Status: 200, Size: 842, Words: 26]
+index.php               [Status: 200, Size: 55085, Words: 11303]
+site                    [Status: 200, Size: 55085, Words: 11303]
+browse                  [Status: 200, Size: 45127, Words: 5036]
+Browse                  [Status: 200, Size: 45127, Words: 5036]
+?                       [Status: 200, Size: 55120, Words: 11307]
+Site                    [Status: 200, Size: 55120, Words: 11307]
+index.php/              [Status: 200, Size: 55120, Words: 11307]
+how                     [Status: 200, Size: 35693, Words: 4873]
+mine                    [Status: 200, Size: 36584, Words: 4971]
+                        [Status: 200, Size: 55082, Words: 11305]
+index-test.php          [Status: 200, Size: 55116, Words: 11307]
+How                     [Status: 200, Size: 35731, Words: 4875]
+robots.txt              [Status: 200, Size: 23, Words: 3]
+api                     [Status: 200, Size: 39704, Words: 359]
+robots.txt              [Status: 200, Size: 76, Words: 4]
+tags                    [Status: 200, Size: 54891, Words: 7104]
+0                       [Status: 200, Size: 134861, Words: 8794]
+sitemap.xml             [Status: 200, Size: 3909, Words: 4]
+all                     [Status: 200, Size: 134851, Words: 8764]
+?                       [Status: 200, Size: 132371, Words: 8466]
+?:                      [Status: 200, Size: 137020, Words: 8756]
+                        [Status: 200, Size: 136555, Words: 8815]
+?level=12               [Status: 200, Size: 136555, Words: 8815]
+?&what=                 [Status: 200, Size: 136555, Words: 8815]
+?favorites              [Status: 200, Size: 136555, Words: 8815]
+?msk                    [Status: 200, Size: 136555, Words: 8815]
+?*                      [Status: 200, Size: 136555, Words: 8815]
+api/                    [Status: 200, Size: 39661, Words: 358]
+?q=*                    [Status: 200, Size: 114515, Words: 5542]
+following               [Status: 200, Size: 45971, Words: 1321]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://support-staging.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
+.DS_Store               [Status: 200, Size: 14340, Words: 40]
+404.html                [Status: 200, Size: 18676, Words: 5133]
+feed.xml                [Status: 200, Size: 16586, Words: 1871]
+LICENSE.txt             [Status: 200, Size: 1079, Words: 155]
+README.md               [Status: 200, Size: 247, Words: 28]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+favicon.ico             [Status: 200, Size: 5425, Words: 33]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+.DS_Store               [Status: 200, Size: 10244, Words: 18]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+app.js                  [Status: 200, Size: 1019725, Words: 17958]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+favicon.ico             [Status: 200, Size: 4281, Words: 16]
+README.md               [Status: 200, Size: 47, Words: 4]
+README.md               [Status: 200, Size: 47, Words: 4]
+avanzi                  [Status: 200, Size: 739, Words: 24]
+automne                 [Status: 200, Size: 739, Words: 24]
+auxiliary               [Status: 200, Size: 738, Words: 24]
+auto-transport          [Status: 200, Size: 738, Words: 24]
+avo                     [Status: 200, Size: 738, Words: 24]
+banmanager              [Status: 200, Size: 738, Words: 24]
+autotopup               [Status: 200, Size: 735, Words: 24]
+autovermietung          [Status: 200, Size: 735, Words: 24]
+ayudas                  [Status: 200, Size: 735, Words: 24]
+b12                     [Status: 200, Size: 735, Words: 24]
+backk                   [Status: 200, Size: 735, Words: 24]
+backnumber              [Status: 200, Size: 735, Words: 24]
+avila                   [Status: 200, Size: 735, Words: 24]
+avreloaded              [Status: 200, Size: 735, Words: 24]
+b2bcontext              [Status: 200, Size: 733, Words: 24]
+awm                     [Status: 200, Size: 733, Words: 24]
+awca                    [Status: 200, Size: 737, Words: 24]
+backup_db               [Status: 200, Size: 737, Words: 24]
+avt                     [Status: 200, Size: 737, Words: 24]
+ElementFactory.php      [Status: 200, Size: 842, Words: 26]
+de_CH.xml               [Status: 200, Size: 842, Words: 26]
+dv.xml                  [Status: 200, Size: 842, Words: 26]
+index.php               [Status: 200, Size: 55085, Words: 11303]
+site                    [Status: 200, Size: 55085, Words: 11303]
+browse                  [Status: 200, Size: 45127, Words: 5036]
+Browse                  [Status: 200, Size: 45127, Words: 5036]
+?                       [Status: 200, Size: 55120, Words: 11307]
+Site                    [Status: 200, Size: 55120, Words: 11307]
+index.php/              [Status: 200, Size: 55120, Words: 11307]
+how                     [Status: 200, Size: 35693, Words: 4873]
+mine                    [Status: 200, Size: 36584, Words: 4971]
+                        [Status: 200, Size: 55082, Words: 11305]
+index-test.php          [Status: 200, Size: 55116, Words: 11307]
+How                     [Status: 200, Size: 35731, Words: 4875]
+robots.txt              [Status: 200, Size: 23, Words: 3]
+api                     [Status: 200, Size: 39704, Words: 359]
+robots.txt              [Status: 200, Size: 76, Words: 4]
+tags                    [Status: 200, Size: 54891, Words: 7104]
+0                       [Status: 200, Size: 134861, Words: 8794]
+sitemap.xml             [Status: 200, Size: 3909, Words: 4]
+all                     [Status: 200, Size: 134851, Words: 8764]
+?                       [Status: 200, Size: 132371, Words: 8466]
+?:                      [Status: 200, Size: 137020, Words: 8756]
+                        [Status: 200, Size: 136555, Words: 8815]
+?level=12               [Status: 200, Size: 136555, Words: 8815]
+?&what=                 [Status: 200, Size: 136555, Words: 8815]
+?favorites              [Status: 200, Size: 136555, Words: 8815]
+?msk                    [Status: 200, Size: 136555, Words: 8815]
+?*                      [Status: 200, Size: 136555, Words: 8815]
+api/                    [Status: 200, Size: 39661, Words: 358]
+?q=*                    [Status: 200, Size: 114515, Words: 5542]
+following               [Status: 200, Size: 45971, Words: 1321]
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+       v0.11git
+________________________________________________
+ :: Method       : GET
+ :: URL          : https://support2.giffgaff.com/FUZZ
+ :: Matcher      : Response status: 200
+________________________________________________
