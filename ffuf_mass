@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ffuf_Wordlist=/root/Wordlist/endpoint/10w_common.txt
 
-usage() { echo -e "Usage: $0 -f input file, -o output " 1>&2; exit 1; }
+usage() { echo -e "Usage: $0 -f input file, -o outputdir " 1>&2; exit 1; }
 
 while getopts ":f:o:" o; do
     case "${o}" in
       f) input=$OPTARG
         ;;
-      o) output=$OPTARG
+      o) outputdir=$OPTARG
           ;;
       *) usage
         exit 1
@@ -23,9 +23,13 @@ export ffuf_Wordlist
 
 ffuf_one(){
     echo "ffufing $1 "
-    ffuf -w $ffuf_Wordlist   -u $1/FUZZ -se -fs 0 -fw 1  >> $output
+    ffuf -w $ffuf_Wordlist   -u $1/FUZZ -se -fs 0 -fw 1  >> $outputdir/ffuf_ouput.txt
 }
 
 export -f ffuf_one
 
   cat $input | parallel -j2 ffuf_one {}
+
+cd $outputdir
+python3 ~/recon_tools/Scripts/python/ffuf_filter.py $outputdir/ffuf_ouput.txt
+cd -
