@@ -31,5 +31,5 @@ export -f ffuf_one
   cat $input | parallel -j2 ffuf_one {}
 
 cd $outputdir
-python3 ~/recon_tools/Scripts/python/ffuf_filter.py $outputdir/ffuf_output.txt
+python3 ~/recon_tools/Scripts/python/ffuf_filter.py ffuf_output.txt
 cd -
