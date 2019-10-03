@@ -2,7 +2,7 @@
 
 import sys
 filename = sys.argv[1]
-outputfilename = "filtered_"+filename
+outputfilename = sys.argv[2]
 
 
 def processing_line(d,line, count=10):
