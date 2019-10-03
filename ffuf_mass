@@ -16,7 +16,6 @@ while getopts ":f:o:" o; do
 done
 shift $((OPTIND - 1))
 
-touch $output
 export output
 export ffuf_Wordlist
 
