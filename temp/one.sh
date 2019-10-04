@@ -15,7 +15,8 @@ declare -a domains=("news.yahoo.com"
 for i in "${domains[@]}"
 do
   dir=$(ls -t  /root/OneDrive/output/lazyrecon/$i | head -1 )
-  realdir=$(realpath $dir)
+
+  realdir=/root/OneDrive/output/lazyrecon/$i/$dir
   echo $realdir
   ffuf_mass -f $realdir/ffuf_input.txt -o $realdir
 
