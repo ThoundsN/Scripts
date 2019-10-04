@@ -1,8 +1,14 @@
 #!/usr/bin/python3
 
 import sys
+import os.path as  p
+
 filename = sys.argv[1]
-outputfilename = sys.argv[2]
+basename = p.basename(filename)
+basename = 'filtered_'+basename
+dirname = p.dirname(filename)
+
+outputfilename = p.join(dirname,basename)
 
 
 def processing_line(d,line, count=10):
