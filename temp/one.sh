@@ -17,8 +17,9 @@ do
   cd /root/OneDrive/output/lazyrecon/$i
   dir=$(ls -t  | head -1 )
   cd $dir
+  realdir=realpath $dir
   if [ ! -f ffuf_output.txt ]; then
     echo "File not found!"
-    ffuf_mass -f ffuf_input.txt -o $dir
+    ffuf_mass -f ffuf_input.txt -o $realdir
   fi
 done
