@@ -12,7 +12,7 @@ declare -a domains=("news.yahoo.com"
 "huffpost.com"
 "yahoo.com")
 
-for i in "{domains[@]}"
+for i in "${domains[@]}"
 do
   cd /root/OneDrive/output/lazyrecon/{$i}
   dir=$(ls -t  | head -1 )
