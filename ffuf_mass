@@ -16,8 +16,10 @@ while getopts ":f:o:" o; do
 done
 shift $((OPTIND - 1))
 
-export output
+export outputdir
 export ffuf_Wordlist
+
+touch $outputdir/ffuf_output.txt
 
 
 ffuf_one(){
