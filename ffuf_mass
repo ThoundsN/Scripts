@@ -20,6 +20,7 @@ export outputdir
 export ffuf_Wordlist
 
 touch $outputdir/ffuf_output.txt
+touch $outputdir/filtered_ffuf_output.txt
 
 
 ffuf_one(){
@@ -31,6 +32,6 @@ export -f ffuf_one
 
   cat $input | parallel -j2 ffuf_one {}
 
-cd $outputdir
-python3 ~/recon_tools/Scripts/python/ffuf_filter.py ${outputdir}ffuf_output.txt ${outputdir}filtered_ffuf_output.txt
-cd -
+py_input = realpath $outputdir/ffuf_output.txt
+py_output = realpath $outputdir/filtered_ffuf_output.txt
+python3 ~/recon_tools/Scripts/python/ffuf_filter.py $py_input $py_output
