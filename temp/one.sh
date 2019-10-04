@@ -14,12 +14,9 @@ declare -a domains=("news.yahoo.com"
 
 for i in "${domains[@]}"
 do
-  cd /root/OneDrive/output/lazyrecon/$i
-  dir=$(ls -t  | head -1 )
-  cd $dir
+  dir=$(ls -t  /root/OneDrive/output/lazyrecon/$i | head -1 )
   realdir=$(realpath $dir)
-  if [ ! -f ffuf_output.txt ]; then
-    echo "File not found!"
-    ffuf_mass -f $realdir/ffuf_input.txt -o $realdir
-  fi
+  echo $realdir
+  ffuf_mass -f $realdir/ffuf_input.txt -o $realdir
+
 done
