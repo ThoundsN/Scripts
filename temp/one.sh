@@ -14,7 +14,7 @@ declare -a domains=("news.yahoo.com"
 
 for i in "${domains[@]}"
 do
-  cd /root/OneDrive/output/lazyrecon/{$i}
+  cd /root/OneDrive/output/lazyrecon/$i
   dir=$(ls -t  | head -1 )
   cd $dir
   if [ ! -f ffuf_output.txt ]; then
