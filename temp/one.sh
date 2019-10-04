@@ -20,6 +20,6 @@ do
   realdir=$(realpath $dir)
   if [ ! -f ffuf_output.txt ]; then
     echo "File not found!"
-    ffuf_mass -f ffuf_input.txt -o $realdir
+    ffuf_mass -f $realdir/ffuf_input.txt -o $realdir
   fi
 done
