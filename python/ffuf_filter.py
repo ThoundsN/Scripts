@@ -14,11 +14,17 @@ outputfilename = p.join(dirname,basename)
 def processing_line(d,line, count=10):
     delimeter = ","
     try:
-        size_line = line.split("[")[1].strip()
-        size = size_line.split(delimeter)[1].split(":")[1].strip()
+        size_line1 = line.split("[")[1].strip()
+        size_line2 = size_line1.split(delimeter)[1]
+        sizeline3 = sizeline2.split(":")[1]
+        size = sizeline3.strip()
+
     except Exception as e:
         print(e)
         print("problematic line :"+line)
+        print(size_line1)
+        print(size_line2)
+        print(size_line3)
     size = int(size)
     if size in d :
         if len(d[size])< count:
