@@ -22,9 +22,9 @@ def processing_line(d,line, count=10):
     except Exception as e:
         print(e)
         print("problematic line :"+line)
-        print("problematic size line 1 :"size_line1)
-        print("problematic size line 2 :"size_line2)
-        print("problematic size line 3 :"size_line3)
+        print("problematic size line 1 :"+size_line1)
+        print("problematic size line 2 :"+size_line2)
+        print("problematic size line 3 :"+size_line3)
     size = int(size)
     if size in d :
         if len(d[size])< count:
