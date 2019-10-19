@@ -14,7 +14,7 @@ outputfilename = p.join(dirname,basename)
 def processing_line(d,line, count=10):
     delimeter = ","
     try:
-        size_line = line.split("[]")[1].strip()
+        size_line = line.split("[")[1].strip()
         size = size_line.split(delimeter)[1].split(":")[1].strip()
     except Exception as e:
         print(e)
