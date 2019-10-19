@@ -16,15 +16,15 @@ def processing_line(d,line, count=10):
     try:
         size_line1 = line.split("[")[2].strip()
         size_line2 = size_line1.split(delimeter)[1]
-        sizeline3 = sizeline2.split(":")[1]
-        size = sizeline3.strip()
+        size_line3 = size_line2.split(":")[1]
+        size = size_line3.strip()
 
     except Exception as e:
         print(e)
         print("problematic line :"+line)
-        print(size_line1)
-        print(size_line2)
-        print(size_line3)
+        print("problematic size line 1 :"size_line1)
+        print("problematic size line 2 :"size_line2)
+        print("problematic size line 3 :"size_line3)
     size = int(size)
     if size in d :
         if len(d[size])< count:
