@@ -17,6 +17,8 @@ while getopts ":f:o:" o; do
 done
 shift $((OPTIND - 1))
 
+
+
 nmap_one(){
   nmap  --script vulners  -sV -T3 -p$2   -g 61000 --version-intensity 9 $1 | tee  $outputdir/nmap/${1}_${2}.out
 }
@@ -38,3 +40,7 @@ touch $outputdir/ip_services.txt
 cd $outputdir/nmap/
 ls | xargs cat  > $outputdir/ip_services.txt
 cd -
+
+if grep -q 'vulners' $outputdir/ip_services.txt; then
+  echo "Found vulners in nmap scanning " | mutt -s 'Nmap Notification ' inthebybyby@gmail.com -a $outputdir/ip_services.txt
+fi
