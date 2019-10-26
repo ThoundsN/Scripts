@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 ffuf_Wordlist=/root/Wordlist/endpoint/10w_common.txt
+iprange="173.245.48.0/20 103.21.244.0/22 103.22.200.0/22 103.31.4.0/22 141.101.64.0/18 108.162.192.0/18 190.93.240.0/20 188.114.96.0/20 197.234.240.0/22 198.41.128.0/17 162.158.0.0/15 104.16.0.0/12 172.64.0.0/13 131.0.72.0/22"
+
 
 usage() { echo -e "Usage: $0 -f input file, -o outputdir " 1>&2; exit 1; }
 
@@ -18,11 +20,19 @@ shift $((OPTIND - 1))
 
 export outputdir
 export ffuf_Wordlist
+export iprange
 
 touch $outputdir/ffuf_output.txt
 
 
 ffuf_one(){
+    _domain=$(echo $1 | unfurl -unique domain )
+    ip=$(dig +short ${_domain}  @8.8.8.8 | tail -n 1)
+    if [[ ! $ip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+       echo "Dns look up for $1 has some problem " >> $outputdir/ffuf_output.txt
+       return
+    fi
+    echo $ip | grepcidr $iprange > /dev/null && echo "$1 ----   $ip is in cloudfare" >> $outputdir/ffuf_output.txt; return
     echo "ffufing $1 "
     ffuf -w $ffuf_Wordlist   -u $1/FUZZ -se -fs 0 -fw 1  >> $outputdir/ffuf_output.txt
 }

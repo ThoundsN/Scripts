@@ -20,6 +20,7 @@ shift $((OPTIND - 1))
 
 
 nmap_one(){
+  echo $ip | grepcidr $iprange > /dev/null && echo "$1 ----   $ip is in cloudfare" >> $outputdir/nmap/${1}_${2}.out; return
   nmap  --script vulners  -sV -T3 -p$2   -g 61000 --version-intensity 9 $1 | tee  $outputdir/nmap/${1}_${2}.out
 }
 
