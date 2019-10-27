@@ -47,5 +47,7 @@ ls | xargs cat  > $outputdir/ip_services.txt
 cd -
 
 if grep -q 'vulners' $outputdir/ip_services.txt; then
-  echo "Found vulners in nmap scanning " | mutt -s 'Nmap Notification ' inthebybyby@gmail.com -a $outputdir/ip_services.txt
+  echo "Found vulners in nmap scanning " | mutt -s "Nmap Notification Vulners ${inputfile}"  inthebybyby@gmail.com -a $outputdir/ip_services.txt
+else
+  echo "didn't found vulners in nmap scanning " | mutt -s "Nmap Notification NOvulners ${inputfile}"  inthebybyby@gmail.com -a $outputdir/ip_services.txt
 fi
