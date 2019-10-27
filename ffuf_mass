@@ -32,7 +32,7 @@ ffuf_one(){
        echo "Dns look up for $1 has some problem " >> $outputdir/ffuf_output.txt
        return
     fi
-    grepcidr "$iprange" <( echo "$ip" ) && echo "$1 ----   $ip is in cloudfare" >> $outputdir/ffuf_output.txt && return
+    echo "$ip" | grepcidr "$iprange" > /dev/null && echo "$1 ----   $ip is in cloudfare" >> $outputdir/ffuf_output.txt && return
     echo "ffufing $1 "
     ffuf -w $ffuf_Wordlist   -u $1/FUZZ -se -fs 0 -fw 1  >> $outputdir/ffuf_output.txt
 }
