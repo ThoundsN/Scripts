@@ -28,6 +28,8 @@ nmap_one(){
 
 export -f nmap_one
 export outputdir
+export iprange
+
 
 mkdir -p $outputdir/nmap/
 
