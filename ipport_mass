@@ -43,7 +43,13 @@ parallel -j10 --colsep ' ' nmap_one {1} {2}  :::: $outputdir/open_ip_port.txt
 
 touch $outputdir/ip_services.txt
 cd $outputdir/nmap/
-ls | xargs cat  > $outputdir/ip_services.txt
+for report in ./*; do
+  cat $report >> $outputdir/ip_services.txt
+  printf "\n\n\n" >> $outputdir/ip_services.txt
+  printf "==========================" >> $outputdir/ip_services.txt
+  printf "\n\n\n" >> $outputdir/ip_services.txt
+  
+done
 cd -
 
 if grep -q 'vulners' $outputdir/ip_services.txt; then
