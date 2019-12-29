@@ -34,7 +34,7 @@ ffuf_one(){
     fi
     echo "$ip" | grepcidr "$iprange" > /dev/null && echo "$1 ----   $ip is in cloudfare" >> $outputdir/ffuf_output.txt && return
     echo "ffufing $1 "
-    ffuf -w $ffuf_Wordlist   -u $1/FUZZ -se -fs 0 -fw 1  >> $outputdir/ffuf_output.txt
+    ffuf -w $ffuf_Wordlist   -u $1/FUZZ -se -r -sf -fs 0 -fw 1  >> $outputdir/ffuf_output.txt
 }
 
 export -f ffuf_one
