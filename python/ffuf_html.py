@@ -101,6 +101,9 @@ def main():
     files = get_files_list(input_path)
     matrix = [ read_csv(file) for file in files]
 
+    print("matrix             " )
+    print('[%s]' % ', '.join(map(str, matrix)))
+
     for results in matrix:
         write_one_table(results)
 
