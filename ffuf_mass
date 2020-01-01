@@ -22,7 +22,9 @@ export outputdir
 export ffuf_Wordlist
 export iprange
 
-mkdir -p $ouputdir/
+[ ! -d "$outputdir" ] && echo "Directory "$outputdir" DOES NOT exists." && exit
+
+
 mkdir -p $ouputdir/raw
 mkdir -p $ouputdir/processed
 touch $outputdir/ffuf_output.html
