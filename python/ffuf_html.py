@@ -3,12 +3,15 @@
 import json
 import csv
 import sys
+
+import django
 from django.template import Template, Context
 from django.conf import settings
 from os import listdir
 from os.path import isfile, join
 
 settings.configure()
+django.setup()
 
 input_path = sys.argv[1]
 output_html=sys.argv[2]
