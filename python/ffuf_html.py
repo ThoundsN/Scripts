@@ -42,7 +42,7 @@ template = """
         <tbody>
     {% for result in results %}
                 <tr class="result-{{ result.StatusCode }}" style="background-color: {{result.HTMLColor}};">
-                <td><font color="black" class="status-code">{{ $result.StatusCode }}</font></td>
+                <td><font color="black" class="status-code">{{ result.StatusCode }}</font></td>
                 <td>{{ result.keyword }}</td>
                 <td>{{ result.Url }}</td>
                 <td>{{ result.RedirectLocation }}</td>
