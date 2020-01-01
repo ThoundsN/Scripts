@@ -17,5 +17,3 @@ with open(rawfile,'r') as csvfile:
             if row[6] not in word_set:
                 word_set.add(row[6])
                 writer.writerow(row)
-
-writer.close()
