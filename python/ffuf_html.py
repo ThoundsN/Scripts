@@ -77,10 +77,15 @@ def colorizeResults(results):
 
 def read_csv(input):
     results = [json.dumps(d) for d in csv.DictReader(open(input))]
+    print("results          "   )
+    print('[%s]' % ', '.join(map(str, results)))
     return results
 
 def get_files_list(dir):
     files_list = [f for f in listdir(dir) if isfile(join(dir, f))]
+    print("file list             " )
+    print('[%s]' % ', '.join(map(str, files_list)))
+
     return files_list
 
 def write_one_table(results):
