@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0922a99-4360-426e-b31c-e84a4ab93baa" name="Default Changelist" comment="" />
+    <list default="true" id="c0922a99-4360-426e-b31c-e84a4ab93baa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/ffuf_html.py" beforeDir="false" afterPath="$PROJECT_DIR$/ffuf_html.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +42,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ffuf_html.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-187">
-              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+            <state relative-caret-position="-1365">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="e#24#35#0" expanded="true" />
               </folding>
@@ -179,12 +181,12 @@
       <workItem from="1569907179663" duration="2284000" />
       <workItem from="1577855479432" duration="107000" />
       <workItem from="1577855610738" duration="19000" />
-      <workItem from="1577855652186" duration="579000" />
+      <workItem from="1577855652186" duration="1409000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11687000" />
+    <option name="totallyTimeSpent" value="12517000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -257,8 +259,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ffuf_html.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+        <state relative-caret-position="-1365">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="e#24#35#0" expanded="true" />
           </folding>

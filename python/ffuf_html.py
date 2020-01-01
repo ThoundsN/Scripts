@@ -10,7 +10,14 @@ from django.conf import settings
 from os import listdir
 from os.path import isfile, join
 
-settings.configure()
+settings.configure(TEMPLATES=[
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': ['.'], # if you want the templates from a file
+        'APP_DIRS': False, # we have no apps
+    },
+])
+
 django.setup()
 
 input_path = sys.argv[1]
