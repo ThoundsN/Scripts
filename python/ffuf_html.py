@@ -25,7 +25,6 @@ output_html=sys.argv[2]
 
 template = """
 
-    {% for results in matrix %}
    <table id="ffufreport">
         <thead>
           <tr>
@@ -54,7 +53,7 @@ template = """
             {{% endfor %}}
         </tbody>
       </table>
-    {{% end for %}}
+  
 
 
 """
