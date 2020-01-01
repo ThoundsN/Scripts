@@ -26,8 +26,8 @@ export iprange
 
 outputdir=$(realpath ${outputdir})
 
-mkdir -p $ouputdir/raw/
-mkdir -p $ouputdir/processed/
+mkdir -p $outputdir/raw/
+mkdir -p $outputdir/processed/
 touch $outputdir/ffuf_output.html
 
 
