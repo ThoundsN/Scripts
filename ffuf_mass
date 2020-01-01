@@ -24,6 +24,7 @@ export iprange
 
 [ ! -d "$outputdir" ] && echo "Directory "$outputdir" DOES NOT exists." && exit 1
 
+outputdir=$(realpath ${outputdir})
 
 mkdir -p $ouputdir/raw/
 mkdir -p $ouputdir/processed/
