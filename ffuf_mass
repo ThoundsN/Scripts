@@ -22,11 +22,11 @@ export outputdir
 export ffuf_Wordlist
 export iprange
 
-[ ! -d "$outputdir" ] && echo "Directory "$outputdir" DOES NOT exists." && exit
+[ ! -d "$outputdir" ] && echo "Directory "$outputdir" DOES NOT exists." && exit 1
 
 
-mkdir -p $ouputdir/raw
-mkdir -p $ouputdir/processed
+mkdir -p $ouputdir/raw/
+mkdir -p $ouputdir/processed/
 touch $outputdir/ffuf_output.html
 
 

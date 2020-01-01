@@ -6,11 +6,11 @@ rawfile = sys.argv[1]
 processed_file=sys.argv[2]
 
 word_set = set()
-writer = csv.writer(open('processed_file','w'))
+writer = csv.writer(open(processed_file,'w'))
 
 
 
-with open('rawfile','r') as csvfile:
+with open(rawfile,'r') as csvfile:
         csvreader = csv.reader(csvfile)
         writer.writerow(csvreader.next())
         for row in csvreader:
