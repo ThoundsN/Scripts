@@ -50,7 +50,7 @@ template = """
                 <td>{{ result.ContentWords }}</td>
                 <td>{{ result.ContentLines }}</td>
                 </tr>
-            {{% endfor %}}
+            {% endfor %}
         </tbody>
       </table>
   
