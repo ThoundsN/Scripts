@@ -21,8 +21,8 @@ template = """
           <tr>
               <th>Status</th>
               <th>FUZZ</th>
-			  <th>URL</th>
-			  <th>Redirect location</th>
+              <th>URL</th>
+              <th>Redirect location</th>
               <th>Position</th>
               <th>Length</th>
               <th>Words</th>
@@ -31,7 +31,7 @@ template = """
         </thead>
         <tbody>
     {% for result in results %}
-				<tr class="result-{{ result.StatusCode }}" style="background-color: {{result.HTMLColor}};">
+                <tr class="result-{{ result.StatusCode }}" style="background-color: {{result.HTMLColor}};">
                 <td><font color="black" class="status-code">{{ $result.StatusCode }}</font></td>
                 <td>{{ result.keyword }}</td>
                 <td>{{ result.Url }}</td>
@@ -52,17 +52,17 @@ template = """
 def colorizeResults(results):
     for result in results:
         s = result.status_code
-		if s >= 200 and s <= 299:
-			result["HTMLColor"] = "#adea9e"
+        if s >= 200 and s <= 299:
+            result["HTMLColor"] = "#adea9e"
             continue
-		if s >= 300 and s <= 399:
-			result["HTMLColor"] = "#bbbbe6"
+        if s >= 300 and s <= 399:
+            result["HTMLColor"] = "#bbbbe6"
             continue
-		if s >= 400 and s <= 499:
-			result["HTMLColor"] = "#d2cb7e"
+        if s >= 400 and s <= 499:
+            result["HTMLColor"] = "#d2cb7e"
             continue
-		if s >= 500 and s <= 599:
-			result["HTMLColor"] = "#de8dc1"
+        if s >= 500 and s <= 599:
+            result["HTMLColor"] = "#de8dc1"
             continue
 
 
@@ -80,7 +80,7 @@ def write_one_table(results):
 
     output = open(output_html,'w')
     output.write(t.render(c))
-    output.close
+    output.close()
 
 def main():
 
