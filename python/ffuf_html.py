@@ -89,7 +89,7 @@ def main():
     print("matrix             " )
     print('[%s]' % ', '.join(map(str, matrix)))
 
-    output = open(output_html,'w')
+    output = open(output_html,'a')
     write_martrix(matrix, output)
 
     output.close()
