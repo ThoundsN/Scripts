@@ -29,15 +29,15 @@ template_fraction = """
         </thead>
         <tbody>
     {% for result in results %}
-                <tr class="result-{{ result["StatusCode"] }}" style="background-color: {{result["HTMLColor"]}};">
-                <td><font color="black" class="status-code">{{ result["StatusCode"] }}</font></td>
-                <td>{{ result["keyword"] }}</td>
-                <td>{{ result["Url"] }}</td>
-                <td>{{ result["RedirectLocation"] }}</td>
-                <td>{{ result["Position"] }}</td>
-                <td>{{ result["ContentLength"] }}</td>
-                <td>{{ result["ContentWords"] }}</td>
-                <td>{{ result["ContentLines"] }}</td>
+                <tr class="result-{{ result["status_code"] }}" style="background-color: {{result["HTMLColor"]}};">
+                <td><font color="black" class="status-code">{{ result["status_code"] }}</font></td>
+                <td>{{ result["FUZZ"] }}</td>
+                <td>{{ result["url"] }}</td>
+                <td>{{ result["redirectlocation"] }}</td>
+                <td>{{ result["position"] }}</td>
+                <td>{{ result["content_length"] }}</td>
+                <td>{{ result["content_words"] }}</td>
+                <td>{{ result["content_lines"] }}</td>
                 </tr>
             {% endfor %}
         </tbody>
