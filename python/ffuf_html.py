@@ -43,8 +43,6 @@ template_fraction = """
         </tbody>
       </table>
   
-
-
 """
 
 def colorizeResults(results):
@@ -65,7 +63,7 @@ def colorizeResults(results):
 
 
 def read_csv(input):
-    results = [json.dumps(d) for d in csv.DictReader(open(input))]
+    results = [dict(d) for d in csv.DictReader(open(input))]
     print("results          "   )
     print('[%s]' % ', '.join(map(str, results)))
     return results
