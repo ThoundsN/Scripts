@@ -51,6 +51,77 @@ template_fraction = """
 
 """
 
+prefix_string ="""
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1.0"
+    />
+    <title>FFUF Report - </title>
+    <!-- CSS  -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+	/>
+	<link
+	  rel="stylesheet"
+	  type="text/css"
+	  href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css"
+	/>
+
+  </head>
+
+
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">FFUF</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        </ul>
+      </div>
+    </nav>
+
+
+    <main class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <br /><br />
+        <h1 class="header center ">FFUF Report</h1>
+"""
+
+tail_string = """
+<br /><br />
+</div>
+</main>
+<!--JavaScript at end of body for optimized loading-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+<script>
+$(document).ready( function () {
+$('#ffufreport').DataTable();
+} );
+</script>
+<style>
+body {
+display: flex;
+min-height: 100vh;
+flex-direction: column;
+}
+main {
+flex: 1 0 auto;
+}
+</style>
+</body>
+</html>
+"""
+
 def colorizeResults(results):
     for result in results:
         s = result.status_code
@@ -95,7 +166,9 @@ def main():
     print('[%s]' % ', '.join(map(str, matrix)))
 
     output = open(output_html,'a')
+    output.write(prefix_string)
     write_martrix(matrix, output)
+    output.write(tail_string)
 
     output.close()
 
