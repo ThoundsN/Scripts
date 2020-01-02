@@ -29,15 +29,15 @@ template_fraction = """
         </thead>
         <tbody>
     {% for result in results %}
-                <tr class="result-{{ result.StatusCode }}" style="background-color: {{result.HTMLColor}};">
-                <td><font color="black" class="status-code">{{ result.StatusCode }}</font></td>
-                <td>{{ result.keyword }}</td>
-                <td>{{ result.Url }}</td>
-                <td>{{ result.RedirectLocation }}</td>
-                <td>{{ result.Position }}</td>
-                <td>{{ result.ContentLength }}</td>
-                <td>{{ result.ContentWords }}</td>
-                <td>{{ result.ContentLines }}</td>
+                <tr class="result-{{ result["StatusCode"] }}" style="background-color: {{result["HTMLColor"]}};">
+                <td><font color="black" class="status-code">{{ result["StatusCode"] }}</font></td>
+                <td>{{ result["keyword"] }}</td>
+                <td>{{ result["Url"] }}</td>
+                <td>{{ result["RedirectLocation"] }}</td>
+                <td>{{ result["Position"] }}</td>
+                <td>{{ result["ContentLength"] }}</td>
+                <td>{{ result["ContentWords"] }}</td>
+                <td>{{ result["ContentLines"] }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -94,7 +94,7 @@ def main():
 
     output = open(output_html,'w')
     write_martrix(matrix, output)
-  
+
     output.close()
 
 
