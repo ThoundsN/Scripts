@@ -89,6 +89,7 @@ cat << 'EOF' > $outputdir/ffuf_output.html
 EOF
 
   cat $input | parallel -j2 ffuf_one {}
+  python3 ~/recon_tools/Scripts/python/ffuf_html.py  $outputdir/processed/  $outputdir/ffuf_output.html
 
 cat << 'EOF' >  $outputdir/ffuf_output.html
 </div>
