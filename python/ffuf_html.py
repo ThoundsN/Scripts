@@ -37,7 +37,7 @@ template_fraction = """
                 <td>{{ result["position"] }}</td>
                 <td>{{ result["content_length"] }}</td>
                 <td>{{ result["content_words"] }}</td>
-                <td>{{ result["content_lines"] }}</td>
+                <td>{{ result['content_lines'] }}</td>
                 </tr>
             {% endfor %}
         </tbody>
