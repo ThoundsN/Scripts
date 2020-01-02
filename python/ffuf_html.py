@@ -15,6 +15,7 @@ output_html=sys.argv[2]
 
 template_fraction = """
 
+        <div class="row center">
    <table id="ffufreport">
         <thead>
           <tr>
@@ -33,7 +34,7 @@ template_fraction = """
                 <tr class="result-{{ result["status_code"] }}" style="background-color: {{result["HTMLColor"]}};">
                 <td><font color="black" class="status-code">{{ result["status_code"] }}</font></td>
                 <td>{{ result["FUZZ"] }}</td>
-                <td>{{ result["url"] }}</td>
+                <td><a href="{{ result["url"] }}">{{ result["url"] }}</a></td>
                 <td>{{ result["redirectlocation"] }}</td>
                 <td>{{ result["position"] }}</td>
                 <td>{{ result["content_length"] }}</td>
@@ -43,7 +44,11 @@ template_fraction = """
             {% endfor %}
         </tbody>
       </table>
-  
+  </div>
+<br /><br />
+<br /><br />
+<br /><br />
+
 """
 
 def colorizeResults(results):

@@ -73,6 +73,8 @@ cat << 'EOF' >> $outputdir/ffuf_output.html
 	/>
 
   </head>
+
+
   <body>
     <nav>
       <div class="nav-wrapper">
@@ -81,6 +83,8 @@ cat << 'EOF' >> $outputdir/ffuf_output.html
         </ul>
       </div>
     </nav>
+
+	
     <main class="section no-pad-bot" id="index-banner">
       <div class="container">
         <br /><br />
