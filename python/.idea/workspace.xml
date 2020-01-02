@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0922a99-4360-426e-b31c-e84a4ab93baa" name="Default Changelist" comment="" />
+    <list default="true" id="c0922a99-4360-426e-b31c-e84a4ab93baa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/ffuf_html.py" beforeDir="false" afterPath="$PROJECT_DIR$/ffuf_html.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ffuf_html.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+            <state relative-caret-position="252">
+              <caret line="73" column="27" lean-forward="true" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
               <folding>
                 <element signature="e#24#35#0" expanded="true" />
               </folding>
@@ -75,8 +77,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/ffuf_filter.py" />
-        <option value="$PROJECT_DIR$/ffuf_html.py" />
         <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/ffuf_html.py" />
       </list>
     </option>
   </component>
@@ -190,12 +192,12 @@
       <workItem from="1569907179663" duration="2284000" />
       <workItem from="1577855479432" duration="107000" />
       <workItem from="1577855610738" duration="19000" />
-      <workItem from="1577855652186" duration="15548000" />
+      <workItem from="1577855652186" duration="16563000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26656000" />
+    <option name="totallyTimeSpent" value="27671000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -216,7 +218,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5004088" side_tool="true" weight="0.9279113" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32902032" />
-      <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.49959117" weight="0.9279113" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="12" sideWeight="0.49959117" visible="true" weight="0.14787431" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -271,8 +273,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ffuf_html.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+        <state relative-caret-position="252">
+          <caret line="73" column="27" lean-forward="true" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
           <folding>
             <element signature="e#24#35#0" expanded="true" />
           </folding>

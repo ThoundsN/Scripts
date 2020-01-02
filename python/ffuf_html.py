@@ -2,6 +2,7 @@
 
 import json
 import csv
+import os
 import sys
 
 from os import listdir
@@ -69,11 +70,9 @@ def read_csv(input):
     return results
 
 def get_files_list(dir):
-    files_list = [abspath(f) for f in listdir(dir) if isfile(join(dir, f))]
-    print("file list             " )
-    print('[%s]' % ', '.join(map(str, files_list)))
-
-    return files_list
+    for dirpath, _, filenames in os.walk(dir):
+        for f in filenames:
+            yield os.path.abspath(os.path.join(dirpath, f))
 
 def write_martrix(matrix,output):
     template = Template(template_fraction)
