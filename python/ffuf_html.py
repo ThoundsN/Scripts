@@ -4,26 +4,15 @@ import json
 import csv
 import sys
 
-import django
-from django.template import Template, Context
-from django.conf import settings
 from os import listdir
 from os.path import isfile, join
+from jinja2 import Template
 
-settings.configure(TEMPLATES=[
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['.'], # if you want the templates from a file
-        'APP_DIRS': False, # we have no apps
-    },
-])
-
-django.setup()
 
 input_path = sys.argv[1]
 output_html=sys.argv[2]
 
-template = """
+template_fraction = """
 
    <table id="ffufreport">
         <thead>
@@ -88,13 +77,12 @@ def get_files_list(dir):
 
     return files_list
 
-def write_one_table(results):
-    t = Template(template)
-    c = Context(results)
+def write_martrix(matrix,output):
+    template = Template(template_fraction)
 
-    output = open(output_html,'w')
-    output.write(t.render(c))
-    output.close()
+    for results in matrix:
+        output.write(template.render(results=results))
+
 
 def main():
 
@@ -104,9 +92,10 @@ def main():
     print("matrix             " )
     print('[%s]' % ', '.join(map(str, matrix)))
 
-    for results in matrix:
-        write_one_table(results)
-
+    output = open(output_html,'w')
+    write_martrix(matrix, output)
+  
+    output.close()
 
 
 if __name__ == '__main__':
