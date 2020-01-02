@@ -5,7 +5,7 @@ import csv
 import sys
 
 from os import listdir
-from os.path import isfile, join
+from os.path import isfile, join,abspath
 from jinja2 import Template
 
 
@@ -69,7 +69,7 @@ def read_csv(input):
     return results
 
 def get_files_list(dir):
-    files_list = [f for f in listdir(dir) if isfile(join(dir, f))]
+    files_list = [abspath(f) for f in listdir(dir) if isfile(join(dir, f))]
     print("file list             " )
     print('[%s]' % ', '.join(map(str, files_list)))
 
