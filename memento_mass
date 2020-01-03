@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+
+while getopts ":f:o:" o; do
+    case "${o}" in
+      f) input=$OPTARG
+        ;;
+      o) outputhtml=$OPTARG
+          ;;
+      *) usage
+        exit 1
+          ;;
+    esac
+done
+shift $((OPTIND - 1))
+
+
+export $outputhtml
+export $input
+
+touch $outputhtml
+
+memento_one(){
+	memento.py $1 >> $outputhtml
+}
+
+export -f memento_one
+
+
+cat $input | parallel -j4 memento_one {}
