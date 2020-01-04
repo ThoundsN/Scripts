@@ -31,7 +31,7 @@ if __name__ == '__main__':
     output_html = sys.argv[2]
 
     input = open(input_file,'r')
-    urls = excludeFileContent = list(filter(None, input.read().splitlines()))
+    urls = list(filter(None, input.read().splitlines()))
 
     template = Template(template_string)
 
