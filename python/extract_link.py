@@ -15,38 +15,38 @@ api_wordlist = "api v1 v2 v3 v4 v5 v6"
 
 api_wordlist = re.split(' ', api_wordlist)
 
-if __name__ == '__main__':
-    fp = open(input_path, 'r', encoding="utf-8")
-    soup1 = BeautifulSoup(fp, "html.parser")
-    for div in soup1.body.find_all('div', recursive=False):
-        # print(div)
-        for word in specific_words:
-            try:
-                if word not in str(div.a.string):
-                    div.decompose()
-            except Exception as e:
-                print(e)
-                continue
-    fw1 = open(output_path1, 'w', encoding="utf-8")
-    fw1.write(soup1.prettify())
+
+
+def write(input,output,wordlist):
+    fp = open(input, 'r', encoding="utf-8")
+    soup = BeautifulSoup(fp, "html.parser")
+    for div in soup.body.find_all('div', recursive=False):
+        print(div.a.text)
+        hasword = False
+        # print('\n')
+        # print('\n')
+        for word in wordlist:
+            if word in str(div.a.text):
+                hasword = True
+                break
+        if not hasword:
+            div.decompose()
+
+            # except Exception as e:
+            #     print(e)
+            #     print(div)
+
+    fw1 = open(output, 'w', encoding="utf-8")
+    fw1.write(soup.prettify())
     fw1.close()
     fp.close()
 
-    soup1.decompose()
+    soup.decompose()
     gc.collect()
 
-    fp = open(input_path, 'r', encoding="utf-8")
-    soup2 = BeautifulSoup(fp, "html.parser")
-    for div in soup2.body.find_all('div', recursive=False):
-        # print(div)
-        for word in api_wordlist:
-            try:
-                if word not in str(div.a.string):
-                    div.decompose()
-            except Exception as e :
-                print(e)
-                continue
-    fw2 = open(output_path2, 'w', encoding="utf-8")
-    fw2.write(soup2.prettify())
-    fw2.close()
-    fp.close()
+
+if __name__ == '__main__':
+
+    write(input_path,output_path1,specific_words)
+    write(input_path,output_path2,api_wordlist)
+
