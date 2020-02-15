@@ -1,3 +1,4 @@
+import gc
 import sys
 import re
 from bs4 import BeautifulSoup
@@ -17,24 +18,27 @@ api_wordlist = re.split(' ', api_wordlist)
 
 if __name__ == '__main__':
     fp = open(input_path,'r',encoding="utf-8")
-    soup1 = BeautifulSoup(fp,"html.parser")
+    soup1 = BeautifulSoup(fp,"lxml")
     for div in soup1.body.find_all('div',recursive=False):
         # print(div)
         for word in specific_words:
-            if word not in div.a.string:
-                div.extract()
+            if word not in str(div.a.string):
+                div.decompose()
     fw1 = open(output_path1,'w',encoding="utf-8")
     fw1.write(soup1.prettify())
     fw1.close()
     fp.close()
 
+    soup1.decompose()
+    gc.collect()
+
     fp = open(input_path,'r',encoding="utf-8")
-    soup2 = BeautifulSoup(fp,"html.parser")
+    soup2 = BeautifulSoup(fp,"lxml")
     for div in soup2.body.find_all('div',recursive=False):
         # print(div)
         for word in api_wordlist:
-            if word not in div.a.string:
-                div.extract()
+            if word not in str(div.a.string):
+                div.decompose()
     fw2 = open(output_path2,'w',encoding="utf-8")
     fw2.write(soup2.prettify())
     fw2.close()
