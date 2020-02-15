@@ -24,7 +24,8 @@ if __name__ == '__main__':
             try:
                 if word not in str(div.a.string):
                     div.decompose()
-            except:
+            except Exception as e:
+                print(e)
                 continue
     fw1 = open(output_path1, 'w', encoding="utf-8")
     fw1.write(soup1.prettify())
@@ -42,7 +43,8 @@ if __name__ == '__main__':
             try:
                 if word not in str(div.a.string):
                     div.decompose()
-            except:
+            except Exception as e :
+                print(e)
                 continue
     fw2 = open(output_path2, 'w', encoding="utf-8")
     fw2.write(soup2.prettify())
