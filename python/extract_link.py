@@ -21,7 +21,7 @@ def write(input,output,wordlist):
     fp = open(input, 'r', encoding="utf-8")
     soup = BeautifulSoup(fp, "html.parser")
     for div in soup.body.find_all('div', recursive=False):
-        print(div.a.text)
+        # print(div.a.text)
         hasword = False
         # print('\n')
         # print('\n')
