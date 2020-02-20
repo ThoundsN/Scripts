@@ -7,7 +7,7 @@ input_path = sys.argv[1]
 output_path1 = sys.argv[2]
 output_path2 = sys.argv[3]
 
-specific_words = "admin,test,dev,beta,internal,prod"
+specific_words = "admin,test,dev,beta,internal,prod,wss://,websocket,ws://,wsdl,firebase"
 
 specific_words = re.split(',', specific_words)
 
