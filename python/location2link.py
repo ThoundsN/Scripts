@@ -7,7 +7,6 @@ output_path = sys.argv[2]
 def location2href(location):
     prefix = "http://jsrecon.ragnarokv.site/links/"
     pieces = location.split('/')
-    del pieces[6]
     del pieces[0:5]
     # print(pieces)
     suffix = "/".join(pieces)
