@@ -22,7 +22,7 @@ lines =  fr.readlines()
 for line in lines:
     link = location2href(line)
 
-    fw.write('<a href="%s "> %s </a'.format(link,link))
+    fw.write('<a href="{} "> {} </a>'.format(link,link))
     fw.write('\n')
 
 
