@@ -45,7 +45,7 @@ ffuf_one(){
     echo "$ip" | grepcidr "$iprange" > /dev/null && echo "<h3>$1 ----   $ip is in cloudfare</h3>" >> $outputdir/ffuf_output.html && return
     echo "$ip" | grepcidr "$iprange2" > /dev/null && echo "<h3>$1 ----   $ip is in incapsula</h3>" >> $outputdir/ffuf_output.html && return
     echo "ffufing $1 "
-    ffuf -w $ffuf_Wordlist   -u $1/FUZZ -se -r -sf -fs 0 -fw 1  -o $outputdir/raw/${_domain} -of csv
+    ffuf -w $ffuf_Wordlist   -u $1/FUZZ -se -r -sf -fs 0 -fw 1-t 400  -o $outputdir/raw/${_domain} -of csv
     python3 /root/recon_tools/Scripts/python/ffuf_process.py $outputdir/raw/${_domain}  $outputdir/processed/"${_domain}_processed"
 }
 
