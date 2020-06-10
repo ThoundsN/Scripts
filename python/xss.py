@@ -185,6 +185,7 @@ parser.add_argument( "-a","--path",help="set paths list" )
 parser.add_argument( "-c","--cookies",help="cookies separated by semi-colon, example: cookie1=value1;cookie2=value2..." )
 parser.add_argument( "-n","--phantom",help="phantomjs path" )
 parser.add_argument( "-o","--hosts",help="set host list (required or -u)" )
+parser.add_argument( "-O","--output",help="output file location " )
 parser.add_argument( "-p","--payloads",help="set payloads list" )
 parser.add_argument( "-s","--scheme",help="scheme to use, default=http,https" )
 parser.add_argument( "-t","--threads",help="threads, default 10" )
@@ -210,7 +211,8 @@ else:
 if not os.path.isfile(_phantom):
     parser.error( 'phantomjs not found!' )
 # _phantom_cmd = _phantom + ' ' + os.path.dirname(os.path.realpath(__file__)) + '/phantom-xss.js'
-_phantom_cmd = _phantom + ' --load-images=false ' + os.path.dirname(os.path.realpath(__file__)) + '/phantom-xss.js'
+# _phantom_cmd = _phantom + ' --load-images=false ' + os.path.dirname(os.path.realpath(__file__)) + '/phantom-xss.js'
+_phantom_cmd = _phantom + ' --load-images=false ' +'/root/recon_tools/pentest-tools/phantom-xss.js'
 # _phantom_cmd = _phantom + ' ' + os.path.dirname(os.path.realpath(__file__)) + '/puppeteer-xss.js'
 # print( _phantom_cmd )
 
@@ -285,14 +287,14 @@ else:
 t_totest = []
 t_vulnerable = []
 u_max_length = 0
-d_output =  os.getcwd()+'/xss'
-f_output = d_output + '/' + 'output'
-if not os.path.isdir(d_output):
-    try:
-        os.makedirs( d_output )
-    except Exception as e:
-        sys.stdout.write( "%s[-] error occurred: %s%s\n" % (fg('red'),e,attr(0)) )
-        exit()
+# d_output =  os.getcwd()+'/xss'
+f_output = args.output
+# if not os.path.isdir(d_output):
+#     try:
+#         os.makedirs( d_output )
+#     except Exception as e:
+#         sys.stdout.write( "%s[-] error occurred: %s%s\n" % (fg('red'),e,attr(0)) )
+#         exit()
 
 # source: https://twitter.com/brutelogic/status/1138805808328839170
 if not n_payloads:
@@ -339,7 +341,7 @@ t_multiproc = {
     'n_current': 0,
     'n_total': n_totest,
     'u_max_length': u_max_length+5,
-    'd_output': d_output,
+    # 'd_output': d_output,
     'f_output': f_output,
 }
 
@@ -378,7 +380,7 @@ t_multiproc = {
     'n_current': 0,
     'n_total': len(t_realdotest),
     'u_max_length': u_max_length+5,
-    'd_output': d_output,
+    # 'd_output': d_output,
     'f_output': f_output,
 }
 
