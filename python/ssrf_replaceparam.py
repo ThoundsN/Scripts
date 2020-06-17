@@ -4,11 +4,12 @@ import argparse
 import urllib 
 from furl import furl 
 
-collaborator = 'https://ssrf.ragnarokv.site/webhook.php?u='
+# collaborator = 'https://ssrf.ragnarokv.site/webhook.php?u='
+collaborator = 'https://ssrf.ragnarokv.site/'
 
 
 def process_onecopy(copy, param):
-    marker = copy.origin + str(copy.path)+'?' + param 
+    marker = copy.host + str(copy.path) + param 
     # print('Inseted marker:             '+marker)
     value = collaborator+marker
     copy.args[param] = value
