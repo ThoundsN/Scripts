@@ -46,8 +46,11 @@ paths_set = set()
 
 
 for file in params_files:
-    for param in file:
-        params_set.add(param.strip())
+    try:
+        for param in file:
+            params_set.add(param.strip())
+    except Exception as e:
+        pass
 
 for file in pathfiles:
     for path in file:

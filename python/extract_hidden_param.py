@@ -9,6 +9,9 @@ import itertools
 import re 
 import glob 
 
+global_newurls =set()
+global_params = set()
+
 def regex_line_hidden(line):
     a = re.findall(r'name=(\S+)',line)
     b = re.findall(r'value=(\S+)',line)
@@ -54,6 +57,23 @@ def process_file(body):
 
     return newurl_set,param_set
 
+def read_file(enc,file):
+    with open(file,'r',encoding=enc) as f:
+        body = f.read()
+        if 'type="hidden"' in body:
+            url_set,params_set = process_file(body)
+            # print(url_set)
+            # print(param_set+'\n')
+            # print("\n\n\n\n")
+
+            global global_newurls
+            global global_params
+            
+            global_newurls = global_newurls.union(url_set)
+            global_params = global_params.union(params_set)
+            # print(global_newurls)
+            # print(global_params)
+
 
 if __name__ == '__main__':
     my_parser = argparse.ArgumentParser(description='Extract hidden parameters from response body and generate new url list ')
@@ -81,18 +101,19 @@ if __name__ == '__main__':
     paths = glob.glob(os.path.abspath(args.input))
 
     # print(paths)
-    global_newurls =set()
-    global_params = set()
+
+    enc1 = 'unicode_escape'
+    enc2 = 'iso-8859-15'
     for file in paths:
-        with open(file,'r',encoding='unicode_escape') as f:
-            body = f.read()
-            if 'type="hidden"' in body:
-                process_file(body)
-                url_set,params_set = process_file(body)
-                global_newurls = global_newurls.union(url_set)
-                global_params = global_params.union(params_set)
-    print(global_newurls)
-    print(global_params)
+        try:
+            read_file(enc1,file)
+        except Exception as e1:
+            try:
+                read_file(enc2,file)
+            except Exception as e2:
+                pass  # or you could use 'continue'
+    # print(global_newurls)
+    # print(global_params)
 
     for element in global_params:
         args.params_file.write(element+'\n')
