@@ -17,7 +17,7 @@ with open(rawfile,'r') as csvfile:
         csvreader = csv.reader(csvfile)
         writer.writerow(next(csvreader))
         for row in csvreader:
-            if row[4] is '401':
+            if row[4] == '401':
                 writer.writerow(row)
                 continue
             if row[6] not in word_set:

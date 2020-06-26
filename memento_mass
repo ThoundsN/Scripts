@@ -15,8 +15,8 @@ done
 shift $((OPTIND - 1))
 
 
-export $outputhtml
-export $input
+export outputhtml
+export input
 
 touch $outputhtml
 

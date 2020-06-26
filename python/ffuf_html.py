@@ -4,6 +4,7 @@ import json
 import csv
 import os
 import sys
+import glob
 
 from os import listdir
 from os.path import isfile, join,abspath
@@ -146,9 +147,11 @@ def read_csv(input):
     return results
 
 def get_files_list(dir):
-    for dirpath, _, filenames in os.walk(dir):
-        for f in filenames:
-            yield os.path.abspath(os.path.join(dirpath, f))
+    # for dirpath, _, filenames in os.walk(dir):
+    #     for f in filenames:
+    #         yield os.path.abspath(os.path.join(dirpath, f))
+    files = glob.glob("{}/*process*".format(os.path.abspath(dir)))
+    return files
 
 def write_martrix(matrix,output):
     template = Template(template_fraction)
@@ -160,6 +163,9 @@ def write_martrix(matrix,output):
 def main():
 
     files = get_files_list(input_path)
+    for file in files:
+      print(file)
+    # exit(0)
     matrix = [ read_csv(file) for file in files]
 
     print("matrix             " )
