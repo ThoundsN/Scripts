@@ -6,6 +6,8 @@ import os
 import sys
 from iteration_utilities import grouper
 
+count=7
+
 def combine(path,params_turple):
     # print(args)
     params_list = list(params_turple)
@@ -56,7 +58,7 @@ for file in pathfiles:
     for path in file:
         paths_set.add(path.strip())
 
-params_grouped = list(grouper(params_set,3))
+params_grouped = list(grouper(params_set,count))
 
 for domain_path in paths_set:
     for params_three in params_grouped:

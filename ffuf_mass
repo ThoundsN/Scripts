@@ -9,8 +9,8 @@ OPT_X='false'
 
 usage() { echo -e "Usage: $0 -f input file, -o outputdir, if -q then host/FUZZ , else hostFUZZ   " 1>&2; exit 1; }
 
-while getopts ":f:w:o:q:" o; do
-    case "${o}" in
+while getopts ":f:w:o:q" m; do
+    case "${m}" in
       f) input=$OPTARG
         ;;
       o) outputdir=$OPTARG
@@ -54,12 +54,12 @@ ffuf_one(){
     echo "ffufing $1 "
     if ${OPT_X}; then
     echo "Option x was supplied on the command line"
-    ffuf -w $wordlist   -u $1/FUZZ -se -r -H X-Real-IP: 127.0.0.1 -recursion  -fs -sf 0 -fw 1 -t 200 -s -o $outputdir/raw/${_domain} -of csv
+    ffuf -w $wordlist   -u $1/FUZZ -se -r -H "X-Real-IP: 127.0.0.1 "-recursion -sf  -fs  0 -fw 1 -t 200 -s -o $outputdir/raw/${_domain}_notprocessed -of csv > /dev/null
     else
     echo "Option x was not supplied on the command line"
-    ffuf -w $wordlist   -u $1FUZZ -se -H X-Real-IP: 127.0.0.1 -r -fs -sf 0 -fw 1 -t 200 -s -o $outputdir/raw/${_domain} -of csv
+    ffuf -w $wordlist   -u $1FUZZ -se -H "X-Real-IP: 127.0.0.1" -r -sf -fs 0 -fw 1 -t 200 -s -o $outputdir/raw/${_domain}_notprocessed -of csv > /dev/null
     fi
-    python3 /root/recon_tools/Scripts/python/ffuf_process.py $outputdir/raw/${_domain}  $outputdir/processed/${_domain}_processed
+    python3 /root/recon_tools/Scripts/python/ffuf_process.py $outputdir/raw/${_domain}_notprocessed  $outputdir/processed/${_domain}_processed
 }
 
 

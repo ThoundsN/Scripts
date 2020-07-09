@@ -69,7 +69,9 @@ if __name__ == '__main__':
     for url in urls:
         for segments in processed_pathquerys:
             if segments_in_url(segments,url):
+                print(segments)
                 unique_urls.add(url)
+                print(url)
                 processed_pathquerys.remove(segments)
 
     with open(output,'w', encoding="utf-8") as w:

@@ -202,10 +202,14 @@ def run_ffuf():
     result = run(cmd1, hide=True, warn=True)
     # print(result.stdout.splitlines())
     
-    # cmd2 =" python3 /root/recon_tools/Scripts/python/ffuf_process.py {}  {}".format(ffuf_outfile,processed_ffuf_outfile)
-    # run(cmd2, hide=True, warn=True)
+    cmd2 =" python3 /root/recon_tools/Scripts/python/ffuf_process.py {}  {}".format(ffuf_outfile,processed_ffuf_outfile)
+    print(cmd2)
+
+    run(cmd2, hide=True, warn=True)
 
     cmd3= "python3 ~/recon_tools/Scripts/python/ffuf_html.py  {}  {}".format(output_dir,html_processed_ffuf_outfile)
+    print(cmd3)
+
     run(cmd3, hide=True, warn=True)
 
     
@@ -265,8 +269,8 @@ if __name__ == '__main__':
     output_urlsfile = "{}/output_urls.txt".format(output_dir)
     origins_file = "{}/origins.txt".format(output_dir)
     paths_file = "{}/paths.txt".format(output_dir)
-    ffuf_outfile = "{}/ffuf_notprocessed.txt".format(output_dir)
-    # processed_ffuf_outfile = "{}/processed_ffuf.txt".format(output_dir)
+    ffuf_outfile = "{}/ffuf_raw.txt".format(output_dir)
+    processed_ffuf_outfile = "{}/processed_ffuf.txt".format(output_dir)
     html_processed_ffuf_outfile = "{}/ffuf_403.html".format(output_dir)
     
 

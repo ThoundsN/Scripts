@@ -132,7 +132,7 @@ def doTest( url, method='GET', post_params='' ):
     return
 
 
-# console.log( 'Usage: phantomjs xss.js <method> <url> [<post_params>] [<cookies> <domain>]');
+# console.log( 'Usage: puppeteerjs xss.js <method> <url> [<post_params>] [<cookies> <domain>]');
 def realDoTest( t_params ):
 
     url = t_params[0]
@@ -146,7 +146,7 @@ def realDoTest( t_params ):
     t_urlparse = urllib.parse.urlparse( url )
     t_params = [ method, url, post_params, _cookies, t_urlparse.netloc ]
 
-    cmd = _phantom_cmd
+    cmd = _puppeteer_cmd
     for param in t_params:
         cmd = cmd + ' ' + '"'+base64.b64encode(param.encode()).decode()+'"'
     if _verbose >= 3 and _verbose < 4:
@@ -169,7 +169,7 @@ def realDoTest( t_params ):
 
     output = "%s\t\tP=%s\t\tV=%s\n" % (url,post_params,vuln)
 
-    fp = open( t_multiproc['f_output'], 'a+' )
+    fp = open( t_multiproc['f_output'], 'w' )
     fp.write( output )
     fp.close()
 
@@ -183,7 +183,7 @@ def realDoTest( t_params ):
 parser = argparse.ArgumentParser()
 parser.add_argument( "-a","--path",help="set paths list" )
 parser.add_argument( "-c","--cookies",help="cookies separated by semi-colon, example: cookie1=value1;cookie2=value2..." )
-parser.add_argument( "-n","--phantom",help="phantomjs path" )
+parser.add_argument( "-n","--puppeteer",help="puppeteerjs path" )
 parser.add_argument( "-o","--hosts",help="set host list (required or -u)" )
 parser.add_argument( "-O","--output",help="output file location " )
 parser.add_argument( "-p","--payloads",help="set payloads list" )
@@ -202,19 +202,13 @@ else:
 if _verbose < 4:
     banner()
 
-if args.phantom:
-    _phantom = args.phantom
-else:
-    _phantom = '/usr/bin/phantomjs'
-    # _phantom = '/usr/local/bin/phantomjs'
-    # _phantom = '/usr/local/bin/node'
-if not os.path.isfile(_phantom):
-    parser.error( 'phantomjs not found!' )
-# _phantom_cmd = _phantom + ' ' + os.path.dirname(os.path.realpath(__file__)) + '/phantom-xss.js'
-# _phantom_cmd = _phantom + ' --load-images=false ' + os.path.dirname(os.path.realpath(__file__)) + '/phantom-xss.js'
-_phantom_cmd = _phantom + ' --load-images=false ' +'/root/recon_tools/Scripts/js/phantom-xss.js'
-# _phantom_cmd = _phantom + ' ' + os.path.dirname(os.path.realpath(__file__)) + '/puppeteer-xss.js'
-# print( _phantom_cmd )
+
+_puppeteer = '/root/recon_tools/Scripts/js/puppeteer-xss.js'
+if not os.path.isfile(_puppeteer):
+    parser.error( 'puppeteerjs not found!' )
+
+_puppeteer_cmd = 'node --unhandled-rejections=strict ' +  _puppeteer 
+# print( _puppeteer_cmd )
 
 if args.scheme:
     t_scheme = args.scheme.split(',')
