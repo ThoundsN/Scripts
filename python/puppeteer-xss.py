@@ -169,7 +169,7 @@ def realDoTest( t_params ):
 
     output = "%s\t\tP=%s\t\tV=%s\n" % (url,post_params,vuln)
 
-    fp = open( t_multiproc['f_output'], 'w' )
+    fp = open( t_multiproc['f_output'], 'a+' )
     fp.write( output )
     fp.close()
 

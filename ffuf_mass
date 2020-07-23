@@ -54,10 +54,10 @@ ffuf_one(){
     echo "ffufing $1 "
     if ${OPT_X}; then
     echo "Option x was supplied on the command line"
-    ffuf -w $wordlist   -u $1/FUZZ -se -r -H "X-Real-IP: 127.0.0.1 "-recursion -sf  -fs  0 -fw 1 -t 200 -s -o $outputdir/raw/${_domain}_notprocessed -of csv > /dev/null
+    timeout 15m ffuf -w $wordlist   -u $1/FUZZ -se -r -H "X-Real-IP: 127.0.0.1 "-recursion -sf  -fs  0 -fw 1 -t 200 -s -o $outputdir/raw/${_domain}_notprocessed -of csv > /dev/null
     else
     echo "Option x was not supplied on the command line"
-    ffuf -w $wordlist   -u $1FUZZ -se -H "X-Real-IP: 127.0.0.1" -r -sf -fs 0 -fw 1 -t 200 -s -o $outputdir/raw/${_domain}_notprocessed -of csv > /dev/null
+    timeout 15m ffuf -w $wordlist   -u $1FUZZ -se -H "X-Real-IP: 127.0.0.1" -r -sf -fs 0 -fw 1 -t 200 -s -o $outputdir/raw/${_domain}_notprocessed -of csv > /dev/null
     fi
     python3 /root/recon_tools/Scripts/python/ffuf_process.py $outputdir/raw/${_domain}_notprocessed  $outputdir/processed/${_domain}_processed
 }

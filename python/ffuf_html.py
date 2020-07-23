@@ -142,8 +142,8 @@ def colorizeResults(results):
 
 def read_csv(input):
     results = [dict(d) for d in csv.DictReader(open(input))]
-    print("results          "   )
-    print('[%s]' % ', '.join(map(str, results)))
+    # print("results          "   )
+    # print('[%s]' % ', '.join(map(str, results)))
     return results
 
 def get_files_list(dir):
@@ -168,8 +168,8 @@ def main():
     # exit(0)
     matrix = [ read_csv(file) for file in files]
 
-    print("matrix             " )
-    print('[%s]' % ', '.join(map(str, matrix)))
+    # print("matrix             " )
+    # print('[%s]' % ', '.join(map(str, matrix)))
 
     output = open(output_html,'a')
     output.write(prefix_string)
